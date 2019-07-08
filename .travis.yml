@@ -1,0 +1,8 @@
+language: swift
+osx_image: xcode10.2
+env:
+  - JOB=SWIFT_PM
+script:
+  - swift build --verbose
+  - swift test
+

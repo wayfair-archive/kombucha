@@ -1,0 +1,50 @@
+{
+  "userAgent": "kombucha-this-is-a-test-v-0.0001",
+  "snaps": [
+    {
+      "host": "httpbin.org",
+      "path": "/headers",
+      "queryItems": {},
+      "scheme": "https",
+      "__snapType": "__GET"
+    },
+    {
+      "host": "httpbin.org",
+      "path": "/ip",
+      "queryItems": {},
+      "scheme": "https",
+      "__snapType": "__GET"
+    },
+    {
+      "host": "httpbin.org",
+      "path": "/response-headers",
+      "queryItems": {
+        "foo": "1",
+        "bar": "2",
+        "baz": "3"
+      },
+      "scheme": "https",
+      "__snapType": "__GET"
+    },
+    {
+      "host": "httpbin.org",
+      "path": "/user-agent",
+      "queryItems": {},
+      "scheme": "https",
+      "__preferences": {
+        "errors": [
+          "array-consistency",
+          "empty-arrays",
+          "empty-objects",
+          "flag-new-keys",
+          "string-bools",
+          "string-numbers",
+          "structure"
+        ],
+        "infos": [],
+        "warnings": []
+      },
+      "__snapType": "__GET"
+    }
+  ]
+}
