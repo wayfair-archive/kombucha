@@ -25,7 +25,7 @@ public struct SnapConfiguration: Decodable {
         public var errors, infos, warnings: [String]
     }
 
-    enum CodingKeys: String, CodingKey { case preferences = "__preferences" }
+    enum CodingKeys: String, CodingKey { case nameIdentifier, preferences = "__preferences"}
 
     /// enum that describes the request for this test
     ///
@@ -38,12 +38,14 @@ public struct SnapConfiguration: Decodable {
 
     public var preferences: Preferences?
     public var request: Request
+    public var nameIdentifier: String
 
     public init(from decoder: Decoder) throws {
         request = try Request(from: decoder)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        preferences = try? container.decode(Preferences.self, forKey: .preferences)
+        preferences = try container.decodeIfPresent(Preferences.self, forKey: .preferences)
+        nameIdentifier = try container.decode(String.self, forKey: .nameIdentifier)
     }
 }
 
@@ -120,11 +122,11 @@ public struct GraphQLQueryContent: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        operationName = try? container.decode(String.self, forKey: .operationName)
+        operationName = try container.decodeIfPresent(String.self, forKey: .operationName)
 
-        if let queryText = try? container.decode(String.self, forKey: .queryText) {
+        if let queryText = try container.decodeIfPresent(String.self, forKey: .queryText) {
             query = .text(queryText)
-        } else if let queryURLString = try? container.decode(String.self, forKey: .queryFile) {
+        } else if let queryURLString = try container.decodeIfPresent(String.self, forKey: .queryFile) {
             query = .file(.fileURLWithPath(queryURLString))
         } else {
             throw DecodingError.typeMismatch(
@@ -136,7 +138,7 @@ public struct GraphQLQueryContent: Decodable {
             )
         }
 
-        variables = try? container.decode([String: String].self, forKey: .variables)
+        variables = try container.decodeIfPresent([String: String].self, forKey: .variables)
     }
 }
 

@@ -14,9 +14,9 @@ public extension FileURL {
         let lastPathComponent: String
         switch snapConfiguration.request {
         case .get(let getSnap):
-            lastPathComponent = sanitizePathComponent(getSnap.path)
+            lastPathComponent = sanitizePathComponent("\(snapConfiguration.nameIdentifier)-\(getSnap.path)")
         case .graphQL(let graphSnap):
-            lastPathComponent = "graphQL-\(sha256(string: try graphSnap.queryContent.getQueryText()))"
+            lastPathComponent = sanitizePathComponent("graphQL-\(snapConfiguration.nameIdentifier)-\(sha256(string: try graphSnap.queryContent.getQueryText()))")
         }
 
         self = try! FileURL(
