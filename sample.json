@@ -2,6 +2,7 @@
   "userAgent": "kombucha-this-is-a-test-v-0.0001",
   "snaps": [
     {
+      "nameIdentifier": "headersSnap",
       "host": "httpbin.org",
       "path": "/headers",
       "queryItems": {},
@@ -9,6 +10,7 @@
       "__snapType": "__GET"
     },
     {
+      "nameIdentifier": "ipSnap",
       "host": "httpbin.org",
       "path": "/ip",
       "queryItems": {},
@@ -16,6 +18,7 @@
       "__snapType": "__GET"
     },
     {
+      "nameIdentifier": "responseHeadersSnap",
       "host": "httpbin.org",
       "path": "/response-headers",
       "queryItems": {
@@ -27,6 +30,7 @@
       "__snapType": "__GET"
     },
     {
+      "nameIdentifier": "userAagentSnap",
       "host": "httpbin.org",
       "path": "/user-agent",
       "queryItems": {},
