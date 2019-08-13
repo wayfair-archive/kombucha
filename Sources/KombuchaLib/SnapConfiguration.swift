@@ -25,7 +25,7 @@ public struct SnapConfiguration: Decodable {
         public var errors, infos, warnings: [String]
     }
 
-    enum CodingKeys: String, CodingKey { case nameIdentifier, preferences = "__preferences"}
+    enum CodingKeys: String, CodingKey { case nameIdentifier = "__snapName", preferences = "__preferences"}
 
     /// enum that describes the request for this test
     ///
