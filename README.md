@@ -51,9 +51,9 @@ The top level of the configuration file looks like this:
   ]
 }
 ```
+* The `snaps` entry needs to contain the `__snapName` key to uniquely identify the request. This name will be used to create a file with the snap result on disk.
 * `__snapType` specifies the type of request Kombucha is going to issue. `__GET` is a simple HTTP `GET` request, and the remaining parameters are interpreted accordingly: `queryItems` are converted into key-value pairs and appended onto the `path`, etc.
    * The `snaps` entry above results in an HTTP `GET` to `https://httpbin.org/response-headers?foo=1&bar=2&baz=3`. In addition, Kombucha always sends an `Accept` header of `application/json`.
-   * The `snaps` entry also needs to contain the `__snapName` key to uniquely identify the request. This name will be used to create a file with the snap result on disk.
 * Kombucha also supports a `__GRAPHQL` `__snapType` for testing GraphQL endpoints. Documentation for this is forthcoming. 😄
 
 #### Customizing output
