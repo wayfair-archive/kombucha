@@ -10,10 +10,10 @@
 import Foundation
 
 public extension FileURL {
-    init(baseURL: FileURL, snapConfiguration: SnapConfiguration) throws {
-        let lastPathComponent = sanitizePathComponent(snapConfiguration.nameIdentifier)
+    init(baseURL: FileURL, fileName: String) throws {
+        let lastPathComponent = sanitizePathComponent(fileName)
         
-        self = try! FileURL(
+        self = try FileURL(
             baseURL
                 .value
                 .appendingPathComponent(lastPathComponent)

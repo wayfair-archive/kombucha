@@ -47,6 +47,15 @@ public struct SnapConfiguration: Decodable {
         preferences = try container.decodeIfPresent(Preferences.self, forKey: .preferences)
         nameIdentifier = try container.decode(String.self, forKey: .nameIdentifier)
     }
+    
+    enum FileType { case work, snapshot }
+    
+    func fileName(for type: FileType) -> String {
+        switch type {
+        case .work: return "\(self.nameIdentifier)-work"
+        case .snapshot: return self.nameIdentifier
+        }
+    }
 }
 
 extension SnapConfiguration.Request: CustomStringConvertible {
