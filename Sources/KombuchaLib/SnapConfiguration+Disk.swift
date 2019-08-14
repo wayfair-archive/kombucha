@@ -10,16 +10,10 @@
 import Foundation
 
 public extension FileURL {
-    init(baseURL: FileURL, snapConfiguration: SnapConfiguration) throws {
-        let lastPathComponent: String
-        switch snapConfiguration.request {
-        case .get(let getSnap):
-            lastPathComponent = sanitizePathComponent(getSnap.path)
-        case .graphQL(let graphSnap):
-            lastPathComponent = "graphQL-\(sha256(string: try graphSnap.queryContent.getQueryText()))"
-        }
-
-        self = try! FileURL(
+    init(baseURL: FileURL, fileName: String) throws {
+        let lastPathComponent = sanitizePathComponent(fileName)
+        
+        self = try FileURL(
             baseURL
                 .value
                 .appendingPathComponent(lastPathComponent)

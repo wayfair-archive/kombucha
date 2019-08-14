@@ -6,6 +6,7 @@
       "path": "/headers",
       "queryItems": {},
       "scheme": "https",
+      "__snapName": "headersSnap",
       "__snapType": "__GET"
     },
     {
@@ -13,6 +14,7 @@
       "path": "/ip",
       "queryItems": {},
       "scheme": "https",
+      "__snapName": "ipSnap",
       "__snapType": "__GET"
     },
     {
@@ -24,6 +26,7 @@
         "baz": "3"
       },
       "scheme": "https",
+      "__snapName": "responseHeadersSnap",
       "__snapType": "__GET"
     },
     {
@@ -44,6 +47,7 @@
         "infos": [],
         "warnings": []
       },
+      "__snapName": "userAagentSnap",
       "__snapType": "__GET"
     }
   ]

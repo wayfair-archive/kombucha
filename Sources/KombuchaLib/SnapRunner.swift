@@ -62,7 +62,7 @@ public final class SnapRunner<A: Monoid, S: TextOutputStream> {
     public func executeCheck(for snap: SnapConfiguration, setError error: inout Bool) throws -> A {
         print("testing: \(snap.request)", to: &outputStreams.output)
 
-        let referenceURL: FileURL = try .init(baseURL: snapshotsURL, snapConfiguration: snap)
+        let referenceURL: FileURL = try .init(baseURL: snapshotsURL, fileName: snap.fileName(for: .snapshot))
 
         guard fileManager.fileExists(atPath: referenceURL.value.path) else {
             print("reference file doesn’t exist, writing it and failing the test…", to: &outputStreams.error)
@@ -77,7 +77,7 @@ public final class SnapRunner<A: Monoid, S: TextOutputStream> {
 
         try fileManager.createDirectory(at: workURL.value, withIntermediateDirectories: true, attributes: nil)
 
-        let temporaryURL: FileURL = try .init(baseURL: workURL, snapConfiguration: snap)
+        let temporaryURL: FileURL = try .init(baseURL: workURL, fileName: snap.fileName(for: .work))
         try jsonEncoder.encode(test).write(to: temporaryURL.value)
 
         print("wrote to: \(temporaryURL)", to: &outputStreams.output)
@@ -91,7 +91,7 @@ public final class SnapRunner<A: Monoid, S: TextOutputStream> {
         let reference = try snap.fetch(decoder: jsonDecoder, encoder: jsonEncoder, session: session).runSync().get()
 
         try fileManager.createDirectory(at: snapshotsURL.value, withIntermediateDirectories: true, attributes: nil)
-        let referenceURL: FileURL = try .init(baseURL: snapshotsURL, snapConfiguration: snap)
+        let referenceURL: FileURL = try .init(baseURL: snapshotsURL, fileName: snap.fileName(for: .snapshot))
         try jsonEncoder.encode(reference).write(to: referenceURL.value)
 
         print("wrote a reference to: \(referenceURL)", to: &outputStreams.output)
