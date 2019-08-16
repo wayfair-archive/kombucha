@@ -63,8 +63,15 @@ extension SnapConfiguration.Request: CustomStringConvertible {
     public var description: String {
         switch self {
         case .rest(let restSnap):
-            let count = restSnap.queryItems.count
-            return "\(restSnap.httpMethod.rawValue): \(restSnap.host)\(restSnap.path) - (\(count) query \(count == 1 ? "param" : "params"))"
+            let queryCount = restSnap.queryItems.count
+            let headerCount = restSnap.httpHeaders.count
+            let hasBody = restSnap.body != nil
+            return """
+            \(restSnap.httpMethod.rawValue): \(restSnap.host)\(restSnap.path)
+            - \(queryCount) query \(queryCount <= 1 ? "param" : "params")
+            - \(headerCount) http \(headerCount <= 1 ? "header" : "headers")
+            - \(hasBody ? "resquest has a body" : "empty body")
+            """
         case .graphQL(let graphSnap):
             return "GRAPHQL: \(graphSnap.host)\(graphSnap.path)"
         }
