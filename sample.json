@@ -3,22 +3,28 @@
   "snaps": [
     {
       "host": "httpbin.org",
+      "httpMethod": "GET",
+      "httpHeaders": {},
       "path": "/headers",
       "queryItems": {},
       "scheme": "https",
       "__snapName": "headersSnap",
-      "__snapType": "__GET"
+      "__snapType": "__REST"
     },
     {
       "host": "httpbin.org",
+      "httpMethod": "GET",
+      "httpHeaders": {},
       "path": "/ip",
       "queryItems": {},
       "scheme": "https",
       "__snapName": "ipSnap",
-      "__snapType": "__GET"
+      "__snapType": "__REST"
     },
     {
       "host": "httpbin.org",
+      "httpMethod": "GET",
+      "httpHeaders": {},
       "path": "/response-headers",
       "queryItems": {
         "foo": "1",
@@ -27,10 +33,12 @@
       },
       "scheme": "https",
       "__snapName": "responseHeadersSnap",
-      "__snapType": "__GET"
+      "__snapType": "__REST"
     },
     {
       "host": "httpbin.org",
+      "httpMethod": "GET",
+      "httpHeaders": {},
       "path": "/user-agent",
       "queryItems": {},
       "scheme": "https",
@@ -42,13 +50,14 @@
           "flag-new-keys",
           "string-bools",
           "string-numbers",
-          "structure"
+          "structure",
+          "strict-equality"
         ],
         "infos": [],
         "warnings": []
       },
       "__snapName": "userAagentSnap",
-      "__snapType": "__GET"
+      "__snapType": "__REST"
     }
   ]
 }

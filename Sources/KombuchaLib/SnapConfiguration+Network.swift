@@ -24,8 +24,12 @@ public extension SnapConfiguration {
 
     func toURLRequest(encoder: JSONEncoder) throws -> URLRequest {
         switch request {
-        case .get(let getSnap):
-            return .init(url: try getSnap.toURL().value)
+        case .rest(let restSnap):
+            var request = URLRequest(url: try restSnap.toURL().value)
+            request.httpMethod = restSnap.httpMethod.rawValue
+            for (key, header) in restSnap.httpHeaders { request.setValue(header, forHTTPHeaderField: key) }
+            if let body = restSnap.body { request.httpBody = try encoder.encode(body) }
+            return request
         case .graphQL(let graphQLSnap):
             var request = URLRequest(url: try graphQLSnap.toURL().value)
             request.httpBody = try encoder.encode(try EncodableGraphQLQueryContent(graphQLSnap.queryContent))
