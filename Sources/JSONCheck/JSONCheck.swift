@@ -183,8 +183,8 @@ private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue
             return  [ .init(context: context, message: "Not a strict equality since arrays of different sizes: \(referenceArray.count) vs \(testArray.count)") ]
         }
         
-        return zip(referenceArray, testArray).enumerated().reduce(.empty) { previousChecks, acc in
-            let (index, (reference, test)) = acc
+        return zip(referenceArray, testArray).enumerated().reduce(.empty) { previousChecks, el in
+            let (index, (reference, test)) = el
             return previousChecks <> checkForStrictEquality(context: context.appending(.arrayIndex(index)), reference, test)
         }
         

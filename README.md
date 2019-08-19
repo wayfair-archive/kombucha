@@ -50,14 +50,14 @@ The top level of the configuration file looks like this:
       },
       "scheme": "https",
       "__snapName": "myUniqueSnapName",
-      "__snapType": "__REST""
+      "__snapType": "__REST"
     },
   ...
   ]
 }
 ```
 * The `snaps` entry needs to contain the `__snapName` key to uniquely identify the request. This name will be used to create a file with the snap result on disk.
-* It is possible to specify any `HTTP` header field with `httpHeaders`  key, the value of a header needs to be a string. This key is requeried. Use `"httpHeaders": {}` to specify no headers.
+* It is possible to specify any `HTTP` header field with `httpHeaders`  key, the value of a header needs to be a string. This key is not required.
 * The `body` key (not required) accepts arbitrary `JSON` and it will be used to set the body if the `HTTP` request.
 * `__snapType` specifies the type of request Kombucha is going to issue. `__REST"` is a simple HTTP `GET`, `POST`, `PUT`, `DELETE` or `PATCH` request (see the `httpMethod` key above), and the remaining parameters are interpreted accordingly: `queryItems` are converted into key-value pairs and appended onto the `path`, etc.
    * The `snaps` entry above results in an HTTP `GET` to `https://httpbin.org/response-headers?foo=1&bar=2&baz=3`. In addition, Kombucha always sends an `Accept` header of `application/json`.
@@ -77,9 +77,6 @@ The user can add a `__preferences` blob to their configuration file to specify e
     {
       "host": "httpbin.org",
       "httpMethod": "GET",
-      "httpHeaders": {
-        "Accept-Language": "en-US"  
-      },
       "path": "/response-headers",
       "queryItems": {},
       "scheme": "https",

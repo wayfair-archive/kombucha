@@ -4,7 +4,6 @@
     {
       "host": "httpbin.org",
       "httpMethod": "GET",
-      "httpHeaders": {},
       "path": "/headers",
       "queryItems": {},
       "scheme": "https",
@@ -14,7 +13,6 @@
     {
       "host": "httpbin.org",
       "httpMethod": "GET",
-      "httpHeaders": {},
       "path": "/ip",
       "queryItems": {},
       "scheme": "https",
@@ -24,7 +22,9 @@
     {
       "host": "httpbin.org",
       "httpMethod": "GET",
-      "httpHeaders": {},
+      "httpHeaders": {
+          "testHeader": "test"
+      },
       "path": "/response-headers",
       "queryItems": {
         "foo": "1",
@@ -38,7 +38,6 @@
     {
       "host": "httpbin.org",
       "httpMethod": "GET",
-      "httpHeaders": {},
       "path": "/user-agent",
       "queryItems": {},
       "scheme": "https",

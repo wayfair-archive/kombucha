@@ -64,7 +64,7 @@ extension SnapConfiguration.Request: CustomStringConvertible {
         switch self {
         case .rest(let restSnap):
             let queryCount = restSnap.queryItems.count
-            let headerCount = restSnap.httpHeaders.count
+            let headerCount = restSnap.httpHeaders?.count ?? 0
             let hasBody = restSnap.body != nil
             return """
             \(restSnap.httpMethod.rawValue): \(restSnap.host)\(restSnap.path)
@@ -121,7 +121,7 @@ public struct RESTSnap: Decodable {
     public var queryItems: [String: String?]
     public var scheme: String
     public var httpMethod: HTTPMethod
-    public var httpHeaders: [String: String?]
+    public var httpHeaders: [String: String?]?
     public var body: JSONValue?
 
     fileprivate static let snapTypeName = "__REST"
