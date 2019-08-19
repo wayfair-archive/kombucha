@@ -36,7 +36,7 @@ The top level of the configuration file looks like this:
   ...
   "snaps": [
     {
-      "body": { ... }
+      "body": { ... },
       "host": "httpbin.org",
       "httpMethod": "GET",
       "httpHeaders": {
