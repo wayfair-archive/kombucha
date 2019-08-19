@@ -67,7 +67,7 @@ extension SnapConfiguration.Request: CustomStringConvertible {
             let headerCount = restSnap.httpHeaders?.count ?? 0
             let hasBody = restSnap.body != nil
             return """
-            \(restSnap.httpMethod.rawValue): \(restSnap.host)\(restSnap.path)
+            \(restSnap.httpMethod): \(restSnap.host)\(restSnap.path)
             - \(queryCount) query \(queryCount <= 1 ? "param" : "params")
             - \(headerCount) http \(headerCount <= 1 ? "header" : "headers")
             - \(hasBody ? "resquest has a body" : "empty body")
@@ -108,19 +108,11 @@ extension SnapConfiguration.Request: Decodable {
 
 public struct RESTSnap: Decodable {
     
-    public enum HTTPMethod: String, Decodable {
-        case get = "GET"
-        case post = "POST"
-        case put = "PUT"
-        case delete = "DELETE"
-        case patch = "PATCH"
-    }
-    
     public var host: String
     public var path: String
     public var queryItems: [String: String?]
     public var scheme: String
-    public var httpMethod: HTTPMethod
+    public var httpMethod: String
     public var httpHeaders: [String: String?]?
     public var body: JSONValue?
 

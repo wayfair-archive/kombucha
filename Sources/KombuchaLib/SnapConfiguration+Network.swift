@@ -26,7 +26,7 @@ public extension SnapConfiguration {
         switch request {
         case .rest(let restSnap):
             var request = URLRequest(url: try restSnap.toURL().value)
-            request.httpMethod = restSnap.httpMethod.rawValue
+            request.httpMethod = restSnap.httpMethod
             
             if let httpHeaders = restSnap.httpHeaders {
                 for (key, header) in httpHeaders { request.setValue(header, forHTTPHeaderField: key) }
