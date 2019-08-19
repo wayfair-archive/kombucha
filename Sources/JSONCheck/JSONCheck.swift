@@ -53,8 +53,8 @@ extension JSONCheck: Monoid where A: Monoid {
 ///
 /// - Parameters:
 ///   - context: a `JSONContext` describing the location in a larger JSON structure where this check is taking place
-///   - reference: a reference `JSONValue` (the snapshot)
-///   - test: a `JSONValue` to be tested
+///   - reference: a reference `JSONValue.object` (the snapshot)
+///   - test: a `JSONValue.object` to be tested
 /// - Returns: an array of `CheckResult` diagnostics
 private func checkMaps(context: JSONContext, _ reference: [String: JSONValue], _ test: [String: JSONValue]) -> [CheckResult] {
     return reference.reduce(.empty) { acc, rec in
@@ -150,6 +150,74 @@ private func checkTestArrayTypes(context: JSONContext, _ testArray: [JSONValue])
     }
 }
 
+/// compare two `JSONValue`s and return an array of `CheckResult`s flagging all differences between the `test` and `reference` value that would make the statement `reference == test` false based on the conformance of `JSONValue` to `Equatable`.
+///
+/// - Parameters:
+///   - context: a `JSONContext` describing the location in a larger JSON structure where this check is taking place
+///   - reference: a reference `JSONValue` (the snapshot)
+///   - test: a `JSONValue` to be tested
+/// - Returns: an array of `CheckResult` diagnostics
+private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue, _ test: JSONValue) -> [CheckResult] {
+    
+    switch (reference, test) {
+    case (.bool(let refBool), .bool(let testBool)):
+        guard refBool != testBool else { return .empty }
+        return [ .init(context: context, message: "Not a strict equality between the boolean \(refBool) and \(testBool)") ]
+        
+    case (.double(let refDouble), .double(let testDouble)):
+        guard refDouble != testDouble else { return .empty }
+        return [ .init(context: context, message: "Not a strict equality between the number \(refDouble) and \(testDouble)") ]
+        
+    case (.null, .null):
+        return .empty
+        
+    case (.string(let refString), .string(let testString)):
+        guard refString != testString else { return .empty }
+        return [ .init(context: context, message: "Not a strict equality between the string \"\(refString)\" and \"\(testString)\"") ]
+        
+    case (.object(let referenceObject), .object(let testObject)):
+        return checkForStrictEqualityOfObjects(context: context, referenceObject, testObject)
+        
+    case (.array(let referenceArray), .array(let testArray)):
+        guard referenceArray.count == testArray.count else {
+            return  [ .init(context: context, message: "Not a strict equality since arrays of different sizes: \(referenceArray.count) vs \(testArray.count)") ]
+        }
+        
+        return zip(referenceArray, testArray).enumerated().reduce(.empty) { previousChecks, el in
+            let (index, (reference, test)) = el
+            return previousChecks <> checkForStrictEquality(context: context.appending(.arrayIndex(index)), reference, test)
+        }
+        
+    default:
+        return  [ .init(context: context, message: "Not a strict equality since the types are diffrent. Reference: \(reference), test: \(test)") ]
+    }
+}
+
+/// compare two `JSONValue` objects (`Dictionary`s) and return an array of `CheckResult`s flagging all differences between the `test` and `reference` objects based on the `checkForStrictEquality` test.
+///
+/// - Parameters:
+///   - context: a `JSONContext` describing the location in a larger JSON structure where this check is taking place
+///   - reference: a reference `JSONValue.object` (the snapshot)
+///   - test: a `JSONValue.object` to be tested
+private func checkForStrictEqualityOfObjects(context: JSONContext, _ referenceObject: [String : JSONValue], _ testObject: [String : JSONValue]) -> [CheckResult] {
+    
+    let newKeyInTestObjectChecks: [CheckResult] = testObject
+        .keys
+        .compactMap { key in referenceObject[key] == nil ? CheckResult(context: context, message: "Not a strict equality since there is a new key \(key)") : nil }
+    
+    let missingKeysInTestObjectAndStrictEqualityAtSharedKeys: [CheckResult] = referenceObject.reduce(.empty) { acc, rec in
+        let (key, referenceValue) = rec
+        guard let testValue = testObject[key] else {
+            let check = CheckResult(context: context, message: "Not a strict equality since the key \(key) does not exist")
+            return acc <> [check]
+        }
+        let nextContext = context.appending(.objectIndex(key))
+        return acc <> checkForStrictEquality(context: nextContext, referenceValue, testValue)
+    }
+    
+    return newKeyInTestObjectChecks <> missingKeysInTestObjectAndStrictEqualityAtSharedKeys
+}
+
 public extension JSONCheck where A == [CheckResult] {
     static let structure = JSONCheck(run: checkStructure)
 
@@ -193,4 +261,6 @@ public extension JSONCheck where A == [CheckResult] {
             stringCase: { Double($1) != nil ? [.init(context: $0, message: "string number: “\($1)”")] : .empty }
         )
     }
+    
+    static let strictEquality = JSONCheck(run: checkForStrictEquality)
 }

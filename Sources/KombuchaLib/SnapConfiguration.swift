@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import JSONValue
 
 // MARK: - run configuration
 
@@ -32,7 +33,7 @@ public struct SnapConfiguration: Decodable {
     /// - get: run an HTTP `GET`
     /// - graphQL: run a GraphQL query
     public enum Request {
-        case get(GETSnap)
+        case rest(RESTSnap)
         case graphQL(GraphQLSnap)
     }
 
@@ -61,9 +62,16 @@ public struct SnapConfiguration: Decodable {
 extension SnapConfiguration.Request: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .get(let getSnap):
-            let count = getSnap.queryItems.count
-            return "GET: \(getSnap.host)\(getSnap.path) - (\(count) query \(count == 1 ? "param" : "params"))"
+        case .rest(let restSnap):
+            let queryCount = restSnap.queryItems.count
+            let headerCount = restSnap.httpHeaders?.count ?? 0
+            let hasBody = restSnap.body != nil
+            return """
+            \(restSnap.httpMethod): \(restSnap.host)\(restSnap.path)
+            - \(queryCount) query \(queryCount <= 1 ? "param" : "params")
+            - \(headerCount) http \(headerCount <= 1 ? "header" : "headers")
+            - \(hasBody ? "resquest has a body" : "empty body")
+            """
         case .graphQL(let graphSnap):
             return "GRAPHQL: \(graphSnap.host)\(graphSnap.path)"
         }
@@ -80,9 +88,9 @@ extension SnapConfiguration.Request: Decodable {
 
         let snapType = try container.decode(String.self, forKey: .snapType)
         switch snapType {
-        case GETSnap.snapTypeName:
-            let getSnap = try GETSnap(from: decoder)
-            self = .get(getSnap)
+        case RESTSnap.snapTypeName:
+            let restSnap = try RESTSnap(from: decoder)
+            self = .rest(restSnap)
         case GraphQLSnap.snapTypeName:
             let graphQLSnap = try GraphQLSnap(from: decoder)
             self = .graphQL(graphQLSnap)
@@ -98,13 +106,17 @@ extension SnapConfiguration.Request: Decodable {
     }
 }
 
-public struct GETSnap: Decodable {
+public struct RESTSnap: Decodable {
+    
     public var host: String
     public var path: String
     public var queryItems: [String: String?]
     public var scheme: String
+    public var httpMethod: String
+    public var httpHeaders: [String: String?]?
+    public var body: JSONValue?
 
-    fileprivate static let snapTypeName = "__GET"
+    fileprivate static let snapTypeName = "__REST"
 }
 
 public struct GraphQLSnap: Decodable {
@@ -156,7 +168,7 @@ public enum GraphQLQueryText {
     case text(String)
 }
 
-extension GETSnap {
+extension RESTSnap {
     func toURL() throws -> WebURL {
         var components = URLComponents()
         components.host = host

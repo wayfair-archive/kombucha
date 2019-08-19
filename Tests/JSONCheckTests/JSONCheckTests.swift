@@ -291,4 +291,82 @@ final class JSONCheckTests: XCTestCase {
         let results = JSONCheck.flagNewKeys.run(.empty, referenceValue, testValue)
         XCTAssertTrue(results.isEmpty)
     }
+    
+    func testStrictEqualityTestSuccess() {
+        let referenceValue = JSONValue.object([
+            "foo": .bool(true),
+            "bar": .string("hello1"),
+            "baz": .array([
+                .object([
+                    "one": .bool(false),
+                    "two": .array([
+                        .bool(true),
+                        .string("hello2"),
+                        .object([
+                            "alpha": .string("test"),
+                            "beta" : .bool(false),
+                            "gamma": .null
+                            ])
+                        ])
+                    ]),
+                .null,
+                .double(23)
+                ])
+            ])
+        
+        let results = JSONCheck.strictEquality.run(.empty, referenceValue, referenceValue)
+        XCTAssert(results.isEmpty)
+    }
+    
+    func testStrictEqualityTestFails() {
+        let referenceValue = JSONValue.object([
+            "foo": .bool(true),
+            "bar": .string("hello1"),
+            "baz": .array([
+                .object([
+                    "one": .bool(false),
+                    "two": .array([
+                        .bool(true),
+                        .string("hello2"),
+                        .object([
+                            "alpha": .string("test"),
+                            "beta" : .bool(false),
+                            "gamma": .null
+                            ]),
+                        .array([.bool(true)])
+                        ])
+                    ]),
+                .null,
+                .double(23)
+                ])
+            ])
+        
+        let testValue = JSONValue.object([ // 1. missing key "foo"
+            "bar": .string("bye"), // 2. hello1 != bye
+            "new_key": .string("new_value"), // 3. a new key
+            "baz": .array([
+                .object([
+                    "one": .object([ // 4. bool != object
+                        "new_object": .bool(false)
+                        ]),
+                    "two": .array([
+                        .bool(true),
+                        .string("hello2"),
+                        .object([
+                            "alpha": .string("test2"), // 5. test != test2
+                            "beta" : .bool(false),
+                            "gamma": .string("test3"),  // 6. null != test3
+                            "delta": .bool(false) // 7. new key
+                            ]),
+                        .array([.bool(true), .bool(true)]) // 8. array of diffrent size
+                        ])
+                    ]),
+                .double(34), // 9. null != 34
+                .double(12) // 10. 12 != 23
+                ])
+            ])
+        
+        let results = JSONCheck.strictEquality.run(.empty, referenceValue, testValue)
+        XCTAssertEqual(results.count, 10)
+    }
 }

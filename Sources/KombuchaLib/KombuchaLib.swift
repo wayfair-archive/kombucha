@@ -19,7 +19,8 @@ public extension JSONCheck where A == [CheckResult] {
         "flag-new-keys": JSONCheck.flagNewKeys,
         "string-bools": JSONCheck.stringBools,
         "string-numbers": JSONCheck.stringNumbers,
-        "structure": JSONCheck.structure
+        "structure": JSONCheck.structure,
+        "strict-equality": JSONCheck.strictEquality
     ]
 }
 

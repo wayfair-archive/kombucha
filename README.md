@@ -36,7 +36,12 @@ The top level of the configuration file looks like this:
   ...
   "snaps": [
     {
+      "body": { ... },
       "host": "httpbin.org",
+      "httpMethod": "GET",
+      "httpHeaders": {
+        "Accept-Language": "en-US"  
+      },
       "path": "/response-headers",
       "queryItems": {
         "foo": "1",
@@ -45,14 +50,16 @@ The top level of the configuration file looks like this:
       },
       "scheme": "https",
       "__snapName": "myUniqueSnapName",
-      "__snapType": "__GET"
+      "__snapType": "__REST"
     },
   ...
   ]
 }
 ```
 * The `snaps` entry needs to contain the `__snapName` key to uniquely identify the request. This name will be used to create a file with the snap result on disk.
-* `__snapType` specifies the type of request Kombucha is going to issue. `__GET` is a simple HTTP `GET` request, and the remaining parameters are interpreted accordingly: `queryItems` are converted into key-value pairs and appended onto the `path`, etc.
+* It is possible to specify any `HTTP` header field with the `httpHeaders` key, the value of a header needs to be a string. This key is not required.
+* The `body` key (not required) accepts arbitrary `JSON` and it will be used to set the body if the `HTTP` request.
+* `__snapType` specifies the type of request Kombucha is going to issue. The `__REST"` type represents a simple `HTTP` request. The `HTTP` method most be specified with the required `httpMethod` key, use `GET`, `POST`, `PUT`, `DELETE`, `PATCH` or any other methods as the value. The remaining parameters are interpreted accordingly: `queryItems` are converted into key-value pairs and appended onto the `path`, etc.
    * The `snaps` entry above results in an HTTP `GET` to `https://httpbin.org/response-headers?foo=1&bar=2&baz=3`. In addition, Kombucha always sends an `Accept` header of `application/json`.
 * Kombucha also supports a `__GRAPHQL` `__snapType` for testing GraphQL endpoints. Documentation for this is forthcoming. 😄
 
@@ -69,6 +76,7 @@ The user can add a `__preferences` blob to their configuration file to specify e
   "snaps": [
     {
       "host": "httpbin.org",
+      "httpMethod": "GET",
       "path": "/response-headers",
       "queryItems": {},
       "scheme": "https",
@@ -88,7 +96,7 @@ The user can add a `__preferences` blob to their configuration file to specify e
         ]
       },
       "__snapName": "myUniqueSnapName",
-      "__snapType": "__GET"
+      "__snapType": "__REST"
     },
   ...
   ]
@@ -170,6 +178,8 @@ Kombucha performs this check recursively into nested JSON objects as deep as the
    * flag the values `"true"` and `"false"` (which should probably be `true` and `false` instead)
 * `string-numbers`
    * flag, for example, `"99.0"` (as opposed to `99.0`). This check should probably be used sparingly as there are plenty of pseudo-numeric values that nevertheless are best represented as strings (for example: opaque identifiers, or zip codes in the United States)
+* `strict-equality`
+    * ensure that the `JSON` from the response is exactly the same as the reference on disk.  
 
 ### Default checks
 
