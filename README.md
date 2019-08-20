@@ -25,11 +25,13 @@ Kombucha’s behavior is governed by a declarative JSON configuration file. This
 The top level of the configuration file looks like this:
 ```json
 {
-  "userAgent": "kombucha-this-is-a-test-v-0.0001",
+  "sharedHttpHeadersForSnaps": {
+        "userAgent": "kombucha-this-is-a-test-v-0.0001"
+    },
   "snaps": [ ... ]
 }
 ```
-* `userAgent` is the User Agent string you’d like Kombucha to use when it issues HTTP requests on your behalf
+* `sharedHttpHeadersForSnaps` is used to set up `HTTP` headers that will be present in all requests. They can be overridden or setup for an individual snap by using the `httpHeaders` key on the snap object (more detail see below).
 * `snaps` is an array of API endpoints that you would like tested. Here’s what a single entry in the `snaps` array looks like:
 ```json
 {
@@ -61,7 +63,52 @@ The top level of the configuration file looks like this:
 * The `body` key (not required) accepts arbitrary `JSON` and it will be used to set the body if the `HTTP` request.
 * `__snapType` specifies the type of request Kombucha is going to issue. The `__REST"` type represents a simple `HTTP` request. The `HTTP` method most be specified with the required `httpMethod` key, use `GET`, `POST`, `PUT`, `DELETE`, `PATCH` or any other methods as the value. The remaining parameters are interpreted accordingly: `queryItems` are converted into key-value pairs and appended onto the `path`, etc.
    * The `snaps` entry above results in an HTTP `GET` to `https://httpbin.org/response-headers?foo=1&bar=2&baz=3`. In addition, Kombucha always sends an `Accept` header of `application/json`.
-* Kombucha also supports a `__GRAPHQL` `__snapType` for testing GraphQL endpoints. Documentation for this is forthcoming. 😄
+
+### Configuration file for graphQL
+
+Kombucha also supports GraphQL endpoints.
+
+```json
+{
+  ...
+  "snaps": [
+   {
+      "host": "www.testHost.com",
+      "path": "/graphql",
+      "httpHeaders": {
+        "Accept-Language": "en-US"  
+      },      
+      "queryContent": {
+        "variables": {
+          "variableName": "aValue"
+        },
+        "queryText": "query Model($variableName: String!) { model(variableName: $variableName) { variableName }}"
+      },
+      "scheme": "https",
+      "__snapName": "test-graphql-query-text",
+      "__snapType": "__GRAPHQL"
+    },
+    {
+      "host": "www.testHost.com",
+      "path": "/graphql",
+      "queryContent": {
+        "queryFile": "../Folder_Name/Model.graphql",
+        "variables": {
+          "variableName": "aValue"
+        }
+      },
+      "scheme": "https",
+      "__snapName": "test-graphql-url-query",
+      "__snapType": "__GRAPHQL"
+    }
+    ...
+  ]
+}
+```
+In order to create a `graphQL` query, change the `__snapType` to `__GRAPHQL` and provide the `queryContent` object.
+* Provide a `URL` to a query file by setting the `queryFile` key or provide the query itself by setting the `queryText` key.
+* The variables for the query are provided by using the `variables` key.
+* Optinaly, a graphQL opeation name for the query can be set by using the `operationName`.
 
 #### Customizing output
 

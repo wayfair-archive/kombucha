@@ -14,7 +14,7 @@ import JSONValue
 
 /// top level configuration struct for running the thing
 public struct RunConfiguration: Decodable {
-    public var userAgent: String
+    public var sharedHttpHeadersForSnaps: [String: String?]?
     public var snaps: [SnapConfiguration]
 }
 
@@ -73,7 +73,8 @@ extension SnapConfiguration.Request: CustomStringConvertible {
             - \(hasBody ? "resquest has a body" : "empty body")
             """
         case .graphQL(let graphSnap):
-            return "GRAPHQL: \(graphSnap.host)\(graphSnap.path)"
+            let headerCount = graphSnap.httpHeaders?.count ?? 0
+            return "GRAPHQL: \(graphSnap.host)\(graphSnap.path) - \(headerCount) http \(headerCount <= 1 ? "header" : "headers") "
         }
     }
 }
@@ -120,6 +121,7 @@ public struct RESTSnap: Decodable {
 }
 
 public struct GraphQLSnap: Decodable {
+    public var httpHeaders: [String: String?]?
     public var host: String
     public var path: String
     public var queryContent: GraphQLQueryContent
