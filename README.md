@@ -26,7 +26,7 @@ The top level of the configuration file looks like this:
 ```json
 {
   "sharedHttpHeadersForSnaps": {
-        "userAgent": "kombucha-this-is-a-test-v-0.0001"
+        "User-Agent": "kombucha-this-is-a-test-v-0.0001"
     },
   "snaps": [ ... ]
 }

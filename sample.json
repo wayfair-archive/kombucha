@@ -1,6 +1,6 @@
 {
   "sharedHttpHeadersForSnaps": {
-        "userAgent": "kombucha-this-is-a-test-v-0.0001"
+        "User-Agent": "kombucha-this-is-a-test-v-0.0001"
     },
   "snaps": [
     {
