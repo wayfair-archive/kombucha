@@ -31,7 +31,7 @@ The top level of the configuration file looks like this:
   "snaps": [ ... ]
 }
 ```
-* `sharedHttpHeadersForSnaps` is used to set up `HTTP` headers that will be present in all requests. They can be overridden or setup for an individual snap by using the `httpHeaders` key on the snap object (more detail see below).
+* `sharedHttpHeadersForSnaps` is used to set up `HTTP` headers that will be present in all requests. They can be overridden or setup for an individual snap by using the `httpHeaders` key on the snap object (more detail below).
 * `snaps` is an array of API endpoints that you would like tested. Here’s what a single entry in the `snaps` array looks like:
 ```json
 {
@@ -106,9 +106,9 @@ Kombucha also supports GraphQL endpoints.
 }
 ```
 In order to create a `graphQL` query, change the `__snapType` to `__GRAPHQL` and provide the `queryContent` object.
-* Provide a `URL` to a query file by setting the `queryFile` key or provide the query itself by setting the `queryText` key.
+* Provide a `URL` to a query file by setting the `queryFile` key or provide the query string itself by setting the `queryText` key.
 * The variables for the query are provided by using the `variables` key.
-* Optinaly, a graphQL opeation name for the query can be set by using the `operationName`.
+* Optinaly, a graphQL opeation name for the query can be set by using the `operationName` key.
 
 #### Customizing output
 
