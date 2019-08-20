@@ -13,7 +13,7 @@ import KombuchaLib
 let jsonDecoder = JSONDecoder()
 
 let args = Array(CommandLine.arguments.dropFirst())
-let (configuration, printErrorsOnly, recordMode, snapshotsURL, workURL) = try parseKombuchaArgs(args, jsonDecoder: jsonDecoder)
+let kombuchaArgs = try KombuchaCLIArgs(parsingArgs: args).loadingConfigurationFile(jsonDecoder: jsonDecoder)
 
 var standardError = FileHandle.standardError.outputStream
 var standardOutput = FileHandle.standardOutput.outputStream
@@ -27,22 +27,22 @@ sessionConfiguration.requestCachePolicy = .reloadIgnoringLocalCacheData
 sessionConfiguration = URLSessionConfiguration.ephemeral
 #endif
 
-sessionConfiguration.httpAdditionalHeaders = ["Accept": "application/json", "User-Agent": configuration.userAgent]
+sessionConfiguration.httpAdditionalHeaders = ["Accept": "application/json", "User-Agent": kombuchaArgs.configuration.userAgent]
 let session = URLSession(configuration: sessionConfiguration)
 
 var isError = false
 
-for snap in configuration.snaps {
+for snap in kombuchaArgs.configuration.snaps {
     let runner = SnapRunner(
         jsonCheck: snap.jsonCheck,
         jsonDecoder: jsonDecoder,
         outputStreams: (error: standardError, output: standardOutput),
         session: session,
-        snapshotsURL: snapshotsURL,
-        workURL: workURL
+        snapshotsURL: kombuchaArgs.snapshotsURL,
+        workURL: kombuchaArgs.workURL
     )
 
-    guard !recordMode else {
+    guard !kombuchaArgs.recordMode else {
         try runner.recordReference(for: snap, setError: &isError)
         continue
     }
@@ -51,7 +51,7 @@ for snap in configuration.snaps {
     let checkResults = try runner.executeCheck(for: snap, setError: &isError)
 
     for key in checkResults.results.keys.sorted() {
-        if printErrorsOnly {
+        if kombuchaArgs.printErrorsOnly {
             guard !checkResults.results[key]!.errors.isEmpty else { continue }
             isError = true
 
@@ -78,7 +78,7 @@ for snap in configuration.snaps {
     }
 }
 
-if recordMode {
+if kombuchaArgs.recordMode {
     print("finished recording", to: &standardOutput)
     exit(EXIT_SUCCESS)
 } else if isError {

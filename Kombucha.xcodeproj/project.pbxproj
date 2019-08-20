@@ -110,19 +110,19 @@
          buildConfigurationList = "OBJ_284";
          buildPhases = (
             "OBJ_287",
-            "OBJ_291"
+            "OBJ_290"
          );
          dependencies = (
-            "OBJ_302",
-            "OBJ_304",
+            "OBJ_301",
+            "OBJ_303",
+            "OBJ_305",
             "OBJ_306",
             "OBJ_307",
             "OBJ_308",
             "OBJ_309",
             "OBJ_310",
             "OBJ_311",
-            "OBJ_312",
-            "OBJ_313"
+            "OBJ_312"
          );
          name = "KombuchaCLI";
          productName = "KombuchaCLI";
@@ -136,9 +136,9 @@
       };
       "Kombucha::KombuchaLib" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_314";
+         buildConfigurationList = "OBJ_313";
          buildPhases = (
-            "OBJ_317",
+            "OBJ_316",
             "OBJ_325"
          );
          dependencies = (
@@ -659,20 +659,20 @@
       "OBJ_153" = {
          isa = "PBXGroup";
          children = (
-            "SwiftPM::POSIX::Product",
-            "Prelude::Prelude::Product",
-            "Kombucha::JSONValueTests::Product",
-            "Kombucha::JSONValue::Product",
-            "Kombucha::KombuchaCLI::Product",
             "Kombucha::KombuchaLib::Product",
+            "Kombucha::JSONValue::Product",
+            "SwiftPM::clibc::Product",
             "Kombucha::JSONCheckTests::Product",
-            "Kombucha::Cont::Product",
-            "SwiftPM::Basic::Product",
             "SwiftPM::SPMUtility::Product",
+            "Kombucha::KombuchaCLI::Product",
+            "Kombucha::Cont::Product",
+            "Prelude::Prelude::Product",
+            "SwiftPM::Basic::Product",
             "SwiftPM::SPMLibc::Product",
-            "Kombucha::KombuchaLibTests::Product",
+            "SwiftPM::POSIX::Product",
             "Kombucha::JSONCheck::Product",
-            "SwiftPM::clibc::Product"
+            "Kombucha::KombuchaLibTests::Product",
+            "Kombucha::JSONValueTests::Product"
          );
          name = "Products";
          path = "";
@@ -856,8 +856,7 @@
          isa = "PBXGroup";
          children = (
             "OBJ_19",
-            "OBJ_20",
-            "OBJ_21"
+            "OBJ_20"
          );
          name = "KombuchaCLI";
          path = "Sources/KombuchaCLI";
@@ -905,7 +904,7 @@
       };
       "OBJ_19" = {
          isa = "PBXFileReference";
-         path = "Arguments.swift";
+         path = "TextOutputStream+kombucha.swift";
          sourceTree = "<group>";
       };
       "OBJ_190" = {
@@ -959,7 +958,7 @@
       };
       "OBJ_20" = {
          isa = "PBXFileReference";
-         path = "TextOutputStream+kombucha.swift";
+         path = "main.swift";
          sourceTree = "<group>";
       };
       "OBJ_200" = {
@@ -1003,9 +1002,20 @@
          fileRef = "OBJ_89";
       };
       "OBJ_21" = {
-         isa = "PBXFileReference";
-         path = "main.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_22",
+            "OBJ_23",
+            "OBJ_24",
+            "OBJ_25",
+            "OBJ_26",
+            "OBJ_27",
+            "OBJ_28",
+            "OBJ_29"
+         );
+         name = "KombuchaLib";
+         path = "Sources/KombuchaLib";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_210" = {
          isa = "PBXBuildFile";
@@ -1052,19 +1062,9 @@
          target = "SwiftPM::POSIX";
       };
       "OBJ_22" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_23",
-            "OBJ_24",
-            "OBJ_25",
-            "OBJ_26",
-            "OBJ_27",
-            "OBJ_28",
-            "OBJ_29"
-         );
-         name = "KombuchaLib";
-         path = "Sources/KombuchaLib";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "GraphQLQueryContent+Disk.swift";
+         sourceTree = "<group>";
       };
       "OBJ_221" = {
          isa = "PBXTargetDependency";
@@ -1174,7 +1174,7 @@
       };
       "OBJ_23" = {
          isa = "PBXFileReference";
-         path = "GraphQLQueryContent+Disk.swift";
+         path = "KombuchaCLIArgs.swift";
          sourceTree = "<group>";
       };
       "OBJ_230" = {
@@ -1826,8 +1826,7 @@
          isa = "PBXSourcesBuildPhase";
          files = (
             "OBJ_288",
-            "OBJ_289",
-            "OBJ_290"
+            "OBJ_289"
          );
       };
       "OBJ_288" = {
@@ -1844,12 +1843,9 @@
          sourceTree = "<group>";
       };
       "OBJ_290" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
-      };
-      "OBJ_291" = {
          isa = "PBXFrameworksBuildPhase";
          files = (
+            "OBJ_291",
             "OBJ_292",
             "OBJ_293",
             "OBJ_294",
@@ -1858,41 +1854,44 @@
             "OBJ_297",
             "OBJ_298",
             "OBJ_299",
-            "OBJ_300",
-            "OBJ_301"
+            "OBJ_300"
          );
       };
-      "OBJ_292" = {
+      "OBJ_291" = {
          isa = "PBXBuildFile";
          fileRef = "Kombucha::KombuchaLib::Product";
       };
-      "OBJ_293" = {
+      "OBJ_292" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::SPMUtility::Product";
       };
-      "OBJ_294" = {
+      "OBJ_293" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::Basic::Product";
       };
-      "OBJ_295" = {
+      "OBJ_294" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::POSIX::Product";
       };
-      "OBJ_296" = {
+      "OBJ_295" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::SPMLibc::Product";
       };
-      "OBJ_297" = {
+      "OBJ_296" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::clibc::Product";
       };
-      "OBJ_298" = {
+      "OBJ_297" = {
          isa = "PBXBuildFile";
          fileRef = "Kombucha::JSONCheck::Product";
       };
-      "OBJ_299" = {
+      "OBJ_298" = {
          isa = "PBXBuildFile";
          fileRef = "Kombucha::Cont::Product";
+      };
+      "OBJ_299" = {
+         isa = "PBXBuildFile";
+         fileRef = "Prelude::Prelude::Product";
       };
       "OBJ_3" = {
          isa = "XCBuildConfiguration";
@@ -1948,35 +1947,35 @@
       };
       "OBJ_300" = {
          isa = "PBXBuildFile";
-         fileRef = "Prelude::Prelude::Product";
-      };
-      "OBJ_301" = {
-         isa = "PBXBuildFile";
          fileRef = "Kombucha::JSONValue::Product";
       };
-      "OBJ_302" = {
+      "OBJ_301" = {
          isa = "PBXTargetDependency";
          target = "Kombucha::KombuchaLib";
       };
-      "OBJ_304" = {
+      "OBJ_303" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::SPMUtility";
       };
-      "OBJ_306" = {
+      "OBJ_305" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::Basic";
       };
-      "OBJ_307" = {
+      "OBJ_306" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::POSIX";
       };
-      "OBJ_308" = {
+      "OBJ_307" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::SPMLibc";
       };
-      "OBJ_309" = {
+      "OBJ_308" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::clibc";
+      };
+      "OBJ_309" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONCheck";
       };
       "OBJ_31" = {
          isa = "PBXGroup";
@@ -1991,30 +1990,26 @@
       };
       "OBJ_310" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheck";
+         target = "Kombucha::Cont";
       };
       "OBJ_311" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::Cont";
+         target = "Prelude::Prelude";
       };
       "OBJ_312" = {
          isa = "PBXTargetDependency";
-         target = "Prelude::Prelude";
-      };
-      "OBJ_313" = {
-         isa = "PBXTargetDependency";
          target = "Kombucha::JSONValue";
       };
-      "OBJ_314" = {
+      "OBJ_313" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_315",
-            "OBJ_316"
+            "OBJ_314",
+            "OBJ_315"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_315" = {
+      "OBJ_314" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -2058,7 +2053,7 @@
          };
          name = "Debug";
       };
-      "OBJ_316" = {
+      "OBJ_315" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -2102,9 +2097,10 @@
          };
          name = "Release";
       };
-      "OBJ_317" = {
+      "OBJ_316" = {
          isa = "PBXSourcesBuildPhase";
          files = (
+            "OBJ_317",
             "OBJ_318",
             "OBJ_319",
             "OBJ_320",
@@ -2113,6 +2109,10 @@
             "OBJ_323",
             "OBJ_324"
          );
+      };
+      "OBJ_317" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_22";
       };
       "OBJ_318" = {
          isa = "PBXBuildFile";
@@ -2550,15 +2550,15 @@
       };
       "OBJ_382" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheckTests";
+         target = "Kombucha::KombuchaLibTests";
       };
       "OBJ_383" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::KombuchaLibTests";
+         target = "Kombucha::JSONValueTests";
       };
       "OBJ_384" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValueTests";
+         target = "Kombucha::JSONCheckTests";
       };
       "OBJ_385" = {
          isa = "XCConfigurationList";
@@ -2758,7 +2758,7 @@
       };
       "OBJ_40" = {
          isa = "PBXFileReference";
-         path = "KombuchaLibTests.swift";
+         path = "KombuchaCLIArgsTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_400" = {
@@ -3770,7 +3770,7 @@
             "OBJ_11",
             "OBJ_15",
             "OBJ_18",
-            "OBJ_22"
+            "OBJ_21"
          );
          name = "Sources";
          path = "";
