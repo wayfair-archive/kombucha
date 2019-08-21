@@ -27,7 +27,11 @@ sessionConfiguration.requestCachePolicy = .reloadIgnoringLocalCacheData
 sessionConfiguration = URLSessionConfiguration.ephemeral
 #endif
 
-sessionConfiguration.httpAdditionalHeaders = ["Accept": "application/json", "User-Agent": configuration.userAgent]
+let httpAdditionalHeaders = ["Accept": "application/json"]
+    .merging(configuration.sharedHttpHeadersForSnaps ?? [:], uniquingKeysWith: {(_, new) in new })
+
+sessionConfiguration.httpAdditionalHeaders = httpAdditionalHeaders as [AnyHashable : Any]
+
 let session = URLSession(configuration: sessionConfiguration)
 
 var isError = false
