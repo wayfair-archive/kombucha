@@ -202,7 +202,73 @@ kombucha \
 
 ### Running via Docker
 
-⚠️ TODO!
+Kombucha can also run inside of a Docker container, powered by the official [Swift base image](https://hub.docker.com/_/swift). This can be beneficial for developers who do not have access to a Swift development environment, and especially helpful for running Kombucha in CI applications.
+
+Because the Docker container will not have direct access to your local filesystem (where you may be storing your configuration file and reference snapshots), you will need to bind a local filesystem volume to the container while it runs. 
+
+To run Kombucha in Docker, first clone the repository and then do the following:
+
+```bash
+cd kombucha
+docker build -t kombucha .
+```
+
+This will build your Docker image and tag it with `kombucha:latest`.
+
+**NOTE:** Because the Docker container will not have direct access to your local filesystem (where you may be storing your configuration file and reference snapshots), you will need to bind a local volume to the container while it runs.
+
+Let's say you have a project `sample-project` which contains the following structure:
+
+```bash
+sample-project
+├── README.md
+├── kombucha.json
+├── snaps
+│   ├── headersSnap.json
+│   ├── ipSnap.json
+│   ├── responseHeadersSnap.json
+│   └── userAagentSnap.json
+├── src
+└── tests
+```
+
+In specific, `kombucha.json` represents our declarative API configuration file, and the JSON files located in the `snaps/` directory represent our reference snapshots.
+
+To bind this `sample-project` directory to your docker container and begin running tests, do the following:
+
+```bash
+docker run -itv ~/sample-project:/app/sample-project kombucha:latest /bin/bash
+```
+
+Please ensure the path structure is correct for both your `sample-project` and the destination you wish to target inside the Docker container (`/app/sample-project`). If successful, you should be dropped into a Bash shell in the `/app` working directory with the following contents:
+
+```bash
+drwxr-x--- 5 root root 4096 Aug 20 20:55 .build
+-rw-r--r-- 1 root root  861 Aug 20 20:54 Package.resolved
+-rw-r--r-- 1 root root 1523 Aug 20 17:32 Package.swift
+drwxr-xr-x 7 root root 4096 Aug 20 20:52 Sources
+drwxr-xr-x 5 root root 4096 Aug 20 20:54 Tests
+drwxr-xr-x 7 root root  224 Aug 21 15:39 sample-project
+```
+
+Now that you are inside the Docker container, you can begin running your Kombucha tests! 
+
+On Linux builds, the `kombucha` executable can be found at `/app/.build/release/kombucha` (which is symlinked to `/app/.build/x86_64-unknown-linux/release/kombucha`). 
+
+Therefore, you can run your `sample-project` tests inside Docker as follows:
+
+```bash
+.build/release/kombucha sample-project/kombucha.json -s sample-project/snaps -w sample-project/results
+```
+
+Once Kombucha is done running tests, your recorded responses will be written to the `/app/sample-project/results` directory unless otherwise specified:
+
+```bash
+-rw-r--r-- 1 root root 212 Aug 21 15:57 headersSnap-work.json
+-rw-r--r-- 1 root root  47 Aug 21 15:57 ipSnap-work.json
+-rw-r--r-- 1 root root 115 Aug 21 15:57 responseHeadersSnap-work.json
+-rw-r--r-- 1 root root  55 Aug 21 15:57 userAagentSnap-work.json
+```
 
 ## List of checks
 
