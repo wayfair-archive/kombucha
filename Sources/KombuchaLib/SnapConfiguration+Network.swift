@@ -27,17 +27,14 @@ public extension SnapConfiguration {
         case .rest(let restSnap):
             var request = URLRequest(url: try restSnap.toURL().value)
             request.httpMethod = restSnap.httpMethod
-            
-            if let httpHeaders = restSnap.httpHeaders {
-                for (key, header) in httpHeaders { request.setValue(header, forHTTPHeaderField: key) }
-            }
-            
+            if let httpHeaders = restSnap.httpHeaders { for (key, header) in httpHeaders { request.setValue(header, forHTTPHeaderField: key) } }
             if let body = restSnap.body { request.httpBody = try encoder.encode(body) }
             return request
         case .graphQL(let graphQLSnap):
             var request = URLRequest(url: try graphQLSnap.toURL().value)
             request.httpBody = try encoder.encode(try EncodableGraphQLQueryContent(graphQLSnap.queryContent))
             request.httpMethod = "POST"
+            if let httpHeaders = graphQLSnap.httpHeaders { for (key, header) in httpHeaders { request.setValue(header, forHTTPHeaderField: key) } }
             return request
         }
     }
