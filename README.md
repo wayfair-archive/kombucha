@@ -202,7 +202,7 @@ kombucha \
 
 ### Running via Docker
 
-Kombucha can also run inside of a Docker container. This can be beneficial for developers who do not have access to a Swift development environment, and especially helpful for running Kombucha in CI applications.
+Kombucha can also run inside of a Docker container, powered by the official [Swift base image](https://hub.docker.com/_/swift). This can be beneficial for developers who do not have access to a Swift development environment, and especially helpful for running Kombucha in CI applications.
 
 Because the Docker container will not have direct access to your local filesystem (where you may be storing your configuration file and reference snapshots), you will need to bind a local filesystem volume to the container while it runs. 
 
@@ -215,7 +215,7 @@ docker build -t kombucha .
 
 This will build your Docker image and tag it with `kombucha:latest`.
 
-**NOTE:** Because the Docker container will not have direct access to your local filesystem (where you may be storing your configuration file and reference snapshots), you will need to bind a local filesystem volume to the container while it runs. 
+**NOTE:** Because the Docker container will not have direct access to your local filesystem (where you may be storing your configuration file and reference snapshots), you will need to bind a local volume to the container while it runs.
 
 Let's say you have a project `sample-project` which contains the following structure:
 
