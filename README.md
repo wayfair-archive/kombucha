@@ -179,6 +179,7 @@ finished with errors
 
 ### Command line parameters
 
+* `[POSITIONAL] configurationURLString`: The path to the `json` configuration file. If not specified, the default is `./kombucha.json`.
 * `--print-errors-only` (`-e`): ask Kombucha to omit `INFO` and `WARNING` output when printing to the console. Useful if a set of tests is producing a lot of output and you’d like to “zero in” on the errors only, without having to edit the configuration file
 * `--record` (`-r`): ask Kombucha to rewrite all the stored snapshots it knows about. Useful for setting a new baseline for tests or if you know a large amount of the API under test has changed
 * `--snapshots-directory` (`-s`): tell Kombucha where to find snapshots for the test run. If not specified, the default is `./__Snapshots/`.
