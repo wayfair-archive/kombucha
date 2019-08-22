@@ -32,7 +32,7 @@ public enum JUnit {
         public typealias BaseType = XMLNode
         
         public static func isValid(_ value: XMLNode) -> Bool {
-            return true
+            return value.kind == .attribute
         }
     }
     
