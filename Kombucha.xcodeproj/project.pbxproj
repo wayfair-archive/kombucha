@@ -5,13 +5,13 @@
    objects = {
       "Kombucha::Cont" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_226";
+         buildConfigurationList = "OBJ_234";
          buildPhases = (
-            "OBJ_229",
-            "OBJ_232"
+            "OBJ_237",
+            "OBJ_240"
          );
          dependencies = (
-            "OBJ_234"
+            "OBJ_242"
          );
          name = "Cont";
          productName = "Cont";
@@ -25,14 +25,14 @@
       };
       "Kombucha::JSONCheck" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_237";
+         buildConfigurationList = "OBJ_245";
          buildPhases = (
-            "OBJ_240",
-            "OBJ_244"
+            "OBJ_248",
+            "OBJ_252"
          );
          dependencies = (
-            "OBJ_247",
-            "OBJ_248"
+            "OBJ_255",
+            "OBJ_256"
          );
          name = "JSONCheck";
          productName = "JSONCheck";
@@ -46,15 +46,15 @@
       };
       "Kombucha::JSONCheckTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_251";
+         buildConfigurationList = "OBJ_259";
          buildPhases = (
-            "OBJ_254",
-            "OBJ_258"
+            "OBJ_262",
+            "OBJ_266"
          );
          dependencies = (
-            "OBJ_262",
-            "OBJ_263",
-            "OBJ_264"
+            "OBJ_270",
+            "OBJ_271",
+            "OBJ_272"
          );
          name = "JSONCheckTests";
          productName = "JSONCheckTests";
@@ -68,10 +68,10 @@
       };
       "Kombucha::JSONValue" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_265";
+         buildConfigurationList = "OBJ_273";
          buildPhases = (
-            "OBJ_268",
-            "OBJ_271"
+            "OBJ_276",
+            "OBJ_279"
          );
          dependencies = (
          );
@@ -87,13 +87,13 @@
       };
       "Kombucha::JSONValueTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_273";
+         buildConfigurationList = "OBJ_281";
          buildPhases = (
-            "OBJ_276",
-            "OBJ_280"
+            "OBJ_284",
+            "OBJ_288"
          );
          dependencies = (
-            "OBJ_282"
+            "OBJ_290"
          );
          name = "JSONValueTests";
          productName = "JSONValueTests";
@@ -105,24 +105,66 @@
          path = "JSONValueTests.xctest";
          sourceTree = "BUILT_PRODUCTS_DIR";
       };
-      "Kombucha::KombuchaCLI" = {
+      "Kombucha::JUnit" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_284";
+         buildConfigurationList = "OBJ_292";
          buildPhases = (
-            "OBJ_287",
-            "OBJ_291"
+            "OBJ_295",
+            "OBJ_297"
          );
          dependencies = (
-            "OBJ_302",
+            "OBJ_299"
+         );
+         name = "JUnit";
+         productName = "JUnit";
+         productReference = "Kombucha::JUnit::Product";
+         productType = "com.apple.product-type.framework";
+      };
+      "Kombucha::JUnit::Product" = {
+         isa = "PBXFileReference";
+         path = "JUnit.framework";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "Kombucha::JUnitTests" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_301";
+         buildPhases = (
             "OBJ_304",
-            "OBJ_306",
-            "OBJ_307",
-            "OBJ_308",
-            "OBJ_309",
+            "OBJ_307"
+         );
+         dependencies = (
             "OBJ_310",
-            "OBJ_311",
-            "OBJ_312",
-            "OBJ_313"
+            "OBJ_311"
+         );
+         name = "JUnitTests";
+         productName = "JUnitTests";
+         productReference = "Kombucha::JUnitTests::Product";
+         productType = "com.apple.product-type.bundle.unit-test";
+      };
+      "Kombucha::JUnitTests::Product" = {
+         isa = "PBXFileReference";
+         path = "JUnitTests.xctest";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "Kombucha::KombuchaCLI" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_313";
+         buildPhases = (
+            "OBJ_316",
+            "OBJ_320"
+         );
+         dependencies = (
+            "OBJ_332",
+            "OBJ_333",
+            "OBJ_335",
+            "OBJ_337",
+            "OBJ_338",
+            "OBJ_339",
+            "OBJ_340",
+            "OBJ_341",
+            "OBJ_342",
+            "OBJ_343",
+            "OBJ_344"
          );
          name = "KombuchaCLI";
          productName = "KombuchaCLI";
@@ -136,21 +178,21 @@
       };
       "Kombucha::KombuchaLib" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_314";
+         buildConfigurationList = "OBJ_345";
          buildPhases = (
-            "OBJ_317",
-            "OBJ_325"
+            "OBJ_348",
+            "OBJ_356"
          );
          dependencies = (
-            "OBJ_335",
-            "OBJ_336",
-            "OBJ_337",
-            "OBJ_338",
-            "OBJ_339",
-            "OBJ_340",
-            "OBJ_341",
-            "OBJ_342",
-            "OBJ_343"
+            "OBJ_366",
+            "OBJ_367",
+            "OBJ_368",
+            "OBJ_369",
+            "OBJ_370",
+            "OBJ_371",
+            "OBJ_372",
+            "OBJ_373",
+            "OBJ_374"
          );
          name = "KombuchaLib";
          productName = "KombuchaLib";
@@ -164,22 +206,22 @@
       };
       "Kombucha::KombuchaLibTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_345";
+         buildConfigurationList = "OBJ_376";
          buildPhases = (
-            "OBJ_348",
-            "OBJ_351"
+            "OBJ_379",
+            "OBJ_382"
          );
          dependencies = (
-            "OBJ_362",
-            "OBJ_363",
-            "OBJ_364",
-            "OBJ_365",
-            "OBJ_366",
-            "OBJ_367",
-            "OBJ_368",
-            "OBJ_369",
-            "OBJ_370",
-            "OBJ_371"
+            "OBJ_393",
+            "OBJ_394",
+            "OBJ_395",
+            "OBJ_396",
+            "OBJ_397",
+            "OBJ_398",
+            "OBJ_399",
+            "OBJ_400",
+            "OBJ_401",
+            "OBJ_402"
          );
          name = "KombuchaLibTests";
          productName = "KombuchaLibTests";
@@ -193,22 +235,23 @@
       };
       "Kombucha::KombuchaPackageTests::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_379";
+         buildConfigurationList = "OBJ_410";
          buildPhases = (
          );
          dependencies = (
-            "OBJ_382",
-            "OBJ_383",
-            "OBJ_384"
+            "OBJ_413",
+            "OBJ_414",
+            "OBJ_415",
+            "OBJ_416"
          );
          name = "KombuchaPackageTests";
          productName = "KombuchaPackageTests";
       };
       "Kombucha::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_373";
+         buildConfigurationList = "OBJ_404";
          buildPhases = (
-            "OBJ_376"
+            "OBJ_407"
          );
          dependencies = (
          );
@@ -218,11 +261,11 @@
       };
       "Kombucha::kombucha::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_479";
+         buildConfigurationList = "OBJ_511";
          buildPhases = (
          );
          dependencies = (
-            "OBJ_482"
+            "OBJ_514"
          );
          name = "kombucha";
          productName = "kombucha";
@@ -241,7 +284,7 @@
             "en"
          );
          mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_153";
+         productRefGroup = "OBJ_158";
          projectDirPath = ".";
          targets = (
             "SwiftPM::Basic",
@@ -250,6 +293,8 @@
             "Kombucha::JSONCheckTests",
             "Kombucha::JSONValue",
             "Kombucha::JSONValueTests",
+            "Kombucha::JUnit",
+            "Kombucha::JUnitTests",
             "Kombucha::KombuchaCLI",
             "Kombucha::KombuchaLib",
             "Kombucha::KombuchaLibTests",
@@ -271,57 +316,74 @@
          sourceTree = "<group>";
       };
       "OBJ_100" = {
-         isa = "PBXFileReference";
-         path = "env.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "Build";
+         path = ".build/checkouts/swift-package-manager/Sources/Build";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_101" = {
-         isa = "PBXFileReference";
-         path = "exit.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "Commands";
+         path = ".build/checkouts/swift-package-manager/Sources/Commands";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_102" = {
-         isa = "PBXFileReference";
-         path = "getcwd.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_103",
+            "OBJ_104",
+            "OBJ_105",
+            "OBJ_106",
+            "OBJ_107",
+            "OBJ_108",
+            "OBJ_109",
+            "OBJ_110",
+            "OBJ_111",
+            "OBJ_112",
+            "OBJ_113"
+         );
+         name = "POSIX";
+         path = ".build/checkouts/swift-package-manager/Sources/POSIX";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_103" = {
          isa = "PBXFileReference";
-         path = "isatty.swift";
+         path = "Error.swift";
          sourceTree = "<group>";
       };
       "OBJ_104" = {
          isa = "PBXFileReference";
-         path = "readdir.swift";
+         path = "chdir.swift";
          sourceTree = "<group>";
       };
       "OBJ_105" = {
          isa = "PBXFileReference";
-         path = "realpath.swift";
+         path = "env.swift";
          sourceTree = "<group>";
       };
       "OBJ_106" = {
          isa = "PBXFileReference";
-         path = "rename.swift";
+         path = "exit.swift";
          sourceTree = "<group>";
       };
       "OBJ_107" = {
          isa = "PBXFileReference";
-         path = "stat.swift";
+         path = "getcwd.swift";
          sourceTree = "<group>";
       };
       "OBJ_108" = {
          isa = "PBXFileReference";
-         path = "usleep.swift";
+         path = "isatty.swift";
          sourceTree = "<group>";
       };
       "OBJ_109" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "PackageDescription4";
-         path = ".build/checkouts/swift-package-manager/Sources/PackageDescription4";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "readdir.swift";
+         sourceTree = "<group>";
       };
       "OBJ_11" = {
          isa = "PBXGroup";
@@ -335,6 +397,34 @@
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_110" = {
+         isa = "PBXFileReference";
+         path = "realpath.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_111" = {
+         isa = "PBXFileReference";
+         path = "rename.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_112" = {
+         isa = "PBXFileReference";
+         path = "stat.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_113" = {
+         isa = "PBXFileReference";
+         path = "usleep.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_114" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "PackageDescription4";
+         path = ".build/checkouts/swift-package-manager/Sources/PackageDescription4";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_115" = {
          isa = "PBXGroup";
          children = (
          );
@@ -342,7 +432,7 @@
          path = ".build/checkouts/swift-package-manager/Sources/PackageGraph";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_111" = {
+      "OBJ_116" = {
          isa = "PBXGroup";
          children = (
          );
@@ -350,7 +440,7 @@
          path = ".build/checkouts/swift-package-manager/Sources/PackageLoading";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_112" = {
+      "OBJ_117" = {
          isa = "PBXGroup";
          children = (
          );
@@ -358,7 +448,7 @@
          path = ".build/checkouts/swift-package-manager/Sources/PackageModel";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_113" = {
+      "OBJ_118" = {
          isa = "PBXGroup";
          children = (
          );
@@ -366,28 +456,28 @@
          path = ".build/checkouts/swift-package-manager/Sources/SPMLLBuild";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_114" = {
+      "OBJ_119" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_115"
+            "OBJ_120"
          );
          name = "SPMLibc";
          path = ".build/checkouts/swift-package-manager/Sources/SPMLibc";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_115" = {
+      "OBJ_12" = {
+         isa = "PBXFileReference";
+         path = "CheckResults.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_120" = {
          isa = "PBXFileReference";
          path = "libc.swift";
          sourceTree = "<group>";
       };
-      "OBJ_116" = {
+      "OBJ_121" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_117",
-            "OBJ_118",
-            "OBJ_119",
-            "OBJ_120",
-            "OBJ_121",
             "OBJ_122",
             "OBJ_123",
             "OBJ_124",
@@ -402,80 +492,55 @@
             "OBJ_133",
             "OBJ_134",
             "OBJ_135",
-            "OBJ_136"
+            "OBJ_136",
+            "OBJ_137",
+            "OBJ_138",
+            "OBJ_139",
+            "OBJ_140",
+            "OBJ_141"
          );
          name = "SPMUtility";
          path = ".build/checkouts/swift-package-manager/Sources/SPMUtility";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_117" = {
+      "OBJ_122" = {
          isa = "PBXFileReference";
          path = "ArgumentParser.swift";
          sourceTree = "<group>";
       };
-      "OBJ_118" = {
+      "OBJ_123" = {
          isa = "PBXFileReference";
          path = "ArgumentParserShellCompletion.swift";
          sourceTree = "<group>";
       };
-      "OBJ_119" = {
+      "OBJ_124" = {
          isa = "PBXFileReference";
          path = "BuildFlags.swift";
          sourceTree = "<group>";
       };
-      "OBJ_12" = {
-         isa = "PBXFileReference";
-         path = "CheckResults.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_120" = {
+      "OBJ_125" = {
          isa = "PBXFileReference";
          path = "CollectionExtensions.swift";
          sourceTree = "<group>";
       };
-      "OBJ_121" = {
+      "OBJ_126" = {
          isa = "PBXFileReference";
          path = "Diagnostics.swift";
          sourceTree = "<group>";
       };
-      "OBJ_122" = {
+      "OBJ_127" = {
          isa = "PBXFileReference";
          path = "FSWatch.swift";
          sourceTree = "<group>";
       };
-      "OBJ_123" = {
+      "OBJ_128" = {
          isa = "PBXFileReference";
          path = "Git.swift";
          sourceTree = "<group>";
       };
-      "OBJ_124" = {
-         isa = "PBXFileReference";
-         path = "InterruptHandler.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_125" = {
-         isa = "PBXFileReference";
-         path = "PkgConfig.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_126" = {
-         isa = "PBXFileReference";
-         path = "Platform.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_127" = {
-         isa = "PBXFileReference";
-         path = "Process.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_128" = {
-         isa = "PBXFileReference";
-         path = "ProgressAnimation.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_129" = {
          isa = "PBXFileReference";
-         path = "SimplePersistence.swift";
+         path = "InterruptHandler.swift";
          sourceTree = "<group>";
       };
       "OBJ_13" = {
@@ -485,62 +550,53 @@
       };
       "OBJ_130" = {
          isa = "PBXFileReference";
-         path = "StringExtensions.swift";
+         path = "PkgConfig.swift";
          sourceTree = "<group>";
       };
       "OBJ_131" = {
          isa = "PBXFileReference";
-         path = "StringMangling.swift";
+         path = "Platform.swift";
          sourceTree = "<group>";
       };
       "OBJ_132" = {
          isa = "PBXFileReference";
-         path = "URL.swift";
+         path = "Process.swift";
          sourceTree = "<group>";
       };
       "OBJ_133" = {
          isa = "PBXFileReference";
-         path = "Verbosity.swift";
+         path = "ProgressAnimation.swift";
          sourceTree = "<group>";
       };
       "OBJ_134" = {
          isa = "PBXFileReference";
-         path = "Version.swift";
+         path = "SimplePersistence.swift";
          sourceTree = "<group>";
       };
       "OBJ_135" = {
          isa = "PBXFileReference";
-         path = "Versioning.swift";
+         path = "StringExtensions.swift";
          sourceTree = "<group>";
       };
       "OBJ_136" = {
          isa = "PBXFileReference";
-         path = "misc.swift";
+         path = "StringMangling.swift";
          sourceTree = "<group>";
       };
       "OBJ_137" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "SourceControl";
-         path = ".build/checkouts/swift-package-manager/Sources/SourceControl";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "URL.swift";
+         sourceTree = "<group>";
       };
       "OBJ_138" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "TestSupport";
-         path = ".build/checkouts/swift-package-manager/Sources/TestSupport";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Verbosity.swift";
+         sourceTree = "<group>";
       };
       "OBJ_139" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "TestSupportExecutable";
-         path = ".build/checkouts/swift-package-manager/Sources/TestSupportExecutable";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Version.swift";
+         sourceTree = "<group>";
       };
       "OBJ_14" = {
          isa = "PBXFileReference";
@@ -548,6 +604,40 @@
          sourceTree = "<group>";
       };
       "OBJ_140" = {
+         isa = "PBXFileReference";
+         path = "Versioning.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_141" = {
+         isa = "PBXFileReference";
+         path = "misc.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_142" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "SourceControl";
+         path = ".build/checkouts/swift-package-manager/Sources/SourceControl";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_143" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "TestSupport";
+         path = ".build/checkouts/swift-package-manager/Sources/TestSupport";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_144" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "TestSupportExecutable";
+         path = ".build/checkouts/swift-package-manager/Sources/TestSupportExecutable";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_145" = {
          isa = "PBXGroup";
          children = (
          );
@@ -555,7 +645,7 @@
          path = ".build/checkouts/swift-package-manager/Sources/Workspace";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_141" = {
+      "OBJ_146" = {
          isa = "PBXGroup";
          children = (
          );
@@ -563,65 +653,30 @@
          path = ".build/checkouts/swift-package-manager/Sources/Xcodeproj";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_142" = {
+      "OBJ_147" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_143",
-            "OBJ_144"
+            "OBJ_148",
+            "OBJ_149"
          );
          name = "clibc";
          path = ".build/checkouts/swift-package-manager/Sources/clibc";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_143" = {
+      "OBJ_148" = {
          isa = "PBXFileReference";
          path = "libc.c";
          sourceTree = "<group>";
       };
-      "OBJ_144" = {
+      "OBJ_149" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_145",
-            "OBJ_146"
+            "OBJ_150",
+            "OBJ_151"
          );
          name = "include";
          path = "include";
          sourceTree = "<group>";
-      };
-      "OBJ_145" = {
-         isa = "PBXFileReference";
-         path = "clibc.h";
-         sourceTree = "<group>";
-      };
-      "OBJ_146" = {
-         isa = "PBXFileReference";
-         name = "module.modulemap";
-         path = "/Users/ptomaselli/Documents/Code/kombucha/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
-         sourceTree = "<group>";
-      };
-      "OBJ_147" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "swift-build";
-         path = ".build/checkouts/swift-package-manager/Sources/swift-build";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_148" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "swift-package";
-         path = ".build/checkouts/swift-package-manager/Sources/swift-package";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_149" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "swift-run";
-         path = ".build/checkouts/swift-package-manager/Sources/swift-run";
-         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_15" = {
          isa = "PBXGroup";
@@ -634,6 +689,41 @@
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_150" = {
+         isa = "PBXFileReference";
+         path = "clibc.h";
+         sourceTree = "<group>";
+      };
+      "OBJ_151" = {
+         isa = "PBXFileReference";
+         name = "module.modulemap";
+         path = "/Users/sr569d/kombucha/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+         sourceTree = "<group>";
+      };
+      "OBJ_152" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "swift-build";
+         path = ".build/checkouts/swift-package-manager/Sources/swift-build";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_153" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "swift-package";
+         path = ".build/checkouts/swift-package-manager/Sources/swift-package";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_154" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "swift-run";
+         path = ".build/checkouts/swift-package-manager/Sources/swift-run";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_155" = {
          isa = "PBXGroup";
          children = (
          );
@@ -641,7 +731,7 @@
          path = ".build/checkouts/swift-package-manager/Sources/swift-test";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_151" = {
+      "OBJ_156" = {
          isa = "PBXGroup";
          children = (
          );
@@ -649,30 +739,32 @@
          path = ".build/checkouts/swift-package-manager/Sources/swiftpm-xctest-helper";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_152" = {
+      "OBJ_157" = {
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/ptomaselli/Documents/Code/kombucha/.build/checkouts/swift-package-manager/Package.swift";
+         path = "/Users/sr569d/kombucha/.build/checkouts/swift-package-manager/Package.swift";
          sourceTree = "<group>";
       };
-      "OBJ_153" = {
+      "OBJ_158" = {
          isa = "PBXGroup";
          children = (
-            "SwiftPM::POSIX::Product",
-            "Prelude::Prelude::Product",
-            "Kombucha::JSONValueTests::Product",
-            "Kombucha::JSONValue::Product",
-            "Kombucha::KombuchaCLI::Product",
-            "Kombucha::KombuchaLib::Product",
-            "Kombucha::JSONCheckTests::Product",
-            "Kombucha::Cont::Product",
-            "SwiftPM::Basic::Product",
             "SwiftPM::SPMUtility::Product",
-            "SwiftPM::SPMLibc::Product",
+            "SwiftPM::clibc::Product",
+            "Kombucha::JSONValueTests::Product",
+            "Prelude::Prelude::Product",
             "Kombucha::KombuchaLibTests::Product",
-            "Kombucha::JSONCheck::Product",
-            "SwiftPM::clibc::Product"
+            "Kombucha::KombuchaCLI::Product",
+            "SwiftPM::POSIX::Product",
+            "Kombucha::KombuchaLib::Product",
+            "SwiftPM::Basic::Product",
+            "Kombucha::Cont::Product",
+            "SwiftPM::SPMLibc::Product",
+            "Kombucha::JSONValue::Product",
+            "Kombucha::JSONCheckTests::Product",
+            "Kombucha::JUnitTests::Product",
+            "Kombucha::JUnit::Product",
+            "Kombucha::JSONCheck::Product"
          );
          name = "Products";
          path = "";
@@ -683,41 +775,55 @@
          path = "JSONIndex.swift";
          sourceTree = "<group>";
       };
-      "OBJ_168" = {
-         isa = "PBXFileReference";
-         path = "Kombucha.xcworkspace";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_169" = {
-         isa = "PBXFileReference";
-         path = "LICENSE.md";
-         sourceTree = "<group>";
-      };
       "OBJ_17" = {
          isa = "PBXFileReference";
          path = "JSONValue.swift";
          sourceTree = "<group>";
       };
-      "OBJ_170" = {
+      "OBJ_175" = {
+         isa = "PBXFileReference";
+         path = "Kombucha.xcworkspace";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_176" = {
+         isa = "PBXFileReference";
+         path = "LICENSE.md";
+         sourceTree = "<group>";
+      };
+      "OBJ_177" = {
+         isa = "PBXFileReference";
+         path = "Dockerfile";
+         sourceTree = "<group>";
+      };
+      "OBJ_178" = {
          isa = "PBXFileReference";
          path = "README.md";
          sourceTree = "<group>";
       };
-      "OBJ_171" = {
+      "OBJ_179" = {
          isa = "PBXFileReference";
          path = "sample.json";
          sourceTree = "<group>";
       };
-      "OBJ_173" = {
+      "OBJ_18" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_19"
+         );
+         name = "JUnit";
+         path = "Sources/JUnit";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_181" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_174",
-            "OBJ_175"
+            "OBJ_182",
+            "OBJ_183"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_174" = {
+      "OBJ_182" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -757,7 +863,7 @@
          };
          name = "Debug";
       };
-      "OBJ_175" = {
+      "OBJ_183" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -797,17 +903,9 @@
          };
          name = "Release";
       };
-      "OBJ_176" = {
+      "OBJ_184" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_177",
-            "OBJ_178",
-            "OBJ_179",
-            "OBJ_180",
-            "OBJ_181",
-            "OBJ_182",
-            "OBJ_183",
-            "OBJ_184",
             "OBJ_185",
             "OBJ_186",
             "OBJ_187",
@@ -837,116 +935,81 @@
             "OBJ_211",
             "OBJ_212",
             "OBJ_213",
-            "OBJ_214"
+            "OBJ_214",
+            "OBJ_215",
+            "OBJ_216",
+            "OBJ_217",
+            "OBJ_218",
+            "OBJ_219",
+            "OBJ_220",
+            "OBJ_221",
+            "OBJ_222"
          );
-      };
-      "OBJ_177" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_57";
-      };
-      "OBJ_178" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_58";
-      };
-      "OBJ_179" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_59";
-      };
-      "OBJ_18" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_19",
-            "OBJ_20",
-            "OBJ_21"
-         );
-         name = "KombuchaCLI";
-         path = "Sources/KombuchaCLI";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_180" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_60";
-      };
-      "OBJ_181" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_61";
-      };
-      "OBJ_182" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_62";
-      };
-      "OBJ_183" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_63";
-      };
-      "OBJ_184" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_64";
       };
       "OBJ_185" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_65";
+         fileRef = "OBJ_62";
       };
       "OBJ_186" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_66";
+         fileRef = "OBJ_63";
       };
       "OBJ_187" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_67";
+         fileRef = "OBJ_64";
       };
       "OBJ_188" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_68";
+         fileRef = "OBJ_65";
       };
       "OBJ_189" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_69";
+         fileRef = "OBJ_66";
       };
       "OBJ_19" = {
          isa = "PBXFileReference";
-         path = "Arguments.swift";
+         path = "JUnit.swift";
          sourceTree = "<group>";
       };
       "OBJ_190" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_70";
+         fileRef = "OBJ_67";
       };
       "OBJ_191" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_71";
+         fileRef = "OBJ_68";
       };
       "OBJ_192" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_72";
+         fileRef = "OBJ_69";
       };
       "OBJ_193" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_73";
+         fileRef = "OBJ_70";
       };
       "OBJ_194" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_74";
+         fileRef = "OBJ_71";
       };
       "OBJ_195" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_75";
+         fileRef = "OBJ_72";
       };
       "OBJ_196" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_76";
+         fileRef = "OBJ_73";
       };
       "OBJ_197" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_77";
+         fileRef = "OBJ_74";
       };
       "OBJ_198" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_78";
+         fileRef = "OBJ_75";
       };
       "OBJ_199" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_79";
+         fileRef = "OBJ_76";
       };
       "OBJ_2" = {
          isa = "XCConfigurationList";
@@ -958,650 +1021,577 @@
          defaultConfigurationName = "Release";
       };
       "OBJ_20" = {
-         isa = "PBXFileReference";
-         path = "TextOutputStream+kombucha.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_21",
+            "OBJ_22",
+            "OBJ_23"
+         );
+         name = "KombuchaCLI";
+         path = "Sources/KombuchaCLI";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_200" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_80";
+         fileRef = "OBJ_77";
       };
       "OBJ_201" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_81";
+         fileRef = "OBJ_78";
       };
       "OBJ_202" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_82";
+         fileRef = "OBJ_79";
       };
       "OBJ_203" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_83";
+         fileRef = "OBJ_80";
       };
       "OBJ_204" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_84";
+         fileRef = "OBJ_81";
       };
       "OBJ_205" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_85";
+         fileRef = "OBJ_82";
       };
       "OBJ_206" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_86";
+         fileRef = "OBJ_83";
       };
       "OBJ_207" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_87";
+         fileRef = "OBJ_84";
       };
       "OBJ_208" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_88";
+         fileRef = "OBJ_85";
       };
       "OBJ_209" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_89";
+         fileRef = "OBJ_86";
       };
       "OBJ_21" = {
          isa = "PBXFileReference";
-         path = "main.swift";
+         path = "Arguments.swift";
          sourceTree = "<group>";
       };
       "OBJ_210" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_90";
+         fileRef = "OBJ_87";
       };
       "OBJ_211" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_91";
+         fileRef = "OBJ_88";
       };
       "OBJ_212" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_92";
+         fileRef = "OBJ_89";
       };
       "OBJ_213" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_93";
+         fileRef = "OBJ_90";
       };
       "OBJ_214" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_94";
+         fileRef = "OBJ_91";
       };
       "OBJ_215" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_216",
-            "OBJ_217",
-            "OBJ_218"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_92";
       };
       "OBJ_216" = {
          isa = "PBXBuildFile";
-         fileRef = "SwiftPM::POSIX::Product";
+         fileRef = "OBJ_93";
       };
       "OBJ_217" = {
          isa = "PBXBuildFile";
-         fileRef = "SwiftPM::SPMLibc::Product";
+         fileRef = "OBJ_94";
       };
       "OBJ_218" = {
          isa = "PBXBuildFile";
-         fileRef = "SwiftPM::clibc::Product";
+         fileRef = "OBJ_95";
       };
       "OBJ_219" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_96";
+      };
+      "OBJ_22" = {
+         isa = "PBXFileReference";
+         path = "TextOutputStream+kombucha.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_220" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_97";
+      };
+      "OBJ_221" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_98";
+      };
+      "OBJ_222" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_99";
+      };
+      "OBJ_223" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_224",
+            "OBJ_225",
+            "OBJ_226"
+         );
+      };
+      "OBJ_224" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::POSIX::Product";
+      };
+      "OBJ_225" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::SPMLibc::Product";
+      };
+      "OBJ_226" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::clibc::Product";
+      };
+      "OBJ_227" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::POSIX";
       };
-      "OBJ_22" = {
+      "OBJ_229" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::SPMLibc";
+      };
+      "OBJ_23" = {
+         isa = "PBXFileReference";
+         path = "main.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_231" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::clibc";
+      };
+      "OBJ_234" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_235",
+            "OBJ_236"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_235" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/Cont_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "Cont";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "Cont";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_236" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/Cont_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "Cont";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "Cont";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_237" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_238",
+            "OBJ_239"
+         );
+      };
+      "OBJ_238" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_9";
+      };
+      "OBJ_239" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_10";
+      };
+      "OBJ_24" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_23",
-            "OBJ_24",
             "OBJ_25",
             "OBJ_26",
             "OBJ_27",
             "OBJ_28",
-            "OBJ_29"
+            "OBJ_29",
+            "OBJ_30",
+            "OBJ_31"
          );
          name = "KombuchaLib";
          path = "Sources/KombuchaLib";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_221" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::SPMLibc";
-      };
-      "OBJ_223" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::clibc";
-      };
-      "OBJ_226" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_227",
-            "OBJ_228"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_227" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/Cont_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Cont";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Cont";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_228" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/Cont_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Cont";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Cont";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_229" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_230",
-            "OBJ_231"
-         );
-      };
-      "OBJ_23" = {
-         isa = "PBXFileReference";
-         path = "GraphQLQueryContent+Disk.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_230" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
-      };
-      "OBJ_231" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_10";
-      };
-      "OBJ_232" = {
+      "OBJ_240" = {
          isa = "PBXFrameworksBuildPhase";
          files = (
-            "OBJ_233"
-         );
-      };
-      "OBJ_233" = {
-         isa = "PBXBuildFile";
-         fileRef = "Prelude::Prelude::Product";
-      };
-      "OBJ_234" = {
-         isa = "PBXTargetDependency";
-         target = "Prelude::Prelude";
-      };
-      "OBJ_237" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_238",
-            "OBJ_239"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_238" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheck_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "JSONCheck";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONCheck";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_239" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheck_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "JSONCheck";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONCheck";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_24" = {
-         isa = "PBXFileReference";
-         path = "KombuchaLib.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_240" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_241",
-            "OBJ_242",
-            "OBJ_243"
+            "OBJ_241"
          );
       };
       "OBJ_241" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
-      };
-      "OBJ_242" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
-      };
-      "OBJ_243" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
-      };
-      "OBJ_244" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_245",
-            "OBJ_246"
-         );
-      };
-      "OBJ_245" = {
-         isa = "PBXBuildFile";
          fileRef = "Prelude::Prelude::Product";
       };
-      "OBJ_246" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONValue::Product";
-      };
-      "OBJ_247" = {
+      "OBJ_242" = {
          isa = "PBXTargetDependency";
          target = "Prelude::Prelude";
       };
+      "OBJ_245" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_246",
+            "OBJ_247"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_246" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheck_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "JSONCheck";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "JSONCheck";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_247" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheck_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "JSONCheck";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "JSONCheck";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
       "OBJ_248" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_249",
+            "OBJ_250",
+            "OBJ_251"
+         );
+      };
+      "OBJ_249" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_12";
+      };
+      "OBJ_25" = {
+         isa = "PBXFileReference";
+         path = "GraphQLQueryContent+Disk.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_250" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_13";
+      };
+      "OBJ_251" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_14";
+      };
+      "OBJ_252" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_253",
+            "OBJ_254"
+         );
+      };
+      "OBJ_253" = {
+         isa = "PBXBuildFile";
+         fileRef = "Prelude::Prelude::Product";
+      };
+      "OBJ_254" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JSONValue::Product";
+      };
+      "OBJ_255" = {
+         isa = "PBXTargetDependency";
+         target = "Prelude::Prelude";
+      };
+      "OBJ_256" = {
          isa = "PBXTargetDependency";
          target = "Kombucha::JSONValue";
       };
-      "OBJ_25" = {
+      "OBJ_259" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_260",
+            "OBJ_261"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_26" = {
+         isa = "PBXFileReference";
+         path = "KombuchaLib.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_260" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheckTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "JSONCheckTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_261" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheckTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "JSONCheckTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_262" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_263",
+            "OBJ_264",
+            "OBJ_265"
+         );
+      };
+      "OBJ_263" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_34";
+      };
+      "OBJ_264" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_35";
+      };
+      "OBJ_265" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_36";
+      };
+      "OBJ_266" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_267",
+            "OBJ_268",
+            "OBJ_269"
+         );
+      };
+      "OBJ_267" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JSONCheck::Product";
+      };
+      "OBJ_268" = {
+         isa = "PBXBuildFile";
+         fileRef = "Prelude::Prelude::Product";
+      };
+      "OBJ_269" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JSONValue::Product";
+      };
+      "OBJ_27" = {
          isa = "PBXFileReference";
          path = "SnapConfiguration+Disk.swift";
          sourceTree = "<group>";
       };
-      "OBJ_251" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_252",
-            "OBJ_253"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_252" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheckTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONCheckTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_253" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONCheckTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONCheckTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_254" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_255",
-            "OBJ_256",
-            "OBJ_257"
-         );
-      };
-      "OBJ_255" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_32";
-      };
-      "OBJ_256" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_33";
-      };
-      "OBJ_257" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_34";
-      };
-      "OBJ_258" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_259",
-            "OBJ_260",
-            "OBJ_261"
-         );
-      };
-      "OBJ_259" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONCheck::Product";
-      };
-      "OBJ_26" = {
-         isa = "PBXFileReference";
-         path = "SnapConfiguration+Network.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_260" = {
-         isa = "PBXBuildFile";
-         fileRef = "Prelude::Prelude::Product";
-      };
-      "OBJ_261" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONValue::Product";
-      };
-      "OBJ_262" = {
+      "OBJ_270" = {
          isa = "PBXTargetDependency";
          target = "Kombucha::JSONCheck";
       };
-      "OBJ_263" = {
+      "OBJ_271" = {
          isa = "PBXTargetDependency";
          target = "Prelude::Prelude";
       };
-      "OBJ_264" = {
+      "OBJ_272" = {
          isa = "PBXTargetDependency";
          target = "Kombucha::JSONValue";
-      };
-      "OBJ_265" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_266",
-            "OBJ_267"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_266" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValue_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "JSONValue";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONValue";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_267" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValue_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "JSONValue";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONValue";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_268" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_269",
-            "OBJ_270"
-         );
-      };
-      "OBJ_269" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
-      };
-      "OBJ_27" = {
-         isa = "PBXFileReference";
-         path = "SnapConfiguration.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_270" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
-      };
-      "OBJ_271" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
       };
       "OBJ_273" = {
          isa = "XCConfigurationList";
@@ -1615,8 +1605,7 @@
       "OBJ_274" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            ENABLE_TESTABILITY = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
@@ -1624,12 +1613,11 @@
             HEADER_SEARCH_PATHS = (
                "$(inherited)"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValueTests_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValue_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -1641,11 +1629,15 @@
             OTHER_SWIFT_FLAGS = (
                "$(inherited)"
             );
+            PRODUCT_BUNDLE_IDENTIFIER = "JSONValue";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONValueTests";
+            TARGET_NAME = "JSONValue";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
@@ -1654,8 +1646,7 @@
       "OBJ_275" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            ENABLE_TESTABILITY = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
@@ -1663,12 +1654,11 @@
             HEADER_SEARCH_PATHS = (
                "$(inherited)"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValueTests_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValue_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -1680,11 +1670,15 @@
             OTHER_SWIFT_FLAGS = (
                "$(inherited)"
             );
+            PRODUCT_BUNDLE_IDENTIFIER = "JSONValue";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "JSONValueTests";
+            TARGET_NAME = "JSONValue";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
@@ -1694,67 +1688,54 @@
          isa = "PBXSourcesBuildPhase";
          files = (
             "OBJ_277",
-            "OBJ_278",
-            "OBJ_279"
+            "OBJ_278"
          );
       };
       "OBJ_277" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_36";
+         fileRef = "OBJ_16";
       };
       "OBJ_278" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_37";
+         fileRef = "OBJ_17";
       };
       "OBJ_279" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_38";
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
       };
       "OBJ_28" = {
          isa = "PBXFileReference";
-         path = "SnapRunner.swift";
+         path = "SnapConfiguration+Network.swift";
          sourceTree = "<group>";
       };
-      "OBJ_280" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_281"
-         );
-      };
       "OBJ_281" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONValue::Product";
-      };
-      "OBJ_282" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValue";
-      };
-      "OBJ_284" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_285",
-            "OBJ_286"
+            "OBJ_282",
+            "OBJ_283"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_285" = {
+      "OBJ_282" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+               "$(inherited)"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaCLI_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValueTests_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -1764,39 +1745,36 @@
                "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+               "$(inherited)"
             );
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "KombuchaCLI";
+            TARGET_NAME = "JSONValueTests";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Debug";
       };
-      "OBJ_286" = {
+      "OBJ_283" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+               "$(inherited)"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaCLI_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JSONValueTests_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -1806,93 +1784,171 @@
                "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+               "$(inherited)"
             );
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "KombuchaCLI";
+            TARGET_NAME = "JSONValueTests";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Release";
       };
-      "OBJ_287" = {
+      "OBJ_284" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_288",
-            "OBJ_289",
-            "OBJ_290"
+            "OBJ_285",
+            "OBJ_286",
+            "OBJ_287"
          );
       };
-      "OBJ_288" = {
+      "OBJ_285" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
+         fileRef = "OBJ_38";
+      };
+      "OBJ_286" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_39";
+      };
+      "OBJ_287" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_40";
+      };
+      "OBJ_288" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_289"
+         );
       };
       "OBJ_289" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
+         fileRef = "Kombucha::JSONValue::Product";
       };
       "OBJ_29" = {
          isa = "PBXFileReference";
-         path = "URL+Refined.swift";
+         path = "SnapConfiguration.swift";
          sourceTree = "<group>";
       };
       "OBJ_290" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
-      };
-      "OBJ_291" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_292",
-            "OBJ_293",
-            "OBJ_294",
-            "OBJ_295",
-            "OBJ_296",
-            "OBJ_297",
-            "OBJ_298",
-            "OBJ_299",
-            "OBJ_300",
-            "OBJ_301"
-         );
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONValue";
       };
       "OBJ_292" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::KombuchaLib::Product";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_293",
+            "OBJ_294"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_293" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::SPMUtility::Product";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JUnit_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "JUnit";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "JUnit";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
       };
       "OBJ_294" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::Basic::Product";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JUnit_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "JUnit";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "JUnit";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
       };
       "OBJ_295" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::POSIX::Product";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_296"
+         );
       };
       "OBJ_296" = {
          isa = "PBXBuildFile";
-         fileRef = "SwiftPM::SPMLibc::Product";
+         fileRef = "OBJ_19";
       };
       "OBJ_297" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::clibc::Product";
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_298"
+         );
       };
       "OBJ_298" = {
          isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONCheck::Product";
+         fileRef = "Prelude::Prelude::Product";
       };
       "OBJ_299" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::Cont::Product";
+         isa = "PBXTargetDependency";
+         target = "Prelude::Prelude";
       };
       "OBJ_3" = {
          isa = "XCBuildConfiguration";
@@ -1936,101 +1992,37 @@
          name = "Debug";
       };
       "OBJ_30" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_31",
-            "OBJ_35",
-            "OBJ_39"
-         );
-         name = "Tests";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_300" = {
-         isa = "PBXBuildFile";
-         fileRef = "Prelude::Prelude::Product";
+         isa = "PBXFileReference";
+         path = "SnapRunner.swift";
+         sourceTree = "<group>";
       };
       "OBJ_301" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONValue::Product";
-      };
-      "OBJ_302" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::KombuchaLib";
-      };
-      "OBJ_304" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::SPMUtility";
-      };
-      "OBJ_306" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::Basic";
-      };
-      "OBJ_307" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::POSIX";
-      };
-      "OBJ_308" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::SPMLibc";
-      };
-      "OBJ_309" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::clibc";
-      };
-      "OBJ_31" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_32",
-            "OBJ_33",
-            "OBJ_34"
-         );
-         name = "JSONCheckTests";
-         path = "Tests/JSONCheckTests";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_310" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheck";
-      };
-      "OBJ_311" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::Cont";
-      };
-      "OBJ_312" = {
-         isa = "PBXTargetDependency";
-         target = "Prelude::Prelude";
-      };
-      "OBJ_313" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValue";
-      };
-      "OBJ_314" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_315",
-            "OBJ_316"
+            "OBJ_302",
+            "OBJ_303"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_315" = {
+      "OBJ_302" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            ENABLE_TESTABILITY = "YES";
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+               "$(inherited)"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLib_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JUnitTests_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -2040,28 +2032,112 @@
                "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+               "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "KombuchaLib";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "KombuchaLib";
+            TARGET_NAME = "JUnitTests";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Debug";
       };
-      "OBJ_316" = {
+      "OBJ_303" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            ENABLE_TESTABILITY = "YES";
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/JUnitTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "JUnitTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_304" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_305",
+            "OBJ_306"
+         );
+      };
+      "OBJ_305" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_42";
+      };
+      "OBJ_306" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_43";
+      };
+      "OBJ_307" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_308",
+            "OBJ_309"
+         );
+      };
+      "OBJ_308" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JUnit::Product";
+      };
+      "OBJ_309" = {
+         isa = "PBXBuildFile";
+         fileRef = "Prelude::Prelude::Product";
+      };
+      "OBJ_31" = {
+         isa = "PBXFileReference";
+         path = "URL+Refined.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_310" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JUnit";
+      };
+      "OBJ_311" = {
+         isa = "PBXTargetDependency";
+         target = "Prelude::Prelude";
+      };
+      "OBJ_313" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_314",
+            "OBJ_315"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_314" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
@@ -2070,11 +2146,12 @@
                "$(inherited)",
                "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLib_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaCLI_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+               "@executable_path"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -2088,152 +2165,199 @@
                "-Xcc",
                "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "KombuchaLib";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
+            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
+            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "KombuchaLib";
+            TARGET_NAME = "KombuchaCLI";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_315" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaCLI_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+               "@executable_path"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
+            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "KombuchaCLI";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Release";
       };
-      "OBJ_317" = {
+      "OBJ_316" = {
          isa = "PBXSourcesBuildPhase";
          files = (
+            "OBJ_317",
             "OBJ_318",
-            "OBJ_319",
-            "OBJ_320",
-            "OBJ_321",
-            "OBJ_322",
-            "OBJ_323",
-            "OBJ_324"
+            "OBJ_319"
          );
+      };
+      "OBJ_317" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_21";
       };
       "OBJ_318" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_23";
+         fileRef = "OBJ_22";
       };
       "OBJ_319" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_24";
+         fileRef = "OBJ_23";
       };
       "OBJ_32" = {
-         isa = "PBXFileReference";
-         path = "JSONCheckTests.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_33",
+            "OBJ_37",
+            "OBJ_41",
+            "OBJ_44"
+         );
+         name = "Tests";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_320" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_25";
-      };
-      "OBJ_321" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_26";
-      };
-      "OBJ_322" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_27";
-      };
-      "OBJ_323" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_28";
-      };
-      "OBJ_324" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_29";
-      };
-      "OBJ_325" = {
          isa = "PBXFrameworksBuildPhase";
          files = (
+            "OBJ_321",
+            "OBJ_322",
+            "OBJ_323",
+            "OBJ_324",
+            "OBJ_325",
             "OBJ_326",
             "OBJ_327",
             "OBJ_328",
             "OBJ_329",
             "OBJ_330",
-            "OBJ_331",
-            "OBJ_332",
-            "OBJ_333",
-            "OBJ_334"
+            "OBJ_331"
          );
       };
-      "OBJ_326" = {
+      "OBJ_321" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JUnit::Product";
+      };
+      "OBJ_322" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::KombuchaLib::Product";
+      };
+      "OBJ_323" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::SPMUtility::Product";
       };
-      "OBJ_327" = {
+      "OBJ_324" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::Basic::Product";
       };
-      "OBJ_328" = {
+      "OBJ_325" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::POSIX::Product";
       };
-      "OBJ_329" = {
+      "OBJ_326" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::SPMLibc::Product";
       };
-      "OBJ_33" = {
-         isa = "PBXFileReference";
-         path = "JSONValue+PreludeTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_330" = {
+      "OBJ_327" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::clibc::Product";
       };
-      "OBJ_331" = {
+      "OBJ_328" = {
          isa = "PBXBuildFile";
          fileRef = "Kombucha::JSONCheck::Product";
       };
-      "OBJ_332" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONValue::Product";
-      };
-      "OBJ_333" = {
+      "OBJ_329" = {
          isa = "PBXBuildFile";
          fileRef = "Kombucha::Cont::Product";
       };
-      "OBJ_334" = {
+      "OBJ_33" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_34",
+            "OBJ_35",
+            "OBJ_36"
+         );
+         name = "JSONCheckTests";
+         path = "Tests/JSONCheckTests";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_330" = {
          isa = "PBXBuildFile";
          fileRef = "Prelude::Prelude::Product";
+      };
+      "OBJ_331" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JSONValue::Product";
+      };
+      "OBJ_332" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JUnit";
+      };
+      "OBJ_333" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::KombuchaLib";
       };
       "OBJ_335" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::SPMUtility";
       };
-      "OBJ_336" = {
+      "OBJ_337" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::Basic";
       };
-      "OBJ_337" = {
+      "OBJ_338" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::POSIX";
       };
-      "OBJ_338" = {
+      "OBJ_339" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::SPMLibc";
       };
-      "OBJ_339" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::clibc";
-      };
       "OBJ_34" = {
          isa = "PBXFileReference";
-         path = "XCTestManifests.swift";
+         path = "JSONCheckTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_340" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheck";
+         target = "SwiftPM::clibc";
       };
       "OBJ_341" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValue";
+         target = "Kombucha::JSONCheck";
       };
       "OBJ_342" = {
          isa = "PBXTargetDependency";
@@ -2242,6 +2366,10 @@
       "OBJ_343" = {
          isa = "PBXTargetDependency";
          target = "Prelude::Prelude";
+      };
+      "OBJ_344" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONValue";
       };
       "OBJ_345" = {
          isa = "XCConfigurationList";
@@ -2255,8 +2383,7 @@
       "OBJ_346" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            ENABLE_TESTABILITY = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
@@ -2265,12 +2392,11 @@
                "$(inherited)",
                "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLibTests_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLib_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -2284,11 +2410,15 @@
                "-Xcc",
                "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
             );
+            PRODUCT_BUNDLE_IDENTIFIER = "KombuchaLib";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "KombuchaLibTests";
+            TARGET_NAME = "KombuchaLib";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
@@ -2297,8 +2427,7 @@
       "OBJ_347" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            ENABLE_TESTABILITY = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
@@ -2307,12 +2436,11 @@
                "$(inherited)",
                "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLibTests_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLib_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
@@ -2326,11 +2454,15 @@
                "-Xcc",
                "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
             );
+            PRODUCT_BUNDLE_IDENTIFIER = "KombuchaLib";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "KombuchaLibTests";
+            TARGET_NAME = "KombuchaLib";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
@@ -2340,384 +2472,349 @@
          isa = "PBXSourcesBuildPhase";
          files = (
             "OBJ_349",
-            "OBJ_350"
+            "OBJ_350",
+            "OBJ_351",
+            "OBJ_352",
+            "OBJ_353",
+            "OBJ_354",
+            "OBJ_355"
          );
       };
       "OBJ_349" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_40";
+         fileRef = "OBJ_25";
       };
       "OBJ_35" = {
+         isa = "PBXFileReference";
+         path = "JSONValue+PreludeTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_350" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_26";
+      };
+      "OBJ_351" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_27";
+      };
+      "OBJ_352" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_28";
+      };
+      "OBJ_353" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_29";
+      };
+      "OBJ_354" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_30";
+      };
+      "OBJ_355" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_31";
+      };
+      "OBJ_356" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_357",
+            "OBJ_358",
+            "OBJ_359",
+            "OBJ_360",
+            "OBJ_361",
+            "OBJ_362",
+            "OBJ_363",
+            "OBJ_364",
+            "OBJ_365"
+         );
+      };
+      "OBJ_357" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::SPMUtility::Product";
+      };
+      "OBJ_358" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::Basic::Product";
+      };
+      "OBJ_359" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::POSIX::Product";
+      };
+      "OBJ_36" = {
+         isa = "PBXFileReference";
+         path = "XCTestManifests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_360" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::SPMLibc::Product";
+      };
+      "OBJ_361" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::clibc::Product";
+      };
+      "OBJ_362" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JSONCheck::Product";
+      };
+      "OBJ_363" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JSONValue::Product";
+      };
+      "OBJ_364" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::Cont::Product";
+      };
+      "OBJ_365" = {
+         isa = "PBXBuildFile";
+         fileRef = "Prelude::Prelude::Product";
+      };
+      "OBJ_366" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::SPMUtility";
+      };
+      "OBJ_367" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::Basic";
+      };
+      "OBJ_368" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::POSIX";
+      };
+      "OBJ_369" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::SPMLibc";
+      };
+      "OBJ_37" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_36",
-            "OBJ_37",
-            "OBJ_38"
+            "OBJ_38",
+            "OBJ_39",
+            "OBJ_40"
          );
          name = "JSONValueTests";
          path = "Tests/JSONValueTests";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_350" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_41";
+      "OBJ_370" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::clibc";
       };
-      "OBJ_351" = {
-         isa = "PBXFrameworksBuildPhase";
+      "OBJ_371" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONCheck";
+      };
+      "OBJ_372" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONValue";
+      };
+      "OBJ_373" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::Cont";
+      };
+      "OBJ_374" = {
+         isa = "PBXTargetDependency";
+         target = "Prelude::Prelude";
+      };
+      "OBJ_376" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_377",
+            "OBJ_378"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_377" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLibTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "KombuchaLibTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_378" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/KombuchaLibTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "KombuchaLibTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_379" = {
+         isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_352",
-            "OBJ_353",
-            "OBJ_354",
-            "OBJ_355",
-            "OBJ_356",
-            "OBJ_357",
-            "OBJ_358",
-            "OBJ_359",
-            "OBJ_360",
-            "OBJ_361"
+            "OBJ_380",
+            "OBJ_381"
          );
       };
-      "OBJ_352" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::KombuchaLib::Product";
-      };
-      "OBJ_353" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::SPMUtility::Product";
-      };
-      "OBJ_354" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::Basic::Product";
-      };
-      "OBJ_355" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::POSIX::Product";
-      };
-      "OBJ_356" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::SPMLibc::Product";
-      };
-      "OBJ_357" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::clibc::Product";
-      };
-      "OBJ_358" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONCheck::Product";
-      };
-      "OBJ_359" = {
-         isa = "PBXBuildFile";
-         fileRef = "Kombucha::JSONValue::Product";
-      };
-      "OBJ_36" = {
+      "OBJ_38" = {
          isa = "PBXFileReference";
          path = "JSONIndexTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_360" = {
+      "OBJ_380" = {
          isa = "PBXBuildFile";
-         fileRef = "Kombucha::Cont::Product";
+         fileRef = "OBJ_45";
       };
-      "OBJ_361" = {
+      "OBJ_381" = {
          isa = "PBXBuildFile";
-         fileRef = "Prelude::Prelude::Product";
+         fileRef = "OBJ_46";
       };
-      "OBJ_362" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::KombuchaLib";
+      "OBJ_382" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_383",
+            "OBJ_384",
+            "OBJ_385",
+            "OBJ_386",
+            "OBJ_387",
+            "OBJ_388",
+            "OBJ_389",
+            "OBJ_390",
+            "OBJ_391",
+            "OBJ_392"
+         );
       };
-      "OBJ_363" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::SPMUtility";
+      "OBJ_383" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::KombuchaLib::Product";
       };
-      "OBJ_364" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::Basic";
+      "OBJ_384" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::SPMUtility::Product";
       };
-      "OBJ_365" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::POSIX";
+      "OBJ_385" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::Basic::Product";
       };
-      "OBJ_366" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::SPMLibc";
+      "OBJ_386" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::POSIX::Product";
       };
-      "OBJ_367" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::clibc";
+      "OBJ_387" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::SPMLibc::Product";
       };
-      "OBJ_368" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheck";
+      "OBJ_388" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::clibc::Product";
       };
-      "OBJ_369" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValue";
+      "OBJ_389" = {
+         isa = "PBXBuildFile";
+         fileRef = "Kombucha::JSONCheck::Product";
       };
-      "OBJ_37" = {
+      "OBJ_39" = {
          isa = "PBXFileReference";
          path = "JSONValueTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_370" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::Cont";
-      };
-      "OBJ_371" = {
-         isa = "PBXTargetDependency";
-         target = "Prelude::Prelude";
-      };
-      "OBJ_373" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_374",
-            "OBJ_375"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_374" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 10.2.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_375" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 10.2.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_376" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_377"
-         );
-      };
-      "OBJ_377" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
-      "OBJ_379" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_380",
-            "OBJ_381"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_38" = {
-         isa = "PBXFileReference";
-         path = "XCTestManifests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_380" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_381" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_382" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheckTests";
-      };
-      "OBJ_383" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::KombuchaLibTests";
-      };
-      "OBJ_384" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValueTests";
-      };
-      "OBJ_385" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_386",
-            "OBJ_387"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_386" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/POSIX_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "POSIX";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "POSIX";
-         };
-         name = "Debug";
-      };
-      "OBJ_387" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/POSIX_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "POSIX";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "POSIX";
-         };
-         name = "Release";
-      };
-      "OBJ_388" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_389",
-            "OBJ_390",
-            "OBJ_391",
-            "OBJ_392",
-            "OBJ_393",
-            "OBJ_394",
-            "OBJ_395",
-            "OBJ_396",
-            "OBJ_397",
-            "OBJ_398",
-            "OBJ_399"
-         );
-      };
-      "OBJ_389" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_98";
-      };
-      "OBJ_39" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_40",
-            "OBJ_41"
-         );
-         name = "KombuchaLibTests";
-         path = "Tests/KombuchaLibTests";
-         sourceTree = "SOURCE_ROOT";
-      };
       "OBJ_390" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_99";
+         fileRef = "Kombucha::JSONValue::Product";
       };
       "OBJ_391" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_100";
+         fileRef = "Kombucha::Cont::Product";
       };
       "OBJ_392" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_101";
+         fileRef = "Prelude::Prelude::Product";
       };
       "OBJ_393" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_102";
+         isa = "PBXTargetDependency";
+         target = "Kombucha::KombuchaLib";
       };
       "OBJ_394" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_103";
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::SPMUtility";
       };
       "OBJ_395" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_104";
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::Basic";
       };
       "OBJ_396" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_105";
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::POSIX";
       };
       "OBJ_397" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_106";
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::SPMLibc";
       };
       "OBJ_398" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_107";
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::clibc";
       };
       "OBJ_399" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_108";
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONCheck";
       };
       "OBJ_4" = {
          isa = "XCBuildConfiguration";
@@ -2758,79 +2855,133 @@
       };
       "OBJ_40" = {
          isa = "PBXFileReference";
-         path = "KombuchaLibTests.swift";
+         path = "XCTestManifests.swift";
          sourceTree = "<group>";
       };
       "OBJ_400" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_401",
-            "OBJ_402"
-         );
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONValue";
       };
       "OBJ_401" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::SPMLibc::Product";
+         isa = "PBXTargetDependency";
+         target = "Kombucha::Cont";
       };
       "OBJ_402" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftPM::clibc::Product";
-      };
-      "OBJ_403" = {
          isa = "PBXTargetDependency";
-         target = "SwiftPM::SPMLibc";
+         target = "Prelude::Prelude";
       };
       "OBJ_404" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftPM::clibc";
-      };
-      "OBJ_405" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_406",
-            "OBJ_407"
+            "OBJ_405",
+            "OBJ_406"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
+      };
+      "OBJ_405" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Debug";
       };
       "OBJ_406" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/Prelude_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
+            LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "Prelude";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "Prelude";
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Release";
+      };
+      "OBJ_407" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_408"
+         );
+      };
+      "OBJ_408" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_6";
+      };
+      "OBJ_41" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_42",
+            "OBJ_43"
+         );
+         name = "JUnitTests";
+         path = "Tests/JUnitTests";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_410" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_411",
+            "OBJ_412"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_411" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
          };
          name = "Debug";
       };
-      "OBJ_407" = {
+      "OBJ_412" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
+      };
+      "OBJ_413" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONValueTests";
+      };
+      "OBJ_414" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JUnitTests";
+      };
+      "OBJ_415" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::KombuchaLibTests";
+      };
+      "OBJ_416" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::JSONCheckTests";
+      };
+      "OBJ_417" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_418",
+            "OBJ_419"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_418" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -2839,9 +2990,10 @@
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)"
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/Prelude_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/POSIX_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
@@ -2853,9 +3005,11 @@
                "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "Prelude";
+            PRODUCT_BUNDLE_IDENTIFIER = "POSIX";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
@@ -2863,268 +3017,153 @@
                "$(inherited)"
             );
             SWIFT_VERSION = "4.2";
-            TARGET_NAME = "Prelude";
+            TARGET_NAME = "POSIX";
+         };
+         name = "Debug";
+      };
+      "OBJ_419" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/POSIX_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "POSIX";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.2";
+            TARGET_NAME = "POSIX";
          };
          name = "Release";
       };
-      "OBJ_408" = {
+      "OBJ_42" = {
+         isa = "PBXFileReference";
+         path = "JUnitTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_420" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_409",
-            "OBJ_410",
-            "OBJ_411",
-            "OBJ_412",
-            "OBJ_413",
-            "OBJ_414",
-            "OBJ_415",
-            "OBJ_416",
-            "OBJ_417"
+            "OBJ_421",
+            "OBJ_422",
+            "OBJ_423",
+            "OBJ_424",
+            "OBJ_425",
+            "OBJ_426",
+            "OBJ_427",
+            "OBJ_428",
+            "OBJ_429",
+            "OBJ_430",
+            "OBJ_431"
          );
       };
-      "OBJ_409" = {
+      "OBJ_421" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_45";
+         fileRef = "OBJ_103";
       };
-      "OBJ_41" = {
+      "OBJ_422" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_104";
+      };
+      "OBJ_423" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_105";
+      };
+      "OBJ_424" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_106";
+      };
+      "OBJ_425" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_107";
+      };
+      "OBJ_426" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_108";
+      };
+      "OBJ_427" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_109";
+      };
+      "OBJ_428" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_110";
+      };
+      "OBJ_429" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_111";
+      };
+      "OBJ_43" = {
          isa = "PBXFileReference";
          path = "XCTestManifests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_410" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_46";
-      };
-      "OBJ_411" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_47";
-      };
-      "OBJ_412" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_48";
-      };
-      "OBJ_413" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_49";
-      };
-      "OBJ_414" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_50";
-      };
-      "OBJ_415" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_51";
-      };
-      "OBJ_416" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_52";
-      };
-      "OBJ_417" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_53";
-      };
-      "OBJ_418" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_42" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_43",
-            "OBJ_55"
-         );
-         name = "Dependencies";
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_420" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_421",
-            "OBJ_422"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_421" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 10.2.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.2";
-         };
-         name = "Debug";
-      };
-      "OBJ_422" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 10.2.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.2";
-         };
-         name = "Release";
-      };
-      "OBJ_423" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_424"
-         );
-      };
-      "OBJ_424" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_54";
-      };
-      "OBJ_425" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_426",
-            "OBJ_427"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_426" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMLibc_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SPMLibc";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "SPMLibc";
-         };
-         name = "Debug";
-      };
-      "OBJ_427" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMLibc_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SPMLibc";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "SPMLibc";
-         };
-         name = "Release";
-      };
-      "OBJ_428" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_429"
-         );
-      };
-      "OBJ_429" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_115";
-      };
-      "OBJ_43" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_44",
-            "OBJ_54"
-         );
-         name = "Prelude 0.3.0";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
       "OBJ_430" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_431"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_112";
       };
       "OBJ_431" = {
          isa = "PBXBuildFile";
-         fileRef = "SwiftPM::clibc::Product";
+         fileRef = "OBJ_113";
       };
       "OBJ_432" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_433",
+            "OBJ_434"
+         );
+      };
+      "OBJ_433" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::SPMLibc::Product";
+      };
+      "OBJ_434" = {
+         isa = "PBXBuildFile";
+         fileRef = "SwiftPM::clibc::Product";
+      };
+      "OBJ_435" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::SPMLibc";
+      };
+      "OBJ_436" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::clibc";
       };
-      "OBJ_433" = {
+      "OBJ_437" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_434",
-            "OBJ_435"
+            "OBJ_438",
+            "OBJ_439"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_434" = {
+      "OBJ_438" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -3133,10 +3172,9 @@
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+               "$(inherited)"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMUtility_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/Prelude_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
@@ -3148,11 +3186,9 @@
                "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+               "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "SPMUtility";
+            PRODUCT_BUNDLE_IDENTIFIER = "Prelude";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
@@ -3160,11 +3196,11 @@
                "$(inherited)"
             );
             SWIFT_VERSION = "4.2";
-            TARGET_NAME = "SPMUtility";
+            TARGET_NAME = "Prelude";
          };
          name = "Debug";
       };
-      "OBJ_435" = {
+      "OBJ_439" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -3173,10 +3209,9 @@
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+               "$(inherited)"
             );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMUtility_Info.plist";
+            INFOPLIST_FILE = "Kombucha.xcodeproj/Prelude_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
@@ -3188,11 +3223,9 @@
                "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-Xcc",
-               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+               "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "SPMUtility";
+            PRODUCT_BUNDLE_IDENTIFIER = "Prelude";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
@@ -3200,17 +3233,23 @@
                "$(inherited)"
             );
             SWIFT_VERSION = "4.2";
-            TARGET_NAME = "SPMUtility";
+            TARGET_NAME = "Prelude";
          };
          name = "Release";
       };
-      "OBJ_436" = {
+      "OBJ_44" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_45",
+            "OBJ_46"
+         );
+         name = "KombuchaLibTests";
+         path = "Tests/KombuchaLibTests";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_440" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_437",
-            "OBJ_438",
-            "OBJ_439",
-            "OBJ_440",
             "OBJ_441",
             "OBJ_442",
             "OBJ_443",
@@ -3219,441 +3258,789 @@
             "OBJ_446",
             "OBJ_447",
             "OBJ_448",
-            "OBJ_449",
-            "OBJ_450",
-            "OBJ_451",
-            "OBJ_452",
+            "OBJ_449"
+         );
+      };
+      "OBJ_441" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_50";
+      };
+      "OBJ_442" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_51";
+      };
+      "OBJ_443" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_52";
+      };
+      "OBJ_444" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_53";
+      };
+      "OBJ_445" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_54";
+      };
+      "OBJ_446" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_55";
+      };
+      "OBJ_447" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_56";
+      };
+      "OBJ_448" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_57";
+      };
+      "OBJ_449" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_58";
+      };
+      "OBJ_45" = {
+         isa = "PBXFileReference";
+         path = "KombuchaLibTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_450" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
+      };
+      "OBJ_452" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
             "OBJ_453",
-            "OBJ_454",
-            "OBJ_455",
+            "OBJ_454"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_453" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Debug";
+      };
+      "OBJ_454" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Release";
+      };
+      "OBJ_455" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
             "OBJ_456"
          );
       };
-      "OBJ_437" = {
+      "OBJ_456" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_117";
+         fileRef = "OBJ_59";
       };
-      "OBJ_438" = {
+      "OBJ_457" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_458",
+            "OBJ_459"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_458" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMLibc_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "SPMLibc";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.2";
+            TARGET_NAME = "SPMLibc";
+         };
+         name = "Debug";
+      };
+      "OBJ_459" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMLibc_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "SPMLibc";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.2";
+            TARGET_NAME = "SPMLibc";
+         };
+         name = "Release";
+      };
+      "OBJ_46" = {
+         isa = "PBXFileReference";
+         path = "XCTestManifests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_460" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_461"
+         );
+      };
+      "OBJ_461" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_118";
+         fileRef = "OBJ_120";
       };
-      "OBJ_439" = {
+      "OBJ_462" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_463"
+         );
+      };
+      "OBJ_463" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_119";
+         fileRef = "SwiftPM::clibc::Product";
       };
-      "OBJ_44" = {
+      "OBJ_464" = {
+         isa = "PBXTargetDependency";
+         target = "SwiftPM::clibc";
+      };
+      "OBJ_465" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_466",
+            "OBJ_467"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_466" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMUtility_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "SPMUtility";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.2";
+            TARGET_NAME = "SPMUtility";
+         };
+         name = "Debug";
+      };
+      "OBJ_467" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/SPMUtility_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-Xcc",
+               "-fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "SPMUtility";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.2";
+            TARGET_NAME = "SPMUtility";
+         };
+         name = "Release";
+      };
+      "OBJ_468" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_469",
+            "OBJ_470",
+            "OBJ_471",
+            "OBJ_472",
+            "OBJ_473",
+            "OBJ_474",
+            "OBJ_475",
+            "OBJ_476",
+            "OBJ_477",
+            "OBJ_478",
+            "OBJ_479",
+            "OBJ_480",
+            "OBJ_481",
+            "OBJ_482",
+            "OBJ_483",
+            "OBJ_484",
+            "OBJ_485",
+            "OBJ_486",
+            "OBJ_487",
+            "OBJ_488"
+         );
+      };
+      "OBJ_469" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_122";
+      };
+      "OBJ_47" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_45",
-            "OBJ_46",
-            "OBJ_47",
             "OBJ_48",
+            "OBJ_60"
+         );
+         name = "Dependencies";
+         path = "";
+         sourceTree = "<group>";
+      };
+      "OBJ_470" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_123";
+      };
+      "OBJ_471" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_124";
+      };
+      "OBJ_472" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_125";
+      };
+      "OBJ_473" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_126";
+      };
+      "OBJ_474" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_127";
+      };
+      "OBJ_475" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_128";
+      };
+      "OBJ_476" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_129";
+      };
+      "OBJ_477" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_130";
+      };
+      "OBJ_478" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_131";
+      };
+      "OBJ_479" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_132";
+      };
+      "OBJ_48" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_49",
+            "OBJ_59"
+         );
+         name = "Prelude 0.3.0";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_480" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_133";
+      };
+      "OBJ_481" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_134";
+      };
+      "OBJ_482" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_135";
+      };
+      "OBJ_483" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_136";
+      };
+      "OBJ_484" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_137";
+      };
+      "OBJ_485" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_138";
+      };
+      "OBJ_486" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_139";
+      };
+      "OBJ_487" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_140";
+      };
+      "OBJ_488" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_141";
+      };
+      "OBJ_489" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_490",
+            "OBJ_491",
+            "OBJ_492",
+            "OBJ_493"
+         );
+      };
+      "OBJ_49" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_50",
             "OBJ_51",
             "OBJ_52",
-            "OBJ_53"
+            "OBJ_53",
+            "OBJ_54",
+            "OBJ_55",
+            "OBJ_56",
+            "OBJ_57",
+            "OBJ_58"
          );
          name = "Prelude";
          path = ".build/checkouts/prelude/Sources/Prelude";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_440" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_120";
-      };
-      "OBJ_441" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_121";
-      };
-      "OBJ_442" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_122";
-      };
-      "OBJ_443" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_123";
-      };
-      "OBJ_444" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_124";
-      };
-      "OBJ_445" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_125";
-      };
-      "OBJ_446" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_126";
-      };
-      "OBJ_447" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_127";
-      };
-      "OBJ_448" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_128";
-      };
-      "OBJ_449" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_129";
-      };
-      "OBJ_45" = {
-         isa = "PBXFileReference";
-         path = "ChangeTracking.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_450" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_130";
-      };
-      "OBJ_451" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_131";
-      };
-      "OBJ_452" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_132";
-      };
-      "OBJ_453" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_133";
-      };
-      "OBJ_454" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_134";
-      };
-      "OBJ_455" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_135";
-      };
-      "OBJ_456" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_136";
-      };
-      "OBJ_457" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_458",
-            "OBJ_459",
-            "OBJ_460",
-            "OBJ_461"
-         );
-      };
-      "OBJ_458" = {
+      "OBJ_490" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::Basic::Product";
       };
-      "OBJ_459" = {
+      "OBJ_491" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::POSIX::Product";
       };
-      "OBJ_46" = {
-         isa = "PBXFileReference";
-         path = "Monoid.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_460" = {
+      "OBJ_492" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::SPMLibc::Product";
       };
-      "OBJ_461" = {
+      "OBJ_493" = {
          isa = "PBXBuildFile";
          fileRef = "SwiftPM::clibc::Product";
       };
-      "OBJ_462" = {
+      "OBJ_494" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::Basic";
       };
-      "OBJ_463" = {
+      "OBJ_495" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::POSIX";
       };
-      "OBJ_464" = {
+      "OBJ_496" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::SPMLibc";
       };
-      "OBJ_465" = {
+      "OBJ_497" = {
          isa = "PBXTargetDependency";
          target = "SwiftPM::clibc";
       };
-      "OBJ_467" = {
+      "OBJ_499" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_468",
-            "OBJ_469"
+            "OBJ_500",
+            "OBJ_501"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
-      };
-      "OBJ_468" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 10.2.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.2";
-         };
-         name = "Debug";
-      };
-      "OBJ_469" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 10.2.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.2";
-         };
-         name = "Release";
-      };
-      "OBJ_47" = {
-         isa = "PBXFileReference";
-         path = "Nat.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_470" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_471"
-         );
-      };
-      "OBJ_471" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_152";
-      };
-      "OBJ_472" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_473",
-            "OBJ_474"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_473" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            DEFINES_MODULE = "NO";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/clibc_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "clibc";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "clibc";
-         };
-         name = "Debug";
-      };
-      "OBJ_474" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            DEFINES_MODULE = "NO";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
-            );
-            INFOPLIST_FILE = "Kombucha.xcodeproj/clibc_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "clibc";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "clibc";
-         };
-         name = "Release";
-      };
-      "OBJ_475" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_476"
-         );
-      };
-      "OBJ_476" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_143";
-      };
-      "OBJ_477" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_479" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_480",
-            "OBJ_481"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_48" = {
-         isa = "PBXFileReference";
-         path = "Operators.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_480" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_481" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_482" = {
-         isa = "PBXTargetDependency";
-         target = "Kombucha::KombuchaCLI";
-      };
-      "OBJ_49" = {
-         isa = "PBXFileReference";
-         path = "Predicate.swift";
-         sourceTree = "<group>";
       };
       "OBJ_5" = {
          isa = "PBXGroup";
          children = (
             "OBJ_6",
             "OBJ_7",
-            "OBJ_30",
-            "OBJ_42",
-            "OBJ_153",
-            "OBJ_168",
-            "OBJ_169",
-            "OBJ_170",
-            "OBJ_171"
+            "OBJ_32",
+            "OBJ_47",
+            "OBJ_158",
+            "OBJ_175",
+            "OBJ_176",
+            "OBJ_177",
+            "OBJ_178",
+            "OBJ_179"
          );
          path = "";
          sourceTree = "<group>";
       };
       "OBJ_50" = {
          isa = "PBXFileReference";
-         path = "Prelude.swift";
+         path = "ChangeTracking.swift";
          sourceTree = "<group>";
+      };
+      "OBJ_500" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Debug";
+      };
+      "OBJ_501" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Release";
+      };
+      "OBJ_502" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_503"
+         );
+      };
+      "OBJ_503" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_157";
+      };
+      "OBJ_504" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_505",
+            "OBJ_506"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_505" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            DEFINES_MODULE = "NO";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/clibc_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "clibc";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            TARGET_NAME = "clibc";
+         };
+         name = "Debug";
+      };
+      "OBJ_506" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            DEFINES_MODULE = "NO";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include"
+            );
+            INFOPLIST_FILE = "Kombucha.xcodeproj/clibc_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "clibc";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            TARGET_NAME = "clibc";
+         };
+         name = "Release";
+      };
+      "OBJ_507" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_508"
+         );
+      };
+      "OBJ_508" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_148";
+      };
+      "OBJ_509" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
       };
       "OBJ_51" = {
          isa = "PBXFileReference";
-         path = "Reducers.swift";
+         path = "Monoid.swift";
          sourceTree = "<group>";
+      };
+      "OBJ_511" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_512",
+            "OBJ_513"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_512" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Debug";
+      };
+      "OBJ_513" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
+      };
+      "OBJ_514" = {
+         isa = "PBXTargetDependency";
+         target = "Kombucha::KombuchaCLI";
       };
       "OBJ_52" = {
          isa = "PBXFileReference";
-         path = "Refinements.swift";
+         path = "Nat.swift";
          sourceTree = "<group>";
       };
       "OBJ_53" = {
          isa = "PBXFileReference";
-         path = "Sequence+Prelude.swift";
+         path = "Operators.swift";
          sourceTree = "<group>";
       };
       "OBJ_54" = {
          isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/ptomaselli/Documents/Code/kombucha/.build/checkouts/prelude/Package.swift";
+         path = "Predicate.swift";
          sourceTree = "<group>";
       };
       "OBJ_55" = {
+         isa = "PBXFileReference";
+         path = "Prelude.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_56" = {
+         isa = "PBXFileReference";
+         path = "Reducers.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_57" = {
+         isa = "PBXFileReference";
+         path = "Refinements.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_58" = {
+         isa = "PBXFileReference";
+         path = "Sequence+Prelude.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_59" = {
+         isa = "PBXFileReference";
+         explicitFileType = "sourcecode.swift";
+         name = "Package.swift";
+         path = "/Users/sr569d/kombucha/.build/checkouts/prelude/Package.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_6" = {
+         isa = "PBXFileReference";
+         explicitFileType = "sourcecode.swift";
+         path = "Package.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_60" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_56",
-            "OBJ_95",
-            "OBJ_96",
-            "OBJ_97",
-            "OBJ_109",
-            "OBJ_110",
-            "OBJ_111",
-            "OBJ_112",
-            "OBJ_113",
+            "OBJ_61",
+            "OBJ_100",
+            "OBJ_101",
+            "OBJ_102",
             "OBJ_114",
+            "OBJ_115",
             "OBJ_116",
-            "OBJ_137",
-            "OBJ_138",
-            "OBJ_139",
-            "OBJ_140",
-            "OBJ_141",
+            "OBJ_117",
+            "OBJ_118",
+            "OBJ_119",
+            "OBJ_121",
             "OBJ_142",
+            "OBJ_143",
+            "OBJ_144",
+            "OBJ_145",
+            "OBJ_146",
             "OBJ_147",
-            "OBJ_148",
-            "OBJ_149",
-            "OBJ_150",
-            "OBJ_151",
-            "OBJ_152"
+            "OBJ_152",
+            "OBJ_153",
+            "OBJ_154",
+            "OBJ_155",
+            "OBJ_156",
+            "OBJ_157"
          );
          name = "SwiftPM 0.4.0";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_56" = {
+      "OBJ_61" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_57",
-            "OBJ_58",
-            "OBJ_59",
-            "OBJ_60",
-            "OBJ_61",
             "OBJ_62",
             "OBJ_63",
             "OBJ_64",
@@ -3686,81 +4073,55 @@
             "OBJ_91",
             "OBJ_92",
             "OBJ_93",
-            "OBJ_94"
+            "OBJ_94",
+            "OBJ_95",
+            "OBJ_96",
+            "OBJ_97",
+            "OBJ_98",
+            "OBJ_99"
          );
          name = "Basic";
          path = ".build/checkouts/swift-package-manager/Sources/Basic";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_57" = {
+      "OBJ_62" = {
          isa = "PBXFileReference";
          path = "Await.swift";
          sourceTree = "<group>";
       };
-      "OBJ_58" = {
+      "OBJ_63" = {
          isa = "PBXFileReference";
          path = "ByteString.swift";
          sourceTree = "<group>";
       };
-      "OBJ_59" = {
+      "OBJ_64" = {
          isa = "PBXFileReference";
          path = "CStringArray.swift";
          sourceTree = "<group>";
       };
-      "OBJ_6" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         path = "Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_60" = {
+      "OBJ_65" = {
          isa = "PBXFileReference";
          path = "CacheableSequence.swift";
          sourceTree = "<group>";
       };
-      "OBJ_61" = {
+      "OBJ_66" = {
          isa = "PBXFileReference";
          path = "CollectionAlgorithms.swift";
          sourceTree = "<group>";
       };
-      "OBJ_62" = {
+      "OBJ_67" = {
          isa = "PBXFileReference";
          path = "CollectionExtensions.swift";
          sourceTree = "<group>";
       };
-      "OBJ_63" = {
+      "OBJ_68" = {
          isa = "PBXFileReference";
          path = "Condition.swift";
          sourceTree = "<group>";
       };
-      "OBJ_64" = {
-         isa = "PBXFileReference";
-         path = "DeltaAlgorithm.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_65" = {
-         isa = "PBXFileReference";
-         path = "DiagnosticsEngine.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_66" = {
-         isa = "PBXFileReference";
-         path = "DictionaryExtensions.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_67" = {
-         isa = "PBXFileReference";
-         path = "DictionaryLiteralExtensions.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_68" = {
-         isa = "PBXFileReference";
-         path = "EditDistance.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_69" = {
          isa = "PBXFileReference";
-         path = "FileSystem.swift";
+         path = "DeltaAlgorithm.swift";
          sourceTree = "<group>";
       };
       "OBJ_7" = {
@@ -3770,7 +4131,8 @@
             "OBJ_11",
             "OBJ_15",
             "OBJ_18",
-            "OBJ_22"
+            "OBJ_20",
+            "OBJ_24"
          );
          name = "Sources";
          path = "";
@@ -3778,52 +4140,52 @@
       };
       "OBJ_70" = {
          isa = "PBXFileReference";
-         path = "GraphAlgorithms.swift";
+         path = "DiagnosticsEngine.swift";
          sourceTree = "<group>";
       };
       "OBJ_71" = {
          isa = "PBXFileReference";
-         path = "JSON.swift";
+         path = "DictionaryExtensions.swift";
          sourceTree = "<group>";
       };
       "OBJ_72" = {
          isa = "PBXFileReference";
-         path = "JSONMapper.swift";
+         path = "DictionaryLiteralExtensions.swift";
          sourceTree = "<group>";
       };
       "OBJ_73" = {
          isa = "PBXFileReference";
-         path = "KeyedPair.swift";
+         path = "EditDistance.swift";
          sourceTree = "<group>";
       };
       "OBJ_74" = {
          isa = "PBXFileReference";
-         path = "LazyCache.swift";
+         path = "FileSystem.swift";
          sourceTree = "<group>";
       };
       "OBJ_75" = {
          isa = "PBXFileReference";
-         path = "Lock.swift";
+         path = "GraphAlgorithms.swift";
          sourceTree = "<group>";
       };
       "OBJ_76" = {
          isa = "PBXFileReference";
-         path = "ObjectIdentifierProtocol.swift";
+         path = "JSON.swift";
          sourceTree = "<group>";
       };
       "OBJ_77" = {
          isa = "PBXFileReference";
-         path = "OrderedDictionary.swift";
+         path = "JSONMapper.swift";
          sourceTree = "<group>";
       };
       "OBJ_78" = {
          isa = "PBXFileReference";
-         path = "OrderedSet.swift";
+         path = "KeyedPair.swift";
          sourceTree = "<group>";
       };
       "OBJ_79" = {
          isa = "PBXFileReference";
-         path = "OutputByteStream.swift";
+         path = "LazyCache.swift";
          sourceTree = "<group>";
       };
       "OBJ_8" = {
@@ -3838,52 +4200,52 @@
       };
       "OBJ_80" = {
          isa = "PBXFileReference";
-         path = "Path.swift";
+         path = "Lock.swift";
          sourceTree = "<group>";
       };
       "OBJ_81" = {
          isa = "PBXFileReference";
-         path = "PathShims.swift";
+         path = "ObjectIdentifierProtocol.swift";
          sourceTree = "<group>";
       };
       "OBJ_82" = {
          isa = "PBXFileReference";
-         path = "Process.swift";
+         path = "OrderedDictionary.swift";
          sourceTree = "<group>";
       };
       "OBJ_83" = {
          isa = "PBXFileReference";
-         path = "ProcessSet.swift";
+         path = "OrderedSet.swift";
          sourceTree = "<group>";
       };
       "OBJ_84" = {
          isa = "PBXFileReference";
-         path = "RegEx.swift";
+         path = "OutputByteStream.swift";
          sourceTree = "<group>";
       };
       "OBJ_85" = {
          isa = "PBXFileReference";
-         path = "Result.swift";
+         path = "Path.swift";
          sourceTree = "<group>";
       };
       "OBJ_86" = {
          isa = "PBXFileReference";
-         path = "SHA256.swift";
+         path = "PathShims.swift";
          sourceTree = "<group>";
       };
       "OBJ_87" = {
          isa = "PBXFileReference";
-         path = "SortedArray.swift";
+         path = "Process.swift";
          sourceTree = "<group>";
       };
       "OBJ_88" = {
          isa = "PBXFileReference";
-         path = "StringConversions.swift";
+         path = "ProcessSet.swift";
          sourceTree = "<group>";
       };
       "OBJ_89" = {
          isa = "PBXFileReference";
-         path = "SynchronizedQueue.swift";
+         path = "RegEx.swift";
          sourceTree = "<group>";
       };
       "OBJ_9" = {
@@ -3893,80 +4255,60 @@
       };
       "OBJ_90" = {
          isa = "PBXFileReference";
-         path = "TemporaryFile.swift";
+         path = "Result.swift";
          sourceTree = "<group>";
       };
       "OBJ_91" = {
          isa = "PBXFileReference";
-         path = "TerminalController.swift";
+         path = "SHA256.swift";
          sourceTree = "<group>";
       };
       "OBJ_92" = {
          isa = "PBXFileReference";
-         path = "Thread.swift";
+         path = "SortedArray.swift";
          sourceTree = "<group>";
       };
       "OBJ_93" = {
          isa = "PBXFileReference";
-         path = "Tuple.swift";
+         path = "StringConversions.swift";
          sourceTree = "<group>";
       };
       "OBJ_94" = {
          isa = "PBXFileReference";
-         path = "misc.swift";
+         path = "SynchronizedQueue.swift";
          sourceTree = "<group>";
       };
       "OBJ_95" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "Build";
-         path = ".build/checkouts/swift-package-manager/Sources/Build";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "TemporaryFile.swift";
+         sourceTree = "<group>";
       };
       "OBJ_96" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "Commands";
-         path = ".build/checkouts/swift-package-manager/Sources/Commands";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "TerminalController.swift";
+         sourceTree = "<group>";
       };
       "OBJ_97" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_98",
-            "OBJ_99",
-            "OBJ_100",
-            "OBJ_101",
-            "OBJ_102",
-            "OBJ_103",
-            "OBJ_104",
-            "OBJ_105",
-            "OBJ_106",
-            "OBJ_107",
-            "OBJ_108"
-         );
-         name = "POSIX";
-         path = ".build/checkouts/swift-package-manager/Sources/POSIX";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Thread.swift";
+         sourceTree = "<group>";
       };
       "OBJ_98" = {
          isa = "PBXFileReference";
-         path = "Error.swift";
+         path = "Tuple.swift";
          sourceTree = "<group>";
       };
       "OBJ_99" = {
          isa = "PBXFileReference";
-         path = "chdir.swift";
+         path = "misc.swift";
          sourceTree = "<group>";
       };
       "Prelude::Prelude" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_405";
+         buildConfigurationList = "OBJ_437";
          buildPhases = (
-            "OBJ_408",
-            "OBJ_418"
+            "OBJ_440",
+            "OBJ_450"
          );
          dependencies = (
          );
@@ -3982,9 +4324,9 @@
       };
       "Prelude::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_420";
+         buildConfigurationList = "OBJ_452";
          buildPhases = (
-            "OBJ_423"
+            "OBJ_455"
          );
          dependencies = (
          );
@@ -3994,15 +4336,15 @@
       };
       "SwiftPM::Basic" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_173";
+         buildConfigurationList = "OBJ_181";
          buildPhases = (
-            "OBJ_176",
-            "OBJ_215"
+            "OBJ_184",
+            "OBJ_223"
          );
          dependencies = (
-            "OBJ_219",
-            "OBJ_221",
-            "OBJ_223"
+            "OBJ_227",
+            "OBJ_229",
+            "OBJ_231"
          );
          name = "Basic";
          productName = "Basic";
@@ -4016,14 +4358,14 @@
       };
       "SwiftPM::POSIX" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_385";
+         buildConfigurationList = "OBJ_417";
          buildPhases = (
-            "OBJ_388",
-            "OBJ_400"
+            "OBJ_420",
+            "OBJ_432"
          );
          dependencies = (
-            "OBJ_403",
-            "OBJ_404"
+            "OBJ_435",
+            "OBJ_436"
          );
          name = "POSIX";
          productName = "POSIX";
@@ -4037,13 +4379,13 @@
       };
       "SwiftPM::SPMLibc" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_425";
+         buildConfigurationList = "OBJ_457";
          buildPhases = (
-            "OBJ_428",
-            "OBJ_430"
+            "OBJ_460",
+            "OBJ_462"
          );
          dependencies = (
-            "OBJ_432"
+            "OBJ_464"
          );
          name = "SPMLibc";
          productName = "SPMLibc";
@@ -4057,16 +4399,16 @@
       };
       "SwiftPM::SPMUtility" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_433";
+         buildConfigurationList = "OBJ_465";
          buildPhases = (
-            "OBJ_436",
-            "OBJ_457"
+            "OBJ_468",
+            "OBJ_489"
          );
          dependencies = (
-            "OBJ_462",
-            "OBJ_463",
-            "OBJ_464",
-            "OBJ_465"
+            "OBJ_494",
+            "OBJ_495",
+            "OBJ_496",
+            "OBJ_497"
          );
          name = "SPMUtility";
          productName = "SPMUtility";
@@ -4080,9 +4422,9 @@
       };
       "SwiftPM::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_467";
+         buildConfigurationList = "OBJ_499";
          buildPhases = (
-            "OBJ_470"
+            "OBJ_502"
          );
          dependencies = (
          );
@@ -4092,10 +4434,10 @@
       };
       "SwiftPM::clibc" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_472";
+         buildConfigurationList = "OBJ_504";
          buildPhases = (
-            "OBJ_475",
-            "OBJ_477"
+            "OBJ_507",
+            "OBJ_509"
          );
          dependencies = (
          );

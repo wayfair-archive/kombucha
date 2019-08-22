@@ -21,6 +21,8 @@ extension JSONCheckTests {
         ("testCheckStructureFailsWithProperContext", testCheckStructureFailsWithProperContext),
         ("testCheckStructurePasses", testCheckStructurePasses),
         ("testDefaultChecksTestArrayConsistencySucceeds", testDefaultChecksTestArrayConsistencySucceeds),
+        ("testStrictEqualityTestFails", testStrictEqualityTestFails),
+        ("testStrictEqualityTestSuccess", testStrictEqualityTestSuccess),
     ]
 }
 

@@ -23,6 +23,14 @@ let package = Package(
     ],
     targets: [
         .target(
+            name: "JUnit",
+            dependencies: ["Prelude"]
+            ),
+        .testTarget(
+            name: "JUnitTests",
+            dependencies: ["JUnit"]
+            ),
+        .target(
             name: "Cont",
             dependencies: ["Prelude"]
         ),
@@ -43,7 +51,7 @@ let package = Package(
         ),
         .target(
             name: "KombuchaCLI",
-            dependencies: ["JSONValue", "KombuchaLib", "SPMUtility"]
+            dependencies: ["JSONValue", "KombuchaLib", "SPMUtility", "JUnit"]
         ),
         .target(
             name: "KombuchaLib",
