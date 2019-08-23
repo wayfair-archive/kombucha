@@ -90,14 +90,13 @@ for snap in configuration.snaps {
 if let jUnitURL = jUnitURL {
     var url = jUnitURL.value
     url.resolveSymlinksInPath()
-    print("saving JUnitXML")
-    
     let document = SnapJUnit.generateJUnitSuite(results: results)
+    
     do {
         try document.xmlString().write(to: url, atomically: true, encoding: .utf8)
-        print("saved to \(url.path)")
+        print("saved JUnitXML to \(url.path)")
     } catch {
-        print("failed to save: \(error)")
+        print("failed to save JUnitXML: \(error)")
     }
 }
 
