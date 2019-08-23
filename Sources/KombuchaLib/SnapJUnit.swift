@@ -11,7 +11,13 @@ import JSONCheck
 
 public enum SnapJUnit {
     
-    static let dateFormatter = DateFormatter()
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .full
+        return formatter
+    }()
+    
     public struct Result {
         
         public init(startDate: Date, endDate: Date, config: SnapConfiguration, checkResults: CheckResults) {
