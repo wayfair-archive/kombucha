@@ -184,6 +184,7 @@ finished with errors
 * `--record` (`-r`): ask Kombucha to rewrite all the stored snapshots it knows about. Useful for setting a new baseline for tests or if you know a large amount of the API under test has changed
 * `--snapshots-directory` (`-s`): tell Kombucha where to find snapshots for the test run. If not specified, the default is `./__Snapshots/`.
 * `--work-directory` (`-w`): tell Kombucha what directory to use as the “work directory” (storage for live responses) for the test run. If not specified, the default is `./__Work__/`.
+* `--junit-output-url` (`-j`): If a path to a file (existing or not) is specified, this will produce a JUnitXML summary of the test run.
 
 ### Running on macOS
 

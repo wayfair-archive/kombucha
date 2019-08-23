@@ -55,7 +55,7 @@ let package = Package(
         ),
         .target(
             name: "KombuchaLib",
-            dependencies: ["Cont", "JSONCheck", "JSONValue", "Prelude", "SPMUtility"]
+            dependencies: ["Cont", "JSONCheck", "JSONValue", "JUnit","Prelude", "SPMUtility"]
         ),
         .testTarget(
             name: "KombuchaLibTests",

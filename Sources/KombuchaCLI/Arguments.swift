@@ -11,7 +11,7 @@ import Foundation
 import KombuchaLib
 import SPMUtility
 
-typealias KombuchaArgs = (configuration: RunConfiguration, printErrorsOnly: Bool, recordMode: Bool, snapshotsURL: FileURL, workURL: FileURL)
+typealias KombuchaArgs = (configuration: RunConfiguration, printErrorsOnly: Bool, recordMode: Bool, snapshotsURL: FileURL, workURL: FileURL, jUnitURL: FileURL?)
 
 func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> KombuchaArgs {
     
@@ -58,6 +58,14 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
         usage: "Directory use as the “work directory” (storage for live responses) for the test run. If not specified, the default is ./__Work__/.",
         completion: .filename
     )
+    
+    let jUnitOutputURL = argumentParser.add(
+        option: "--junit-output-url",
+        shortName: "-j",
+        kind: String.self,
+        usage: "If a path to a file (existing or not) is specified, this will produce a JUnitXML summary of the test run.",
+        completion: .filename
+    )
 
     let parsed = try argumentParser.parse(args)
 
@@ -79,12 +87,15 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
 
     let workURL = parsed.get(parseWorkDirectoryURL).flatMap(URL.init(fileURLWithPath:)) ??
         URL(fileURLWithPath: "./__Work__/")
-
+    
+    let jUnitURL = try parsed.get(jUnitOutputURL).flatMap(URL.init(fileURLWithPath:)).map(FileURL.init)
+    
     return (
         configuration: configuration,
         printErrorsOnly: printErrorsOnly,
         recordMode: recordMode,
         snapshotsURL: try FileURL(snapshotsURL),
-        workURL: try FileURL(workURL)
+        workURL: try FileURL(workURL),
+        jUnitURL: jUnitURL
     )
 }

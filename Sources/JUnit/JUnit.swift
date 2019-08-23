@@ -63,7 +63,7 @@ public enum JUnit {
 
 public extension JUnit.Document {
     
-    static func new(version: String, characterEncoding: String, suites: JUnit.TestSuites.Element) -> JUnit.Document {
+    static func new(version: String = "1.0", characterEncoding: String = "UTF-8", suites: JUnit.TestSuites.Element) -> JUnit.Document {
         let document = XMLDocument(rootElement: suites.rawValue.value)
         document.version = version
         document.characterEncoding = characterEncoding

@@ -13,7 +13,7 @@ import KombuchaLib
 let jsonDecoder = JSONDecoder()
 
 let args = Array(CommandLine.arguments.dropFirst())
-let (configuration, printErrorsOnly, recordMode, snapshotsURL, workURL) = try parseKombuchaArgs(args, jsonDecoder: jsonDecoder)
+let (configuration, printErrorsOnly, recordMode, snapshotsURL, workURL, jUnitURL) = try parseKombuchaArgs(args, jsonDecoder: jsonDecoder)
 
 var standardError = FileHandle.standardError.outputStream
 var standardOutput = FileHandle.standardOutput.outputStream
@@ -35,6 +35,7 @@ sessionConfiguration.httpAdditionalHeaders = httpAdditionalHeaders as [AnyHashab
 let session = URLSession(configuration: sessionConfiguration)
 
 var isError = false
+var results: [SnapJUnit.Result] = []
 
 for snap in configuration.snaps {
     let runner = SnapRunner(
@@ -52,8 +53,12 @@ for snap in configuration.snaps {
     }
 
     print("", to: &standardOutput)
+    
+    let startDate = Date()
     let checkResults = try runner.executeCheck(for: snap, setError: &isError)
-
+    let endDate = Date()
+    results.append(.init(startDate: startDate, endDate: endDate, config: snap, checkResults: checkResults))
+    
     for key in checkResults.results.keys.sorted() {
         if printErrorsOnly {
             guard !checkResults.results[key]!.errors.isEmpty else { continue }
@@ -79,6 +84,20 @@ for snap in configuration.snaps {
                 print("    > ERROR: \(error)", to: &standardOutput)
             }
         }
+    }
+}
+
+if let jUnitURL = jUnitURL {
+    var url = jUnitURL.value
+    url.resolveSymlinksInPath()
+    print("saving JUnitXML")
+    
+    let document = SnapJUnit.generateJUnitSuite(results: results)
+    do {
+        try document.xmlString().write(to: url, atomically: true, encoding: .utf8)
+        print("saved to \(url.path)")
+    } catch {
+        print("failed to save: \(error)")
     }
 }
 
