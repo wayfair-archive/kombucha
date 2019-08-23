@@ -13,7 +13,7 @@ import KombuchaLib
 let jsonDecoder = JSONDecoder()
 
 let args = Array(CommandLine.arguments.dropFirst())
-let (configuration, printErrorsOnly, recordMode, snapshotsURL, workURL, jUnitURL) = try parseKombuchaArgs(args, jsonDecoder: jsonDecoder)
+let (configuration, printErrorsOnly, recordMode, snapshotsURL, workURL, report) = try parseKombuchaArgs(args, jsonDecoder: jsonDecoder)
 
 var standardError = FileHandle.standardError.outputStream
 var standardOutput = FileHandle.standardOutput.outputStream
@@ -87,8 +87,8 @@ for snap in configuration.snaps {
     }
 }
 
-if let jUnitURL = jUnitURL {
-    var url = jUnitURL.value
+if case .junit(saveTo: let file) = report {
+    var url = file.value
     url.resolveSymlinksInPath()
     let document = SnapJUnit.generateJUnitSuite(results: results)
     

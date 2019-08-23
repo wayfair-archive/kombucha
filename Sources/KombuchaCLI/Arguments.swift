@@ -11,7 +11,18 @@ import Foundation
 import KombuchaLib
 import SPMUtility
 
-typealias KombuchaArgs = (configuration: RunConfiguration, printErrorsOnly: Bool, recordMode: Bool, snapshotsURL: FileURL, workURL: FileURL, jUnitURL: FileURL?)
+enum KombuchaReportMode {
+    case junit(saveTo: FileURL)
+    case none
+}
+
+struct KombuchaArgsError: Error, CustomStringConvertible {
+    var description: String { return error }
+    let error: String
+}
+
+
+typealias KombuchaArgs = (configuration: RunConfiguration, printErrorsOnly: Bool, recordMode: Bool, snapshotsURL: FileURL, workURL: FileURL, report: KombuchaReportMode)
 
 func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> KombuchaArgs {
     
@@ -59,11 +70,19 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
         completion: .filename
     )
     
-    let jUnitOutputURL = argumentParser.add(
-        option: "--junit-output-url",
-        shortName: "-j",
+    let parseReportType = argumentParser.add(
+        option: "--report-type",
+        shortName: nil,
         kind: String.self,
-        usage: "If a path to a file (existing or not) is specified, this will produce a JUnitXML summary of the test run.",
+        usage: "If specified, a report will be created on disk for the current test run. `junit` is currently the only support type. You need to specify the `--report-output-url` path for the report.",
+        completion: .none
+    )
+    
+    let parseReportOutputURL = argumentParser.add(
+        option: "--report-output-url",
+        shortName: nil,
+        kind: String.self,
+        usage: "The path to the report file (existing or not).",
         completion: .filename
     )
 
@@ -88,7 +107,20 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
     let workURL = parsed.get(parseWorkDirectoryURL).flatMap(URL.init(fileURLWithPath:)) ??
         URL(fileURLWithPath: "./__Work__/")
     
-    let jUnitURL = try parsed.get(jUnitOutputURL).flatMap(URL.init(fileURLWithPath:)).map(FileURL.init)
+    
+    var report: KombuchaReportMode = .none
+    
+    if let reporType = parsed.get(parseReportType) {
+        guard reporType == "junit" else {
+            throw KombuchaArgsError(error: "The type \(reporType) is not supported.")
+        }
+        
+        guard let url = try parsed.get(parseReportOutputURL).flatMap(URL.init(fileURLWithPath:)).map(FileURL.init) else {
+            throw KombuchaArgsError(error: "A URL to a filename is needed in order to save the report (--report-type)")
+        }
+        
+        report = .junit(saveTo: url)
+    }
     
     return (
         configuration: configuration,
@@ -96,6 +128,6 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
         recordMode: recordMode,
         snapshotsURL: try FileURL(snapshotsURL),
         workURL: try FileURL(workURL),
-        jUnitURL: jUnitURL
+        report: report
     )
 }
