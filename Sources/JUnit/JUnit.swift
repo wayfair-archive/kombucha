@@ -20,25 +20,67 @@ public enum JUnit {
         }
     }
     
-    public enum IsXMLElement: Refinement {
-        public typealias BaseType = XMLElement
+    public final class ElementNode {
         
-        public static func isValid(_ value: XMLElement) -> Bool {
-            return value.kind == .element
+        fileprivate init(name: String, content: String?) {
+            self.name = name
+            self.content = content
+            self.attributes = []
+            self.children = []
+        }
+        
+        private var name: String
+        private var content: String?
+        private var attributes: [AttributeNode]
+        private var children: [ElementNode]
+        
+        fileprivate func render() -> String {
+            
+            let attributesString = attributes.reduce("") { $0 + " " + $1.render() }
+            let contentString = content ?? ""
+            
+            if children.isEmpty {
+                return "<\(name)\(attributesString)>\(contentString)</\(name)>"
+            }
+            
+            let childrenString = children.reduce("") { $0 + $1.render() }
+            return "<\(name)\(attributesString)>\(childrenString)\(contentString)</\(name)>"
         }
     }
     
-    public enum IsXMLAttribute: Refinement {
-        public typealias BaseType = XMLNode
+    public final class AttributeNode {
         
-        public static func isValid(_ value: XMLNode) -> Bool {
-            return value.kind == .attribute
+        fileprivate init(name: String, value: String) {
+            self.name = name
+            self.value = value
+        }
+        
+        private var name: String
+        private var value: String
+        
+        fileprivate func render() -> String {
+            return "\(name)=\"\(value)\""
         }
     }
     
-    public typealias ElementNode = Refined<XMLElement, IsXMLElement>
-    public typealias AttributeNode = Refined<XMLNode, IsXMLAttribute>
-    public typealias Document = Tagged<JUnit, XMLDocument>
+    public final class DocumentNode {
+        
+        fileprivate init() {
+            self.root = nil
+            self.attributes = []
+        }
+        
+        fileprivate var root: ElementNode?
+        fileprivate var attributes: [AttributeNode]
+        
+        fileprivate func render() -> String {
+            let attributesString = attributes.reduce("") { $0 + " " + $1.render() }
+            let rootString = root?.render() ?? ""
+            return "<?xml\(attributesString)?>" + rootString
+        }
+    }
+    
+    public typealias  Report = Tagged<JUnit, DocumentNode>
     
     public enum Failure {
         public typealias Element = Tagged<Failure, ElementNode>
@@ -61,58 +103,49 @@ public enum JUnit {
     }
 }
 
-public extension JUnit.Document {
-    
-    static func new(version: String = "1.0", characterEncoding: String = "UTF-8", suites: JUnit.TestSuites.Element) -> JUnit.Document {
-        let document = XMLDocument(rootElement: suites.rawValue.value)
-        document.version = version
-        document.characterEncoding = characterEncoding
-        return .init(document)
+public extension JUnit.Report {
+
+    static func new() -> JUnit.Report {
+        return .init(.init())
     }
     
-    func xmlString() -> String {
-        return self.rawValue.xmlString
+    func set(version: String, characterEncoding: String) -> JUnit.Report {
+        self.rawValue.attributes = [.init(name: "version", value: version), .init(name: "encoding", value: characterEncoding)]
+        return self
+    }
+    
+    func set(suites: JUnit.TestSuites.Element) -> JUnit.Report {
+        self.rawValue.root = suites.rawValue
+        return self
+    }
+    
+    func create() -> String {
+        return self.rawValue.render()
     }
 }
 
 private extension JUnit.ElementNode {
     
-    static func new(withName name: String, text: String?) -> JUnit.ElementNode {
-        let element = XMLElement(kind: .element)
-        element.name = name
-        element.stringValue = text
-        return try! .init(element)
-    }
-    
-    func set(attributes: [JUnit.AttributeNode]?) -> JUnit.ElementNode {
-        self.value.attributes = attributes?.map { $0.value }
+    func set(attributes: [JUnit.AttributeNode]) -> JUnit.ElementNode {
+        self.attributes = attributes
         return self
     }
     
-    func set(children: [JUnit.ElementNode]?) -> JUnit.ElementNode {
-        self.value.setChildren(children?.map { $0.value })
+    func set(children: [JUnit.ElementNode]) -> JUnit.ElementNode {
+        self.children = children
         return self
     }
 }
 
-private extension JUnit.AttributeNode {
-    
-    static func new(withName name: String, text: String?) -> JUnit.AttributeNode {
-        let attribute = XMLNode(kind: .attribute)
-        attribute.name = name
-        attribute.stringValue = text
-        return try! .init(attribute)
-    }
-}
 
 public extension JUnit.Failure.Element {
     
     static func new(withText text: String) -> JUnit.Failure.Element {
-        return .init(.new(withName: "failure", text: text))
+        return .init(.init(name: "failure", content: text))
     }
     
-    func set(attributes: [JUnit.Failure.Attribute]?) -> JUnit.Failure.Element {
-        _ = self.rawValue.set(attributes: attributes?.map { $0.rawValue } )
+    func set(attributes: [JUnit.Failure.Attribute]) -> JUnit.Failure.Element {
+        _ = self.rawValue.set(attributes: attributes.map { $0.rawValue } )
         return self
     }
 }
@@ -120,27 +153,27 @@ public extension JUnit.Failure.Element {
 public extension JUnit.Failure.Attribute {
     
      static func message(text: String) -> JUnit.Failure.Attribute {
-        return .init(.new(withName: "message", text: text))
+        return .init(.init(name: "message", value: text))
     }
     
      static func type(text: String) -> JUnit.Failure.Attribute {
-        return .init(.new(withName: "type", text: text))
+        return .init(.init(name: "type", value: text))
     }
 }
 
 public extension JUnit.TestCase.Element {
     
     static func new() -> JUnit.TestCase.Element {
-        return .init(.new(withName: "testcase", text: nil))
+        return .init(.init(name: "testcase", content: nil))
     }
     
-    func set(failures: [JUnit.Failure.Element]?) -> JUnit.TestCase.Element {
-        _ = self.rawValue.set(children: failures?.map { $0.rawValue } )
+    func set(failures: [JUnit.Failure.Element]) -> JUnit.TestCase.Element {
+        _ = self.rawValue.set(children: failures.map { $0.rawValue } )
         return self
     }
     
-    func set(attributes: [JUnit.TestCase.Attribute]?) -> JUnit.TestCase.Element {
-        _ = self.rawValue.set(attributes: attributes?.map { $0.rawValue } )
+    func set(attributes: [JUnit.TestCase.Attribute]) -> JUnit.TestCase.Element {
+        _ = self.rawValue.set(attributes: attributes.map { $0.rawValue } )
         return self
     }
 }
@@ -148,31 +181,31 @@ public extension JUnit.TestCase.Element {
 public extension JUnit.TestCase.Attribute {
     
     static func id(value: UUID) -> JUnit.TestCase.Attribute  {
-        return .init(.new(withName: "id", text: value.uuidString))
+        return .init(.init(name: "id", value: value.uuidString))
     }
     
     static func name(text: String) -> JUnit.TestCase.Attribute  {
-        return .init(.new(withName: "name", text: text))
+        return .init(.init(name: "name", value: text))
     }
     
     static func time(value: TimeInterval) -> JUnit.TestCase.Attribute  {
-        return .init(.new(withName: "time", text: String(value)))
+        return .init(.init(name: "time", value: String(value)))
     }
 }
 
 public extension JUnit.TestSuite.Element {
     
     static func new() -> JUnit.TestSuite.Element {
-        return .init(.new(withName: "testsuite", text: nil))
+        return .init(.init(name: "testsuite", content: nil))
     }
     
-    func set(testCases: [JUnit.TestCase.Element]?) -> JUnit.TestSuite.Element {
-        _ = self.rawValue.set(children: testCases?.map { $0.rawValue } )
+    func set(testCases: [JUnit.TestCase.Element]) -> JUnit.TestSuite.Element {
+        _ = self.rawValue.set(children: testCases.map { $0.rawValue } )
         return self
     }
     
-    func set(attributes: [JUnit.TestSuite.Attribute]?) -> JUnit.TestSuite.Element {
-        _ = self.rawValue.set(attributes: attributes?.map { $0.rawValue } )
+    func set(attributes: [JUnit.TestSuite.Attribute]) -> JUnit.TestSuite.Element {
+        _ = self.rawValue.set(attributes: attributes.map { $0.rawValue } )
         return self
     }
 }
@@ -180,39 +213,39 @@ public extension JUnit.TestSuite.Element {
 public extension JUnit.TestSuite.Attribute {
     
     static func id(value: UUID) -> JUnit.TestSuite.Attribute {
-        return .init(.new(withName: "id", text: value.uuidString))
+        return .init(.init(name: "id", value: value.uuidString))
     }
     
     static func name(text: String) -> JUnit.TestSuite.Attribute {
-        return .init(.new(withName:"name", text: text))
+        return .init(.init(name:"name", value: text))
     }
     
     static func tests(number: Int) -> JUnit.TestSuite.Attribute {
-        return .init(.new(withName: "tests", text: String(number)))
+        return .init(.init(name: "tests", value: String(number)))
     }
     
     static func failures(number: Int) -> JUnit.TestSuite.Attribute {
-        return .init(.new(withName: "failures", text: String(number)))
+        return .init(.init(name: "failures", value: String(number)))
     }
     
     static func time(value: TimeInterval) -> JUnit.TestSuite.Attribute {
-        return .init(.new(withName: "time", text: String(value)))
+        return .init(.init(name: "time", value: String(value)))
     }
 }
 
 public extension JUnit.TestSuites.Element {
     
     static func new() -> JUnit.TestSuites.Element {
-        return .init(.new(withName: "testsuites", text: nil))
+        return .init(.init(name: "testsuites", content: nil))
     }
     
-    func set(suites: [JUnit.TestSuite.Element]?) -> JUnit.TestSuites.Element {
-        _ = self.rawValue.set(children: suites?.map { $0.rawValue } )
+    func set(suites: [JUnit.TestSuite.Element]) -> JUnit.TestSuites.Element {
+        _ = self.rawValue.set(children: suites.map { $0.rawValue } )
         return self
     }
     
-    func set(attributes: [JUnit.TestSuites.Attribute]?) -> JUnit.TestSuites.Element {
-        _ = self.rawValue.set(attributes: attributes?.map { $0.rawValue } )
+    func set(attributes: [JUnit.TestSuites.Attribute]) -> JUnit.TestSuites.Element {
+        _ = self.rawValue.set(attributes: attributes.map { $0.rawValue } )
         return self
     }
 }
@@ -220,22 +253,22 @@ public extension JUnit.TestSuites.Element {
 public extension JUnit.TestSuites.Attribute {
     
     static func id(value: UUID) -> JUnit.TestSuites.Attribute {
-        return .init(.new(withName: "id", text: value.uuidString))
+        return .init(.init(name: "id", value: value.uuidString))
     }
     
     static func name(text: String) -> JUnit.TestSuites.Attribute {
-        return .init(.new(withName: "name", text: text))
+        return .init(.init(name: "name", value: text))
     }
     
     static func tests(number: Int) -> JUnit.TestSuites.Attribute {
-        return .init(.new(withName: "tests", text: String(number)))
+        return .init(.init(name: "tests", value: String(number)))
     }
     
     static func failures(number: Int) -> JUnit.TestSuites.Attribute {
-        return .init(.new(withName: "failures", text: String(number)))
+        return .init(.init(name: "failures", value: String(number)))
     }
     
     static func time(value: TimeInterval) -> JUnit.TestSuites.Attribute {
-        return .init(.new(withName: "time", text: String(value)))
+        return .init(.init(name: "time", value: String(value)))
     }
 }

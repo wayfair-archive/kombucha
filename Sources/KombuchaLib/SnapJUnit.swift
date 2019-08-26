@@ -89,7 +89,7 @@ public enum SnapJUnit {
         return TestCaseInfo(testCase: element, duration: time, failures: failuresInfo.failures)
     }
     
-    public static func generateJUnitSuite(results: [Result]) -> JUnit.Document {
+    public static func generateJUnitSuite(results: [Result]) -> JUnit.Report {
         
         let testCasesSummary: (failures: Int, time: TimeInterval, cases: [JUnit.TestCase.Element]) = results
          .reduce((failures: 0,time: 0, cases:[])) { (partial, result) in
@@ -97,8 +97,8 @@ public enum SnapJUnit {
                 return (failures: partial.failures + info.failures,time: partial.time + info.duration, cases: partial.cases + [info.testCase])
         }
   
-        return JUnit.Document.new(
-            suites: JUnit.TestSuites.Element.new().set(attributes: [
+        return JUnit.Report.new().set(suites:
+            JUnit.TestSuites.Element.new().set(attributes: [
                 JUnit.TestSuites.Attribute.id(value: UUID()),
                 JUnit.TestSuites.Attribute.name(text: "Kombucha API Testing - \(dateFormatter.string(from: Date()))"),
                 JUnit.TestSuites.Attribute.failures(number: testCasesSummary.failures),
@@ -115,6 +115,6 @@ public enum SnapJUnit {
                             ]).set(testCases: testCasesSummary.cases)
                     ]
             )
-        )
+        ).set(version: "1.0", characterEncoding: "UTF-8")
     }
 }
