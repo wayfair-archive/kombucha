@@ -11,6 +11,17 @@ import JSONCheck
 
 public enum SnapJUnit {
     
+    struct Errors: Error, CustomStringConvertible {
+        var description: String { return error }
+        let error: String
+    }
+    
+    static let jsonCoder: JSONEncoder = {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        return encoder
+    }()
+    
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
@@ -32,24 +43,44 @@ public enum SnapJUnit {
         public let config: SnapConfiguration
         public let checkResults: CheckResults
     }
-    
-    static func uniqueNameForTestCase(config: SnapConfiguration) -> String {
         
+    static func generateFailure(result: CheckResult, type: String, config: SnapConfiguration) throws -> JUnit.Failure.Element {
+        
+        let message: String
+        let queryItemInfo: String
+
         switch config.request {
-        case .rest(let rest):
-            return "\(config.nameIdentifier)-\(rest.httpMethod)-\(rest.host)-\(rest.path)"
         case .graphQL(let graph):
-            return "\(config.nameIdentifier)-GraphQL-\(graph.host)-\(graph.path)"
+            message = "Failure for GraphQL call (POST): \(graph.host)\(graph.path)"
+            
+            guard let jsonVariables =  try String(data: SnapJUnit.jsonCoder.encode(graph.queryContent.variables ?? [:]), encoding: .utf8) else {
+                throw Errors(error: "Invalid string conversion for graphQL variable.")
+            }
+            
+            var fileInfo = ""
+            if case .file(let safeUrl)  = graph.queryContent.query {
+                var url = safeUrl.value
+                url.resolveSymlinksInPath()
+                fileInfo = "Path to query: \(url.absoluteString)\n"
+            }
+            
+            queryItemInfo = "\(fileInfo)GraphQL variables \n \(jsonVariables)\n"
+        case .rest(let rest):
+            message = "Failure to \(rest.httpMethod): \(rest.host)\(rest.path)"
+            
+            guard let jsonQueryItems =  try String(data: SnapJUnit.jsonCoder.encode(rest.queryItems), encoding: .utf8) else {
+                throw Errors(error: "Invalid string conversion for query items.")
+            }
+            queryItemInfo = "Query items \n \(jsonQueryItems)\n"
         }
-    }
-    
-    static func generateFailure(result: CheckResult, type: String) -> JUnit.Failure.Element {
+        
         let element = JUnit.Failure.Element.new(
-            withText: "\n\(result.context.prettyPrinted)\n\(result.message)"
+            withText: "\n\(queryItemInfo)JSON error at: \(result.context.prettyPrinted)\n\(result.message)"
             ).set(attributes: [
             JUnit.Failure.Attribute.type(text: type),
-            JUnit.Failure.Attribute.message(text: "Api contract broken")
+            JUnit.Failure.Attribute.message(text: message)
             ])
+        
         return element
     }
     
@@ -58,10 +89,10 @@ public enum SnapJUnit {
         let failures: Int
     }
     
-    static func generateFailures(results: CheckResults) -> FailureInfo {
-        let errors = results.errors.map { generateFailure(result: $0,type: "ERROR") }
-        let warnings = results.warnings.map { generateFailure(result: $0,type: "WARNING") }
-        let infos = results.infos.map { generateFailure(result: $0,type: "INFO") }
+    static func generateFailures(results: CheckResults, config: SnapConfiguration) throws -> FailureInfo {
+        let errors = try results.errors.map { try generateFailure(result: $0,type: "ERROR", config: config) }
+        let warnings = try results.warnings.map { try generateFailure(result: $0,type: "WARNING", config: config) }
+        let infos = try results.infos.map { try generateFailure(result: $0,type: "INFO", config: config) }
         
         return FailureInfo(
             failureElements: errors + warnings + infos,
@@ -76,24 +107,24 @@ public enum SnapJUnit {
         let failures: Int
     }
     
-    static func generateTestCase(result: Result) -> TestCaseInfo {
+    static func generateTestCase(result: Result) throws -> TestCaseInfo {
         let time = result.endDate.timeIntervalSince(result.startDate)
-        let failuresInfo = generateFailures(results: result.checkResults)
+        let failuresInfo = try generateFailures(results: result.checkResults, config: result.config)
         
         let element = JUnit.TestCase.Element.new().set(attributes: [
             JUnit.TestCase.Attribute.id(value: UUID()),
-            JUnit.TestCase.Attribute.name(text: uniqueNameForTestCase(config: result.config)),
+            JUnit.TestCase.Attribute.name(text: result.config.nameIdentifier),
             JUnit.TestCase.Attribute.time(value: time)
             ]).set(failures: failuresInfo.failureElements)
         
         return TestCaseInfo(testCase: element, duration: time, failures: failuresInfo.failures)
     }
     
-    public static func generateJUnitSuite(results: [Result]) -> JUnit.Report {
+    public static func generateJUnitSuite(results: [Result]) throws -> JUnit.Report {
         
-        let testCasesSummary: (failures: Int, time: TimeInterval, cases: [JUnit.TestCase.Element]) = results
+        let testCasesSummary: (failures: Int, time: TimeInterval, cases: [JUnit.TestCase.Element]) = try results
          .reduce((failures: 0,time: 0, cases:[])) { (partial, result) in
-                let info = generateTestCase(result: result)
+                let info = try generateTestCase(result: result)
                 return (failures: partial.failures + info.failures,time: partial.time + info.duration, cases: partial.cases + [info.testCase])
         }
   

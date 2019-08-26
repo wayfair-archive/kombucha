@@ -90,9 +90,9 @@ for snap in configuration.snaps {
 if case .junit(saveTo: let file) = report {
     var url = file.value
     url.resolveSymlinksInPath()
-    let document = SnapJUnit.generateJUnitSuite(results: results)
     
     do {
+        let document = try SnapJUnit.generateJUnitSuite(results: results)
         try document.create().write(to: url, atomically: true, encoding: .utf8)
         print("saved JUnitXML to \(url.path)")
     } catch {
