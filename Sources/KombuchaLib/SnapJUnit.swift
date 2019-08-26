@@ -64,18 +64,18 @@ public enum SnapJUnit {
                 fileInfo = "Path to query: \(url.absoluteString)\n"
             }
             
-            queryItemInfo = "\(fileInfo)GraphQL variables \n \(jsonVariables)\n"
+            queryItemInfo = "\(fileInfo)GraphQL variables \n \(jsonVariables)"
         case .rest(let rest):
             message = "Failure to \(rest.httpMethod): \(rest.host)\(rest.path)"
             
             guard let jsonQueryItems =  try String(data: SnapJUnit.jsonCoder.encode(rest.queryItems), encoding: .utf8) else {
                 throw Errors(error: "Invalid string conversion for query items.")
             }
-            queryItemInfo = "Query items \n \(jsonQueryItems)\n"
+            queryItemInfo = "Query items \n \(jsonQueryItems)"
         }
         
         let element = JUnit.Failure.Element.new(
-            withText: "\n\(queryItemInfo)JSON error at: \(result.context.prettyPrinted)\n\(result.message)"
+            withText: "\n\(queryItemInfo)\nJSON error at: \(result.context.prettyPrinted)\n\(result.message)"
             ).set(attributes: [
             JUnit.Failure.Attribute.type(text: type),
             JUnit.Failure.Attribute.message(text: message)
