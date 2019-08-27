@@ -24,8 +24,8 @@ public enum SnapJUnit {
     
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .full
+        formatter.dateStyle = .long
+        formatter.timeStyle = .long
         return formatter
     }()
     
