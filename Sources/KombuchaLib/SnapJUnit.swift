@@ -64,7 +64,7 @@ public enum SnapJUnit {
                 url.resolveSymlinksInPath()
                 fileInfo = "Path to query: \(url.absoluteString)\n"
             case .text(let query):
-                fileInfo = "query: \(query)\n"
+                fileInfo = "Query: \(query)\n"
             }
             
             
