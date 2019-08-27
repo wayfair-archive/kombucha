@@ -57,12 +57,16 @@ public enum SnapJUnit {
                 throw Errors(error: "Invalid string conversion for graphQL variable.")
             }
             
-            var fileInfo = ""
-            if case .file(let safeUrl)  = graph.queryContent.query {
+            let fileInfo: String
+            switch graph.queryContent.query {
+            case .file(let safeUrl):
                 var url = safeUrl.value
                 url.resolveSymlinksInPath()
                 fileInfo = "Path to query: \(url.absoluteString)\n"
+            case .text(let query):
+                fileInfo = "query: \(query)\n"
             }
+            
             
             queryItemInfo = "\(fileInfo)GraphQL variables \n \(jsonVariables)"
         case .rest(let rest):
