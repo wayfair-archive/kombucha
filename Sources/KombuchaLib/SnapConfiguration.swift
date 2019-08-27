@@ -70,7 +70,7 @@ extension SnapConfiguration.Request: CustomStringConvertible {
             \(restSnap.httpMethod): \(restSnap.host)\(restSnap.path)
             - \(queryCount) query \(queryCount <= 1 ? "param" : "params")
             - \(headerCount) http \(headerCount <= 1 ? "header" : "headers")
-            - \(hasBody ? "resquest has a body" : "empty body")
+            - \(hasBody ? "request has a body" : "empty body")
             """
         case .graphQL(let graphSnap):
             let headerCount = graphSnap.httpHeaders?.count ?? 0
