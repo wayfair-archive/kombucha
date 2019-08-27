@@ -72,7 +72,7 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
     
     let parseReportType = argumentParser.add(
         option: "--report-type",
-        shortName: nil,
+        shortName: "-t",
         kind: String.self,
         usage: "If specified, a report will be created on disk for the current test run. `junit` is currently the only support type. You need to specify the `--report-output-url` path for the report.",
         completion: .none
@@ -80,7 +80,7 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
     
     let parseReportOutputURL = argumentParser.add(
         option: "--report-output-url",
-        shortName: nil,
+        shortName: "-o",
         kind: String.self,
         usage: "The path to the report file (existing or not).",
         completion: .filename
