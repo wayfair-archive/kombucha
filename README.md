@@ -106,7 +106,7 @@ Kombucha also supports GraphQL endpoints.
 }
 ```
 In order to create a `graphQL` query, change the `__snapType` to `__GRAPHQL` and provide the `queryContent` object.
-* Provide a `URL` to a query file by setting the `queryFile` key or provide the query string itself by setting the `queryText` key.
+* Provide a `URL` to a query file by setting the `queryFile` key or provide the query string itself by setting the `queryText` key. If you provide a relative path, it will be resolved from the current working directory when running the tool.
 * The variables for the query are provided by using the `variables` key.
 * Optinaly, a graphQL opeation name for the query can be set by using the `operationName` key.
 
