@@ -115,9 +115,18 @@ public enum SnapJUnit {
         let time = result.endDate.timeIntervalSince(result.startDate)
         let failuresInfo = try generateFailures(results: result.checkResults, config: result.config)
         
+        let name: String
+        
+        switch result.config.request {
+        case .graphQL(let graph):
+            name = "\(result.config.nameIdentifier)-POST-\(graph.host)\(graph.path) "
+        case .rest(let rest):
+            name = "\(result.config.nameIdentifier)-\(rest.httpMethod)-\(rest.host)\(rest.path) "
+        }
+        
         let element = JUnit.TestCase.Element.new().set(attributes: [
             JUnit.TestCase.Attribute.id(value: UUID()),
-            JUnit.TestCase.Attribute.name(text: result.config.nameIdentifier),
+            JUnit.TestCase.Attribute.name(text: name),
             JUnit.TestCase.Attribute.time(value: time)
             ]).set(failures: failuresInfo.failureElements)
         
