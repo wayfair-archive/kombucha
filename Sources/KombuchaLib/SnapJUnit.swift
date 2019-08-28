@@ -56,11 +56,39 @@ public enum SnapJUnit {
         public let checkResults: CheckResults
     }
         
-    static func generateFailure(result: CheckResult, type: String, config: SnapConfiguration) throws -> JUnit.Failure.Element {
+    static func generateFailuresMessage(results: CheckResults) throws -> String {
+        
+        let resultDictionary = results.results
+        var output: String = ""
+        
+        for key in resultDictionary.keys.sorted() {
+            output += "\nJSON error at: \(key.prettyPrinted)\n"
+            
+            for error in resultDictionary[key]!.errors {
+                output += "ERROR: \(error)\n"
+            }
+            
+            for warning in resultDictionary[key]!.warnings {
+                output += "WARNING: \(warning)\n"
+            }
+            
+            for info in resultDictionary[key]!.infos {
+               output += "INFO: \(info)\n"
+            }
+        }
+        
+        return output
+    }
+    
+    static func generateFailures(results: CheckResults, config: SnapConfiguration) throws -> JUnit.Failure.Element? {
+        
+        guard results.results.isEmpty == false else {
+            return nil
+        }
         
         let message: String
         let queryItemInfo: String
-
+        
         switch config.request {
         case .graphQL(let graph):
             message = "Failure for GraphQL call (POST): \(graph.host)\(graph.path)"
@@ -79,7 +107,6 @@ public enum SnapJUnit {
                 fileInfo = "Query: \(query)\n"
             }
             
-            
             queryItemInfo = "\(fileInfo)GraphQL variables \n \(jsonVariables)"
         case .rest(let rest):
             message = "Failure to \(rest.httpMethod): \(rest.host)\(rest.path)"
@@ -90,30 +117,16 @@ public enum SnapJUnit {
             queryItemInfo = "Query items \n \(jsonQueryItems)"
         }
         
-        let element = JUnit.Failure.Element.new(
-            withText: "\n\(queryItemInfo)\nJSON error at: \(result.context.prettyPrinted)\n\(result.message)"
+        let type: String = results.errors.isEmpty == false ? "ERROR" : results.warnings.isEmpty == false ? "WARNING" : "INFO"
+        
+        let element = try JUnit.Failure.Element.new(
+            withText: "\n\(queryItemInfo)\n\(generateFailuresMessage(results: results))"
             ).set(attributes: [
-            JUnit.Failure.Attribute.type(text: type),
-            JUnit.Failure.Attribute.message(text: message)
-            ])
+                JUnit.Failure.Attribute.type(text: type),
+                JUnit.Failure.Attribute.message(text: message)
+                ])
         
         return element
-    }
-    
-    struct FailureInfo {
-        let failureElements: [JUnit.Failure.Element]
-        let failures: Int
-    }
-    
-    static func generateFailures(results: CheckResults, config: SnapConfiguration) throws -> FailureInfo {
-        let errors = try results.errors.map { try generateFailure(result: $0,type: "ERROR", config: config) }
-        let warnings = try results.warnings.map { try generateFailure(result: $0,type: "WARNING", config: config) }
-        let infos = try results.infos.map { try generateFailure(result: $0,type: "INFO", config: config) }
-        
-        return FailureInfo(
-            failureElements: errors + warnings + infos,
-            failures: errors.count + warnings.count + infos.count
-        )
         
     }
     
@@ -124,8 +137,9 @@ public enum SnapJUnit {
     }
     
     static func generateTestCase(result: Result) throws -> TestCaseInfo {
+        
         let time = result.endDate.timeIntervalSince(result.startDate)
-        let failuresInfo = try generateFailures(results: result.checkResults, config: result.config)
+        let failure = try generateFailures(results: result.checkResults, config: result.config)
         
         let name: String
         
@@ -136,13 +150,17 @@ public enum SnapJUnit {
             name = "\(result.config.nameIdentifier)-\(rest.httpMethod)-\(rest.host)\(rest.path) "
         }
         
-        let element = JUnit.TestCase.Element.new().set(attributes: [
+        var element = JUnit.TestCase.Element.new().set(attributes: [
             JUnit.TestCase.Attribute.id(value: UUID()),
             JUnit.TestCase.Attribute.name(text: name),
             JUnit.TestCase.Attribute.time(formattedValue: formatTimeMilliseconds(time: time))
-            ]).set(failures: failuresInfo.failureElements)
+            ])
         
-        return TestCaseInfo(testCase: element, duration: time, failures: failuresInfo.failures)
+        if let failure = failure {
+            element = element.set(failures: [failure])
+        }
+        
+        return TestCaseInfo(testCase: element, duration: time, failures: result.checkResults.results.count)
     }
     
     public static func generateJUnitSuite(results: [Result]) throws -> JUnit.Report {
