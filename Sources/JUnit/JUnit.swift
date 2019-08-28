@@ -188,8 +188,8 @@ public extension JUnit.TestCase.Attribute {
         return .init(.init(name: "name", value: text))
     }
     
-    static func time(value: TimeInterval) -> JUnit.TestCase.Attribute  {
-        return .init(.init(name: "time", value: String(value)))
+    static func time(formattedValue: String) -> JUnit.TestCase.Attribute  {
+        return .init(.init(name: "time", value: formattedValue))
     }
 }
 
@@ -228,8 +228,8 @@ public extension JUnit.TestSuite.Attribute {
         return .init(.init(name: "failures", value: String(number)))
     }
     
-    static func time(value: TimeInterval) -> JUnit.TestSuite.Attribute {
-        return .init(.init(name: "time", value: String(value)))
+    static func time(formattedValue: String) -> JUnit.TestSuite.Attribute {
+        return .init(.init(name: "time", value: formattedValue))
     }
 }
 
@@ -268,7 +268,7 @@ public extension JUnit.TestSuites.Attribute {
         return .init(.init(name: "failures", value: String(number)))
     }
     
-    static func time(value: TimeInterval) -> JUnit.TestSuites.Attribute {
-        return .init(.init(name: "time", value: String(value)))
+    static func time(formattedValue: String) -> JUnit.TestSuites.Attribute {
+        return .init(.init(name: "time", value: formattedValue))
     }
 }

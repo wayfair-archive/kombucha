@@ -29,6 +29,18 @@ public enum SnapJUnit {
         return formatter
     }()
     
+    static func formatTimeMinuteSecond(time: TimeInterval) -> String {
+        let minutes = Int(Int(time) / 60)
+        let seconds = Int(time) % 60
+        return "\(minutes)m\(seconds)s"
+    }
+    
+    static func formatTimeMilliseconds(time: TimeInterval) -> String {
+        let ms = Int(time * 1000)
+        return "\(String(ms)) ms"
+    }
+ 
+    
     public struct Result {
         
         public init(startDate: Date, endDate: Date, config: SnapConfiguration, checkResults: CheckResults) {
@@ -127,7 +139,7 @@ public enum SnapJUnit {
         let element = JUnit.TestCase.Element.new().set(attributes: [
             JUnit.TestCase.Attribute.id(value: UUID()),
             JUnit.TestCase.Attribute.name(text: name),
-            JUnit.TestCase.Attribute.time(value: time)
+            JUnit.TestCase.Attribute.time(formattedValue: formatTimeMilliseconds(time: time))
             ]).set(failures: failuresInfo.failureElements)
         
         return TestCaseInfo(testCase: element, duration: time, failures: failuresInfo.failures)
@@ -147,7 +159,7 @@ public enum SnapJUnit {
                 JUnit.TestSuites.Attribute.name(text: "Kombucha API Testing - \(dateFormatter.string(from: Date()))"),
                 JUnit.TestSuites.Attribute.failures(number: testCasesSummary.failures),
                 JUnit.TestSuites.Attribute.tests(number: results.count),
-                JUnit.TestSuites.Attribute.time(value: testCasesSummary.time)
+                JUnit.TestSuites.Attribute.time(formattedValue: formatTimeMinuteSecond(time: testCasesSummary.time))
                 ]).set(
                     suites: [
                         JUnit.TestSuite.Element.new().set(attributes: [
@@ -155,7 +167,7 @@ public enum SnapJUnit {
                             JUnit.TestSuite.Attribute.name(text: "Kombucha"),
                             JUnit.TestSuite.Attribute.failures(number: testCasesSummary.failures),
                             JUnit.TestSuite.Attribute.tests(number: results.count),
-                            JUnit.TestSuite.Attribute.time(value: testCasesSummary.time)
+                            JUnit.TestSuite.Attribute.time(formattedValue: formatTimeMinuteSecond(time: testCasesSummary.time))
                             ]).set(testCases: testCasesSummary.cases)
                     ]
             )
