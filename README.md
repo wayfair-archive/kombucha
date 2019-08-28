@@ -190,7 +190,7 @@ finished with errors
 Kombucha is written in [Swift](https://swift.org). If you have a Swift 5 development environment available, you can run Kombucha natively on macOS. To do so, clone this repository, and then run
 ```
 swift build                         # build Kombucha in debug mode
-./build/debug/kombucha sample.json  # run the sample tests that are included with this repo
+.build/debug/kombucha sample.json   # run the sample tests that are included with this repo
 ```
 To move forward from this point, construct your own JSON configuration file describing your API endpoints and point Kombucha at that file. We suggest storing this configuration file and its snapshots in a git repository separate from this one, so that you can version your usage of Kombucha separately from any versioning of the tool itself. Such an invocation of the tool would look something like:
 ```
