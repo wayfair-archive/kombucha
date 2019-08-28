@@ -1,4 +1,4 @@
-FROM swift:5.0.1-bionic
+FROM swift:5.0.2
 
 # Create app directory
 WORKDIR /app
