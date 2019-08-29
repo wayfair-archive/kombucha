@@ -145,9 +145,9 @@ public enum SnapJUnit {
         
         switch result.config.request {
         case .graphQL(let graph):
-            name = "\(result.config.nameIdentifier)-POST-\(graph.host)\(graph.path) "
+            name = "\(result.config.nameIdentifier)-GraphQL-(POST)-\(graph.host)\(graph.path) "
         case .rest(let rest):
-            name = "\(result.config.nameIdentifier)-\(rest.httpMethod)-\(rest.host)\(rest.path) "
+            name = "\(result.config.nameIdentifier)-REST-\(rest.httpMethod)-\(rest.host)\(rest.path) "
         }
         
         var element = JUnit.TestCase.Element.new().set(attributes: [
