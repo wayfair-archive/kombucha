@@ -184,6 +184,8 @@ finished with errors
 * `--record` (`-r`): ask Kombucha to rewrite all the stored snapshots it knows about. Useful for setting a new baseline for tests or if you know a large amount of the API under test has changed
 * `--snapshots-directory` (`-s`): tell Kombucha where to find snapshots for the test run. If not specified, the default is `./__Snapshots/`.
 * `--work-directory` (`-w`): tell Kombucha what directory to use as the “work directory” (storage for live responses) for the test run. If not specified, the default is `./__Work__/`.
+* `--report-type` (`-t`): If specified, a report will be created on disk for the current test run. `junit` is currently the only support type. You need to specify the `--report-output-url` path for the report.
+* `--report-output-url` (`-o`): The path to the report file (existing or not).
 
 ### Running on macOS
 

@@ -32,16 +32,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Kombucha::JSONValueTests"
-               BuildableName = "JSONValueTests.xctest"
-               BlueprintName = "JSONValueTests"
-               ReferencedContainer = "container:Kombucha.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Kombucha::JSONCheckTests"
                BuildableName = "JSONCheckTests.xctest"
                BlueprintName = "JSONCheckTests"
@@ -52,9 +42,29 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Kombucha::JSONValueTests"
+               BuildableName = "JSONValueTests.xctest"
+               BlueprintName = "JSONValueTests"
+               ReferencedContainer = "container:Kombucha.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Kombucha::KombuchaLibTests"
                BuildableName = "KombuchaLibTests.xctest"
                BlueprintName = "KombuchaLibTests"
+               ReferencedContainer = "container:Kombucha.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Kombucha::JUnitTests"
+               BuildableName = "JUnitTests.xctest"
+               BlueprintName = "JUnitTests"
                ReferencedContainer = "container:Kombucha.xcodeproj">
             </BuildableReference>
          </TestableReference>
