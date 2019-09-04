@@ -133,7 +133,7 @@ public struct GraphQLSnap: Decodable {
 public struct GraphQLQueryContent: Decodable {
     public var operationName: String?
     public var query: GraphQLQueryText
-    public var variables: [String: String]?
+    public var variables: [String: JSONValue]?
 
     enum CodingKeys: String, CodingKey {
         case queryFile
@@ -161,7 +161,7 @@ public struct GraphQLQueryContent: Decodable {
             )
         }
 
-        variables = try container.decodeIfPresent([String: String].self, forKey: .variables)
+        variables = try container.decodeIfPresent([String: JSONValue].self, forKey: .variables)
     }
 }
 

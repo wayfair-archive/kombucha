@@ -43,7 +43,7 @@ public extension SnapConfiguration {
 private struct EncodableGraphQLQueryContent: Encodable {
     let operationName: String?
     let query: String
-    let variables: [String: String]?
+    let variables: [String: JSONValue]?
 
     init (_ content: GraphQLQueryContent) throws {
         query = try content.getQueryText()
