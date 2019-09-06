@@ -258,12 +258,12 @@ $ kombucha --record
 wrote a reference to: /app/__Snapshots__/headersSnap.json
 wrote a reference to: /app/__Snapshots__/ipSnap.json
 wrote a reference to: /app/__Snapshots__/responseHeadersSnap.json
-wrote a reference to: /app/__Snapshots__/userAagentSnap.json
+wrote a reference to: /app/__Snapshots__/userAgentSnap.json
 
 finished recording
 ```
 
-```json
+```bash
 $ cat /app/__Snapshots__/headersSnap.json
 
 {
@@ -292,7 +292,7 @@ $ tree ~/sample-project
 │   ├── headersSnap.json
 │   ├── ipSnap.json
 │   ├── responseHeadersSnap.json
-│   └── userAagentSnap.json
+│   └── userAgentSnap.json
 ├── src
 └── tests
 ```
@@ -366,7 +366,7 @@ $ cat report.xml
       <testcase id="FA145C14-2C5D-4A44-9691-402434710546" name="headersSnap-REST-GET-httpbin.org/headers " time="177 ms" />
       <testcase id="6768150C-291C-44AC-81E8-3E4C46FF79C0" name="ipSnap-REST-GET-httpbin.org/ip " time="41 ms" />
       <testcase id="17168BF2-AA5D-4661-BD7A-74B30B641802" name="responseHeadersSnap-REST-GET-httpbin.org/response-headers " time="40 ms" />
-      <testcase id="EBA9863B-0530-4278-8601-249163CFC8C0" name="userAagentSnap-REST-GET-httpbin.org/user-agent " time="38 ms" />
+      <testcase id="EBA9863B-0530-4278-8601-249163CFC8C0" name="userAgentSnap-REST-GET-httpbin.org/user-agent " time="38 ms" />
    </testsuite>
 </testsuites>
 ```
