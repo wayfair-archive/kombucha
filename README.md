@@ -211,18 +211,81 @@ Because the Docker container will not have direct access to your local filesyste
 To run Kombucha in Docker, first clone the repository and then do the following:
 
 ```bash
-cd kombucha
-docker build -t kombucha .
+$ cd kombucha
+$ docker build -t kombucha .
 ```
 
 This will build your Docker image and tag it with `kombucha:latest`.
 
-**NOTE:** Because the Docker container will not have direct access to your local filesystem (where you may be storing your configuration file and reference snapshots), you will need to bind a local volume to the container while it runs.
-
-Let's say you have a project `sample-project` which contains the following structure:
+First, let's run a quick test on your new Kombucha image to ensure everything's working properly:
 
 ```bash
-sample-project
+$ docker run -it kombucha:latest
+```
+
+This should drop you into a bash shell on the container, with the compiled `kombucha` executable now available for direct use:
+
+```bash
+$ which kombucha
+
+/usr/local/bin/kombucha
+```
+
+Since the `Dockerfile` includes instructions to copy over the `sample.json` config file and rename it to `kombucha.json`, the program can be immediately run with no arguments, and will simply default to using `./kombucha.json` and creating snapshots in a new `__Snapshots__` directory:
+
+```bash
+$ kombucha
+
+testing: GET: httpbin.org/headers
+- 0 query param
+- 0 http header
+- empty body
+reference file doesn’t exist, writing it and failing the test…
+wrote a reference to: /app/__Snapshots__/headersSnap.json
+
+[...]
+
+finished with errors
+```
+
+**NOTE: Since this sample data contains no reference snapshots, the program will finish with errors the first time it runs, as it needs to create the snapshots first.**
+
+To avoid this first-run error, simply add the `--record` option to your arguments:
+
+```bash
+$ kombucha --record
+
+wrote a reference to: /app/__Snapshots__/headersSnap.json
+wrote a reference to: /app/__Snapshots__/ipSnap.json
+wrote a reference to: /app/__Snapshots__/responseHeadersSnap.json
+wrote a reference to: /app/__Snapshots__/userAagentSnap.json
+
+finished recording
+```
+
+```json
+$ cat /app/__Snapshots__/headersSnap.json
+
+{
+  "headers" : {
+    "Accept" : "application\/json",
+    "Accept-Encoding" : "deflate, gzip",
+    "Accept-Language" : "en",
+    "Host" : "httpbin.org",
+    "User-Agent" : "kombucha-this-is-a-test-v-0.0001"
+  }
+}
+```
+
+Next, let's move on to a more practical example of running `kombucha` tests against some API snapshots stored on your development machine!
+
+**NOTE: Because the Docker container will not have direct access to your local filesystem (where you may be storing your configuration file and reference snapshots), you may need to bind a local volume to the container while it runs.**
+
+Say you have a folder `~/sample-project` which contains the following project structure:
+
+```bash
+$ tree ~/sample-project
+
 ├── README.md
 ├── kombucha.json
 ├── snaps
@@ -239,38 +302,82 @@ In specific, `kombucha.json` represents our declarative API configuration file, 
 To bind this `sample-project` directory to your docker container and begin running tests, do the following:
 
 ```bash
-docker run -itv ~/sample-project:/app/sample-project kombucha:latest /bin/bash
+$ docker run -itv ~/sample-project:/app/sample-project kombucha:latest
 ```
 
-Please ensure the path structure is correct for both your `sample-project` and the destination you wish to target inside the Docker container (`/app/sample-project`). If successful, you should be dropped into a Bash shell in the `/app` working directory with the following contents:
+**NOTE: Please ensure the path structure is correct for both your `sample-project` and the destination you wish to target inside the Docker container (`/app/sample-project`).**
+
+If successful, you should be dropped into a bash shell in the container. You can confirm that your local project was mounted successfully by checking the contents of the `/app` directory:
 
 ```bash
-drwxr-x--- 5 root root 4096 Aug 20 20:55 .build
--rw-r--r-- 1 root root  861 Aug 20 20:54 Package.resolved
--rw-r--r-- 1 root root 1523 Aug 20 17:32 Package.swift
-drwxr-xr-x 7 root root 4096 Aug 20 20:52 Sources
-drwxr-xr-x 5 root root 4096 Aug 20 20:54 Tests
-drwxr-xr-x 7 root root  224 Aug 21 15:39 sample-project
+$ ls -l /app/*
+
+/app/kombucha:
+
+-rw-r--r-- 1 root root  861 Sep  6 05:32 Package.resolved
+-rw-r--r-- 1 root root 1741 Aug 29 18:36 Package.swift
+drwxr-xr-x 8 root root 4096 Sep  6 05:32 Sources
+drwxr-xr-x 6 root root 4096 Sep  6 05:32 Tests
+-rw-r--r-- 1 root root 1416 Aug 27 00:04 kombucha.json
+
+/app/sample-project:
+
+drwxr-xr-x 2 root root   64 Sep  6 06:01 src
+drwxr-xr-x 2 root root   64 Sep  6 06:01 tests
+-rw-r--r-- 1 root root    6 Sep  6 06:15 README.md
+-rw-r--r-- 1 root root 1416 Sep  6 06:15 kombucha.json
+drwxr-xr-x 6 root root  192 Sep  6 06:15 snaps
 ```
 
-Now that you are inside the Docker container, you can begin running your Kombucha tests! 
-
-On Linux builds, the `kombucha` executable can be found at `/app/.build/release/kombucha` (which is symlinked to `/app/.build/x86_64-unknown-linux/release/kombucha`). 
-
-Therefore, you can run your `sample-project` tests inside Docker as follows:
+Since `kombucha` is symlinked inside Docker, you can run the program from any directory, including your project folder:
 
 ```bash
-.build/release/kombucha sample-project/kombucha.json -s sample-project/snaps -w sample-project/results
+$ cd /app/sample-project
+$ kombucha -s snaps -w work -t junit -o report.xml
+
+[...]
+
+saved JUnitXML to /app/sample-project/report.xml
+finished
 ```
 
-Once Kombucha is done running tests, your recorded responses will be written to the `/app/sample-project/results` directory unless otherwise specified:
+Since we elected to write our results to a `work/` directory and generate a Junit XML report called `report.xml`, we can see these new items are now available in `/app/sample-project`:
 
 ```bash
--rw-r--r-- 1 root root 212 Aug 21 15:57 headersSnap-work.json
--rw-r--r-- 1 root root  47 Aug 21 15:57 ipSnap-work.json
--rw-r--r-- 1 root root 115 Aug 21 15:57 responseHeadersSnap-work.json
--rw-r--r-- 1 root root  55 Aug 21 15:57 userAagentSnap-work.json
+$ ls -lrt
+
+drwxr-xr-x 2 root root   64 Sep  6 06:01 src
+drwxr-xr-x 2 root root   64 Sep  6 06:01 tests
+-rw-r--r-- 1 root root    6 Sep  6 06:15 README.md
+-rw-r--r-- 1 root root 1416 Sep  6 06:15 kombucha.json
+drwxr-xr-x 6 root root  192 Sep  6 06:15 snaps
+drwxr-xr-x 6 root root  192 Sep  6 06:16 work
+-rw-rw-rw- 1 root root  836 Sep  6 06:16 report.xml
 ```
+
+You can view your generated report directly on the Docker container:
+
+```xml
+$ cat report.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites id="DFF510A4-A545-4F75-9228-85F95669F592" name="Kombucha API Testing - September 6, 2019 at 5:57:01 AM UTC" failures="0" tests="4" time="0m0s">
+   <testsuite id="ACD78BA8-0798-4D65-B81B-771794FB4BD2" name="Kombucha" failures="0" tests="4" time="0m0s">
+      <testcase id="FA145C14-2C5D-4A44-9691-402434710546" name="headersSnap-REST-GET-httpbin.org/headers " time="177 ms" />
+      <testcase id="6768150C-291C-44AC-81E8-3E4C46FF79C0" name="ipSnap-REST-GET-httpbin.org/ip " time="41 ms" />
+      <testcase id="17168BF2-AA5D-4661-BD7A-74B30B641802" name="responseHeadersSnap-REST-GET-httpbin.org/response-headers " time="40 ms" />
+      <testcase id="EBA9863B-0530-4278-8601-249163CFC8C0" name="userAagentSnap-REST-GET-httpbin.org/user-agent " time="38 ms" />
+   </testsuite>
+</testsuites>
+```
+
+If you'd like to copy your XML report back to your local filesystem, you can use the following `docker cp` pattern to transfer any files generated inside the container:
+
+```bash
+docker cp $(docker ps -q --filter ancestor="kombucha:latest"):/app/sample-project/report.xml ~/Desktop/report.xml
+```
+
+Note that by executing `$(docker ps -q --filter ancestor="kombucha:latest")` as a subcommand, you can avoid having to refer directly to the container ID, which can be determined by running `docker ps` and looking for the `CONTAINER ID` column. If you would prefer to use the ID, simply run `docker cp CONTAINERID:/app/sample-project/report.xml ~/Desktop/report.xml` instead.
 
 ## List of checks
 
