@@ -18,7 +18,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/wayfair/prelude",
-            .upToNextMinor(from: "0.3.0")
+            .upToNextMinor(from: "0.4.0")
         )
     ],
     targets: [
