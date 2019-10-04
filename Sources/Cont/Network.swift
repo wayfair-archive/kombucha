@@ -9,6 +9,10 @@
 
 import Foundation
 
+#if os(Linux)
+import FoundationNetworking
+#endif
+
 public extension URLSession {
     func task(_ request: URLRequest) -> Cont<(Data?, URLResponse?, Error?)> {
         return .init { complete in

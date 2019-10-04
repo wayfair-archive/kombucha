@@ -12,6 +12,10 @@ import JSONCheck
 import JSONValue
 import Prelude
 
+#if os(Linux)
+import FoundationNetworking
+#endif
+
 public final class SnapRunner<A: Monoid, S: TextOutputStream> {
     let fileManager: FileManager
     let jsonCheck: JSONCheck<A>
