@@ -11,7 +11,7 @@ import Basic
 import JSONCheck
 import Prelude
 
-public extension JSONCheck where A == [CheckResult] {
+public extension JSONCheck where A == CheckResult {
     static let allChecks: [String: JSONCheck] = [
         "array-consistency": JSONCheck.arrayConsistency,
         "empty-arrays": JSONCheck.emptyArrays,
@@ -29,16 +29,16 @@ public extension JSONCheck where A == CheckResults {
         <> defaultWarnings
         <> defaultInfos
 
-    static let defaultErrors = JSONCheck<[CheckResult]>.structure.map(CheckResults.asErrors)
+    static let defaultErrors = JSONCheck<CheckResult>.structure.map(mapToErrors)
 
     static let defaultInfos = (
-        JSONCheck<[CheckResult]>.emptyArrays
-            <> JSONCheck<[CheckResult]>.emptyObjects
-            <> JSONCheck<[CheckResult]>.stringBools
-            <> JSONCheck<[CheckResult]>.flagNewKeys
-        ).map(CheckResults.asInfos)
+        JSONCheck<CheckResult>.emptyArrays
+            <> JSONCheck<CheckResult>.emptyObjects
+            <> JSONCheck<CheckResult>.stringBools
+            <> JSONCheck<CheckResult>.flagNewKeys
+        ).map(mapToInfos)
 
-    static let defaultWarnings = JSONCheck<[CheckResult]>.arrayConsistency.map(CheckResults.asWarnings)
+    static let defaultWarnings = JSONCheck<CheckResult>.arrayConsistency.map(mapToWarnings)
 }
 
 public extension SnapConfiguration {
@@ -50,21 +50,21 @@ public extension SnapConfiguration {
         return
             preferences // given the user’s preferences for this test
                 .errors // with all the errors they requested that we run
-                .compactMap { JSONCheck<[CheckResult]>.allChecks[$0] } // look up the corresponding check function
+                .compactMap { JSONCheck<CheckResult>.allChecks[$0] } // look up the corresponding check function
                 .reduce(.empty, <>) // combine all the checks we found into one big one
-                .map(CheckResults.asErrors) // make sure they appear as `ERROR:`s
+                .map(mapToErrors) // make sure they appear as `ERROR:`s
             <>
             preferences
                 .infos
-                .compactMap { JSONCheck<[CheckResult]>.allChecks[$0] }
+                .compactMap { JSONCheck<CheckResult>.allChecks[$0] }
                 .reduce(.empty, <>)
-                .map(CheckResults.asInfos)
+                .map(mapToInfos)
             <>
             preferences
                 .warnings
-                .compactMap { JSONCheck<[CheckResult]>.allChecks[$0] }
+                .compactMap { JSONCheck<CheckResult>.allChecks[$0] }
                 .reduce(.empty, <>)
-                .map(CheckResults.asWarnings)
+                .map(mapToWarnings)
     }
 }
 

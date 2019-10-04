@@ -57,22 +57,20 @@ public enum SnapJUnit {
     }
         
     static func generateFailuresMessage(results: CheckResults) throws -> String {
-        
-        let resultDictionary = results.results
         var output: String = ""
         
-        for key in resultDictionary.keys.sorted() {
+        for key in results.keys.sorted() {
             output += "\nJSON error at: \(key.prettyPrinted)\n"
             
-            for error in resultDictionary[key]!.errors {
+            for error in results[key]!.errors {
                 output += "ERROR: \(error)\n"
             }
             
-            for warning in resultDictionary[key]!.warnings {
+            for warning in results[key]!.warnings {
                 output += "WARNING: \(warning)\n"
             }
             
-            for info in resultDictionary[key]!.infos {
+            for info in results[key]!.infos {
                output += "INFO: \(info)\n"
             }
         }
@@ -82,7 +80,7 @@ public enum SnapJUnit {
     
     static func generateFailures(results: CheckResults, config: SnapConfiguration) throws -> JUnit.Failure.Element? {
         
-        guard results.results.isEmpty == false else {
+        guard results.isEmpty == false else {
             return nil
         }
         
@@ -160,7 +158,7 @@ public enum SnapJUnit {
             element = element.set(failures: [failure])
         }
         
-        return TestCaseInfo(testCase: element, duration: time, failures: result.checkResults.results.count)
+        return TestCaseInfo(testCase: element, duration: time, failures: result.checkResults.count)
     }
     
     public static func generateJUnitSuite(results: [Result]) throws -> JUnit.Report {

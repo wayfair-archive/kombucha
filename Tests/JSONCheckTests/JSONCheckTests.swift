@@ -34,8 +34,12 @@ final class JSONCheckTests: XCTestCase {
         )
         XCTAssertEqual(1, results.count)
 
-        XCTAssertTrue(results[0].message.contains("Types"))
-        XCTAssertEqual([], results[0].context)
+        guard let firstRec = results[.root], let firstResult = firstRec.first else {
+            XCTFail("expected exactly one result at the root of the JSON")
+            return
+        }
+
+        XCTAssertTrue(firstResult.contains("Types"))
     }
 
     func testCheckStructureFailsWithProperContext() {
@@ -55,28 +59,18 @@ final class JSONCheckTests: XCTestCase {
             ])
 
         let results = JSONCheck.structure.run(.empty, referenceValue, testValue)
-        XCTAssertEqual(2, results.count)
 
-        // results can come back in any order, so it’s a little annoying to find the things we want to assert on here…
-        guard let typesResult = results.first(where: { $0.message.contains("Types") }) else {
-            XCTFail()
+        guard let typesRec = results[[JSONIndex.arrayIndex(0), .objectIndex("foo")]], let typesMessage = typesRec.first else {
+            XCTFail("expected a message generated at the above JSON location")
             return
         }
+        XCTAssertTrue(typesMessage.contains("Types"))
 
-        XCTAssertEqual(
-            [JSONIndex.arrayIndex(0), .objectIndex("foo")],
-            typesResult.context
-        )
-
-        guard let doesNotExistResult = results.first(where: { $0.message.contains("does not exist") }) else {
-            XCTFail()
+        guard let doesNotExistRec = results[[JSONIndex.arrayIndex(0)]], let doesNotExistMessage = doesNotExistRec.first else {
+            XCTFail("expected a message generated at the above JSON location")
             return
         }
-
-        XCTAssertEqual(
-            [JSONIndex.arrayIndex(0)],
-            doesNotExistResult.context
-        )
+        XCTAssertTrue(doesNotExistMessage.contains("does not exist"))
     }
 
     func testDefaultChecksTestArrayConsistencySucceeds() {
@@ -104,11 +98,16 @@ final class JSONCheckTests: XCTestCase {
             ])
 
         let results = JSONCheck.arrayConsistency.run(.empty, referenceValue, testValue)
-        XCTAssertEqual(1, results.count)
-        XCTAssertTrue(results[0].message.contains("Types"))
+
+        guard results.count == 1, let firstRec = results.first, let firstResult = firstRec.1.first else {
+            XCTFail("expected exactly one result")
+            return
+        }
+
+        XCTAssertTrue(firstResult.contains("Types"))
         XCTAssertEqual(
             [JSONIndex.arrayIndex(1)],
-            results[0].context
+            firstRec.0
         )
     }
 
@@ -129,8 +128,8 @@ final class JSONCheckTests: XCTestCase {
                 ])
             ])
 
-        let structureAsErrors = JSONCheck.structure.map(CheckResults.asErrors)
-        let arrayConsistencyAsWarnings = JSONCheck.arrayConsistency.map(CheckResults.asWarnings)
+        let structureAsErrors = JSONCheck.structure.map(mapToErrors)
+        let arrayConsistencyAsWarnings = JSONCheck.arrayConsistency.map(mapToWarnings)
 
         let results = (structureAsErrors <> arrayConsistencyAsWarnings).run(.empty, referenceValue, testValue)
         XCTAssertEqual(2, results.errors.count)
@@ -213,7 +212,7 @@ final class JSONCheckTests: XCTestCase {
                 ]),
             "baz": .string("FALSE")
             ])
-        XCTAssertEqual(2, JSONCheck.stringBools.run(.empty, .null, jsonValue).count)
+        XCTAssertEqual(2, JSONCheck.stringBools.run(.empty, .null, jsonValue).values.count)
     }
 
     func testCheckStringNumberSucceeds() {
@@ -229,7 +228,7 @@ final class JSONCheckTests: XCTestCase {
                 ])
             ])
 
-        XCTAssertEqual(2, JSONCheck.stringNumbers.run(.empty, .null, jsonValue).count)
+        XCTAssertEqual(2, JSONCheck.stringNumbers.run(.empty, .null, jsonValue).values.count)
     }
 
     func testCheckFlagNewKeysFails() {
@@ -261,8 +260,8 @@ final class JSONCheckTests: XCTestCase {
         XCTAssertEqual(2, results.count)
 
         // results can come back in any order so we will be extremely lazy here and test with `contains(where:)`)
-        XCTAssertTrue(results.map { $0.context }.contains(where: { $0 == [] }))
-        XCTAssertTrue(results.map { $0.context }.contains(where: { $0 == [JSONIndex.objectIndex("baz"), .arrayIndex(0)] }))
+        XCTAssertTrue(results.keys.contains(where: { $0 == [] }))
+        XCTAssertTrue(results.keys.contains(where: { $0 == [JSONIndex.objectIndex("baz"), .arrayIndex(0)] }))
     }
 
     func testCheckFlagNewKeysSucceeds() {
@@ -367,6 +366,6 @@ final class JSONCheckTests: XCTestCase {
             ])
         
         let results = JSONCheck.strictEquality.run(.empty, referenceValue, testValue)
-        XCTAssertEqual(results.count, 10)
+        XCTAssertEqual(results.values.count, 10)
     }
 }
