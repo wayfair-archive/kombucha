@@ -60,7 +60,7 @@ private func checkMaps(context: JSONContext, _ reference: [String: JSONValue], _
     return reference.reduce(.empty) { acc, rec in
         let (key, referenceValue) = rec
         guard let testValue = test[key] else {
-            return acc <> [context: ["The key \(key) does not exist"]]
+            return acc <> context.attaching(message: "The key \(key) does not exist")
         }
         let nextContext = context.appending(.objectIndex(key))
         return acc <> checkStructure(context: nextContext, referenceValue, testValue)
@@ -92,9 +92,7 @@ private func checkStructure(context: JSONContext, _ reference: JSONValue, _ test
     case (.string, .string):
         return .empty
     default:
-        return [
-            context: ["Types didn’t match. Reference: \(reference), test: \(test)"]
-        ]
+        return context.attaching(message: "Types didn’t match. Reference: \(reference), test: \(test)")
     }
 }
 
@@ -110,7 +108,7 @@ private func checkFlagNewKeys(context: JSONContext, _ reference: JSONValue, _ te
         return testObject.reduce(.empty) { acc, rec in
             let (key, testValue) = rec
             guard let referenceValue = referenceObject[key] else {
-                return acc <> [context: ["The key \(key) exists in the value being tested, but not in the snapshot. Perhaps you need to update your snapshot?"]]
+                return acc <> context.attaching(message: "The key \(key) exists in the value being tested, but not in the snapshot. Perhaps you need to update your snapshot?")
             }
             let nextContext = context.appending(.objectIndex(key))
             return acc <> checkFlagNewKeys(context: nextContext, referenceValue, testValue)
@@ -150,44 +148,38 @@ private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue
     switch (reference, test) {
     case (.bool(let refBool), .bool(let testBool)):
         guard refBool != testBool else { return .empty }
-        return [
-            context: ["Not a strict equality between the boolean \(refBool) and \(testBool)"]
-        ]
-        
+        return context.attaching(
+            message: "Not a strict equality between the boolean \(refBool) and \(testBool)"
+        )
     case (.double(let refDouble), .double(let testDouble)):
         guard refDouble != testDouble else { return .empty }
-        return [
-            context: ["Not a strict equality between the number \(refDouble) and \(testDouble)"]
-        ]
-        
+        return context.attaching(
+            message: "Not a strict equality between the number \(refDouble) and \(testDouble)"
+        )
     case (.null, .null):
         return .empty
-        
     case (.string(let refString), .string(let testString)):
         guard refString != testString else { return .empty }
-        return [
-            context: ["Not a strict equality between the string \"\(refString)\" and \"\(testString)\""]
-        ]
-        
+        return context.attaching(
+            message: "Not a strict equality between the string \"\(refString)\" and \"\(testString)\""
+        )
     case (.object(let referenceObject), .object(let testObject)):
         return checkForStrictEqualityOfObjects(context: context, referenceObject, testObject)
         
     case (.array(let referenceArray), .array(let testArray)):
         guard referenceArray.count == testArray.count else {
-            return  [
-                context: ["Not a strict equality since arrays of different sizes: \(referenceArray.count) vs \(testArray.count)"]
-            ]
+            return context.attaching(
+                message: "Not a strict equality since arrays of different sizes: \(referenceArray.count) vs \(testArray.count)"
+            )
         }
-        
         return zip(referenceArray, testArray).enumerated().reduce(.empty) { previousChecks, el in
             let (index, (reference, test)) = el
             return previousChecks <> checkForStrictEquality(context: context.appending(.arrayIndex(index)), reference, test)
         }
-        
     default:
-        return  [
-            context: ["Not a strict equality since the types are diffrent. Reference: \(reference), test: \(test)"]
-        ]
+        return context.attaching(
+            message: "Not a strict equality since the types are diffrent. Reference: \(reference), test: \(test)"
+        )
     }
 }
 
@@ -207,7 +199,7 @@ private func checkForStrictEqualityOfObjects(context: JSONContext, _ referenceOb
     let missingKeysInTestObjectAndStrictEqualityAtSharedKeys: CheckResult = referenceObject.reduce(.empty) { acc, rec in
         let (key, referenceValue) = rec
         guard let testValue = testObject[key] else {
-            return acc <> [context: ["Not a strict equality since the key \(key) does not exist"]]
+            return acc <> context.attaching(message: "Not a strict equality since the key \(key) does not exist")
         }
         let nextContext = context.appending(.objectIndex(key))
         return acc <> checkForStrictEquality(context: nextContext, referenceValue, testValue)
@@ -230,7 +222,7 @@ public extension JSONCheck where A == CheckResult {
     static let emptyArrays = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            arrayCase: { $1.isEmpty ? [$0: ["We found an empty array"]] : .empty }
+            arrayCase: { $1.isEmpty ? $0.attaching(message: "We found an empty array") : .empty }
         )
     }
 
@@ -238,7 +230,7 @@ public extension JSONCheck where A == CheckResult {
     static let emptyObjects = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            objectCase: { $1.isEmpty ? [$0: ["Empty object"]] : .empty }
+            objectCase: { $1.isEmpty ? $0.attaching(message: "Empty object") : .empty }
         )
     }
 
@@ -248,7 +240,7 @@ public extension JSONCheck where A == CheckResult {
     static let stringBools = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            stringCase: { $1.lowercased() == "true" || $1.lowercased() == "false" ? [$0: ["string bool: “\($1)”"]] : .empty }
+            stringCase: { $1.lowercased() == "true" || $1.lowercased() == "false" ? $0.attaching(message: "string bool: “\($1)”") : .empty }
         )
     }
 
@@ -256,7 +248,7 @@ public extension JSONCheck where A == CheckResult {
     static let stringNumbers = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            stringCase: { Double($1) != nil ? [$0: ["string number: “\($1)”"]] : .empty }
+            stringCase: { Double($1) != nil ? $0.attaching(message: "string number: “\($1)”") : .empty }
         )
     }
     

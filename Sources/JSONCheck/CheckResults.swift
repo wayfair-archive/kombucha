@@ -13,6 +13,14 @@ import Prelude
 /// a dictionary from JSON locations to diagnostic messages from the tool, for those locations
 public typealias CheckResult = [JSONContext: [String]]
 
+public extension JSONContext {
+    /// convenience method for producing a new `CheckResult` from this `JSONContext` (`self`)
+    /// - Parameter message: the string message to attach to this location
+    func attaching(message: String) -> CheckResult {
+        return [self: [message]]
+    }
+}
+
 /// diagnostic messages from the tool for a particular JSON location, sorted into errors, infos, and warnings
 public struct CheckRecord { public let errors, infos, warnings: [String] }
 
@@ -55,18 +63,21 @@ public func mapToWarnings(_ result: CheckResult) -> CheckResults {
 }
 
 public extension CheckResults {
+    /// given a dictionary of results (`self`), return a dictionary of results containing only those key-value pairs that contain errors, and only the errors
     var errors: CheckResult {
         compactMapValues { rec in
             rec.errors.isEmpty ? nil : rec.errors
         }
     }
 
+    /// given a dictionary of results (`self`), return a dictionary of results containing only those key-value pairs that contain infos, and only the infos
     var infos: CheckResult {
         compactMapValues { rec in
             rec.infos.isEmpty ? nil : rec.infos
         }
     }
 
+    /// given a dictionary of results (`self`), return a dictionary of results containing only those key-value pairs that contain warnings, and only the warnings
     var warnings: CheckResult {
         compactMapValues { rec in
             rec.warnings.isEmpty ? nil : rec.warnings

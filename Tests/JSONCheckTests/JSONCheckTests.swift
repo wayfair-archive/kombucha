@@ -212,7 +212,19 @@ final class JSONCheckTests: XCTestCase {
                 ]),
             "baz": .string("FALSE")
             ])
-        XCTAssertEqual(2, JSONCheck.stringBools.run(.empty, .null, jsonValue).values.count)
+        let results = JSONCheck.stringBools.run(.empty, .null, jsonValue)
+
+        guard let firstResults = results[[JSONIndex.objectIndex("bar"), .arrayIndex(1)]], firstResults.count == 1 else {
+            XCTFail("expected a single result at the above location")
+            return
+        }
+        XCTAssertTrue(firstResults.first!.contains("bool"))
+
+        guard let secondResults = results[[JSONIndex.objectIndex("baz")]], secondResults.count == 1 else {
+            XCTFail("expected a single result at the above location")
+            return
+        }
+        XCTAssertTrue(secondResults.first!.contains("bool"))
     }
 
     func testCheckStringNumberSucceeds() {
@@ -366,6 +378,6 @@ final class JSONCheckTests: XCTestCase {
             ])
         
         let results = JSONCheck.strictEquality.run(.empty, referenceValue, testValue)
-        XCTAssertEqual(results.values.count, 10)
+        XCTAssertEqual(results.values.flatMap { $0 }.count, 10)
     }
 }

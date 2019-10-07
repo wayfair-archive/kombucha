@@ -38,6 +38,7 @@ extension JSONIndex: Hashable { }
 public extension Array where Element == JSONIndex {
     /// “pretty print” a `JSONContext` so it kind of looks like JavaScript indexing syntax
     var prettyPrinted: String {
+        guard !isEmpty else { return "(JSON root)" }
         return map { index in
             switch index {
             case .arrayIndex(let intValue):
