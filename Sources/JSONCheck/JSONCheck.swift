@@ -81,14 +81,14 @@ private func checkStructure(context: JSONContext, _ reference: JSONValue, _ test
             return .empty
         }
         let nextContext = context.appending(.arrayIndex(0))
-        return checkStructure(context: nextContext, reference, test)
+        return checkStructure(context: nextContext, reference.outJ, test.outJ)
     case (.bool, .bool),
          (.double, .double),
          (.null, _),
          (_, .null):
         return .empty
     case (.object(let referenceObject), .object(let testObject)):
-        return checkMaps(context: context, referenceObject, testObject)
+        return checkMaps(context: context, referenceObject.mapValues { $0.outJ }, testObject.mapValues { $0.outJ })
     case (.string, .string):
         return .empty
     default:
@@ -103,7 +103,7 @@ private func checkFlagNewKeys(context: JSONContext, _ reference: JSONValue, _ te
             return .empty
         }
         let nextContext = context.appending(.arrayIndex(0))
-        return checkFlagNewKeys(context: nextContext, reference, test)
+        return checkFlagNewKeys(context: nextContext, reference.outJ, test.outJ)
     case (.object(let referenceObject), .object(let testObject)):
         return testObject.reduce(.empty) { acc, rec in
             let (key, testValue) = rec
@@ -111,7 +111,7 @@ private func checkFlagNewKeys(context: JSONContext, _ reference: JSONValue, _ te
                 return acc <> context.attaching(message: "The key \(key) exists in the value being tested, but not in the snapshot. Perhaps you need to update your snapshot?")
             }
             let nextContext = context.appending(.objectIndex(key))
-            return acc <> checkFlagNewKeys(context: nextContext, referenceValue, testValue)
+            return acc <> checkFlagNewKeys(context: nextContext, referenceValue.outJ, testValue.outJ)
         }
     default:
         return .empty
@@ -164,8 +164,11 @@ private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue
             message: "Not a strict equality between the string \"\(refString)\" and \"\(testString)\""
         )
     case (.object(let referenceObject), .object(let testObject)):
-        return checkForStrictEqualityOfObjects(context: context, referenceObject, testObject)
-        
+        return checkForStrictEqualityOfObjects(
+            context: context,
+            referenceObject.mapValues { $0.outJ },
+            testObject.mapValues { $0.outJ }
+        )
     case (.array(let referenceArray), .array(let testArray)):
         guard referenceArray.count == testArray.count else {
             return context.attaching(
@@ -174,7 +177,11 @@ private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue
         }
         return zip(referenceArray, testArray).enumerated().reduce(.empty) { previousChecks, el in
             let (index, (reference, test)) = el
-            return previousChecks <> checkForStrictEquality(context: context.appending(.arrayIndex(index)), reference, test)
+            return previousChecks <> checkForStrictEquality(
+                context: context.appending(.arrayIndex(index)),
+                reference.outJ,
+                test.outJ
+            )
         }
     default:
         return context.attaching(
