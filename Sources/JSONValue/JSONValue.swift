@@ -37,7 +37,7 @@ public enum JSONF<A> {
         }
     }
 
-    public typealias Algebra = (JSONF) -> A
+    public typealias FAlgebra = (JSONF) -> A
 }
 
 // MARK: - Equatable
@@ -46,8 +46,8 @@ extension JSONF: Equatable where A: Equatable { }
 
 // MARK: - Codable
 
-extension JSONF: Encodable where A == InJ {
-    /// encode a `JSONF<InJ>` by leaving out the `InJ` part. We don’t need it in the JSON at all
+extension JSONF: Encodable where A == JFix {
+    /// encode a `JSONF<JFix>` by leaving out the `JFix` part. We don’t need it in the JSON at all
     /// - Parameter encoder: an `Encoder`
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
@@ -72,14 +72,14 @@ extension JSONF: Encodable where A == InJ {
     }
 }
 
-extension JSONF: Decodable where A == InJ {
-    /// decode a `JSONF<InJ>` by inserting the `InJ`s where needed. They won’t have any representation in the JSON at all
+extension JSONF: Decodable where A == JFix {
+    /// decode a `JSONF<JFix>` by inserting the `JFix`s where needed. They won’t have any representation in the JSON at all
     /// - Parameter decoder: a `Decoder`
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let arrayValue = try? container.decode([JSONF<InJ>].self) {
+        if let arrayValue = try? container.decode([JSONF<JFix>].self) {
             self = .array(
-                arrayValue.map(InJ.fixJ)
+                arrayValue.map(JFix.inJ)
             )
             return
         }
@@ -91,9 +91,9 @@ extension JSONF: Decodable where A == InJ {
             self = .double(doubleValue)
             return
         }
-        if let objectValue = try? container.decode([String: JSONF<InJ>].self) {
+        if let objectValue = try? container.decode([String: JSONF<JFix>].self) {
             self = .object(
-                objectValue.mapValues(InJ.fixJ)
+                objectValue.mapValues(JFix.inJ)
             )
             return
         }
@@ -112,58 +112,58 @@ extension JSONF: Decodable where A == InJ {
     }
 }
 
-public enum InJ: Equatable {
-    indirect case fixJ(JSONF<InJ>)
+public enum JFix: Equatable {
+    indirect case inJ(JSONF<JFix>)
 }
 
-public extension InJ {
-    var outJ: JSONF<InJ> {
+public extension JFix {
+    var outJ: JSONF<JFix> {
         switch self {
-        case .fixJ(let jsonF):
+        case .inJ(let jsonF):
             return jsonF
         }
     }
 }
 
-public extension InJ {
-    static var null: InJ {
-        return .fixJ(.null)
+public extension JFix {
+    static var null: JFix {
+        return .inJ(.null)
     }
 
-    static func array(_ arrayValue: [InJ]) -> InJ {
-        return .fixJ(.array(arrayValue))
+    static func array(_ arrayValue: [JFix]) -> JFix {
+        return .inJ(.array(arrayValue))
     }
 
-    static func bool(_ boolValue: Bool) -> InJ {
-        return .fixJ(.bool(boolValue))
+    static func bool(_ boolValue: Bool) -> JFix {
+        return .inJ(.bool(boolValue))
     }
 
-    static func double(_ doubleValue: Double) -> InJ {
-        return .fixJ(.double(doubleValue))
+    static func double(_ doubleValue: Double) -> JFix {
+        return .inJ(.double(doubleValue))
     }
 
-    static func object(_ objectValue: [String: InJ]) -> InJ {
-        return .fixJ(.object(objectValue))
+    static func object(_ objectValue: [String: JFix]) -> JFix {
+        return .inJ(.object(objectValue))
     }
 
-    static func string(_ stringValue: String) -> InJ {
-        return .fixJ(.string(stringValue))
+    static func string(_ stringValue: String) -> JFix {
+        return .inJ(.string(stringValue))
     }
 }
 
 import Prelude
 
-public func cata<A>(_ algebra: @escaping JSONF<A>.Algebra) -> (InJ) -> A {
+public func cata<A>(_ algebra: @escaping JSONF<A>.FAlgebra) -> (JFix) -> A {
     return { $0.outJ.map(cata <| algebra) |> algebra }
 }
 
-public func algebra<M: Monoid>(
-    array: @escaping ([M]) -> M = { _ in .empty },
+public func fAlgebra<M: Monoid>(
+    array: @escaping ([M]) -> M = { $0.reduce(.empty, <>) },
     bool: @escaping (Bool) -> M = { _ in .empty },
     double: @escaping (Double) -> M = { _ in .empty },
     null: @escaping @autoclosure () -> M = .empty,
-    object: @escaping ([String: M]) -> M = { _ in .empty },
-    string: @escaping (String) -> M = { _ in .empty }) -> JSONF<M>.Algebra {
+    object: @escaping ([String: M]) -> M = { $0.values.reduce(.empty, <>) },
+    string: @escaping (String) -> M = { _ in .empty }) -> JSONF<M>.FAlgebra {
     return { json in
         switch json {
         case .array(let arrayValue):
@@ -182,4 +182,4 @@ public func algebra<M: Monoid>(
     }
 }
 
-public typealias JSONValue = JSONF<InJ>
+public typealias JSONValue = JSONF<JFix>

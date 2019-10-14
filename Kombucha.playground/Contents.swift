@@ -89,7 +89,7 @@ let total: (JSONF<Double>) -> Double = { json in
     switch json {
     case .array(let arrayValue):
         return arrayValue.reduce(0, +)
-    case .bool(let boolValue):
+    case .bool:
         return 0
     case .double(let doubleValue):
         return doubleValue
@@ -97,11 +97,11 @@ let total: (JSONF<Double>) -> Double = { json in
         return 0
     case .object(let objectValue):
         return objectValue.values.reduce(0, +)
-    case .string(let stringValue):
+    case .string:
         return 0
     }
 }
-cata(total) <| .fixJ(testValue)
+cata(total) <| .inJ(testValue)
 
 let append: (JSONF<String>) -> String = { json in
     switch json {
@@ -119,11 +119,9 @@ let append: (JSONF<String>) -> String = { json in
         return stringValue
     }
 }
-cata(append) <| .fixJ(myValue)
+cata(append) <| .inJ(myValue)
 
-let appendM = algebra(
-    array: { $0.reduce("", +) },
-    object: { $0.values.reduce("", +) },
-    string: { $0 }
+let appendM = fAlgebra(
+    string: id
 )
-cata(appendM) <| .fixJ(myValue)
+cata(appendM) <| .inJ(myValue)
