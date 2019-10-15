@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Kombucha::Cont"
-               BuildableName = "Cont.framework"
-               BlueprintName = "Cont"
+               BlueprintIdentifier = "Kombucha::JUnit"
+               BuildableName = "JUnit.framework"
+               BlueprintName = "JUnit"
                ReferencedContainer = "container:Kombucha.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Kombucha::KombuchaCLI"
-               BuildableName = "KombuchaCLI"
-               BlueprintName = "KombuchaCLI"
+               BlueprintIdentifier = "Kombucha::JSONValue"
+               BuildableName = "JSONValue.framework"
+               BlueprintName = "JSONValue"
+               ReferencedContainer = "container:Kombucha.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Kombucha::Cont"
+               BuildableName = "Cont.framework"
+               BlueprintName = "Cont"
                ReferencedContainer = "container:Kombucha.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -56,37 +70,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Kombucha::KombuchaCLI"
+               BuildableName = "KombuchaCLI"
+               BlueprintName = "KombuchaCLI"
+               ReferencedContainer = "container:Kombucha.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Kombucha::KombuchaLib"
                BuildableName = "KombuchaLib.framework"
                BlueprintName = "KombuchaLib"
-               ReferencedContainer = "container:Kombucha.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Kombucha::JUnit"
-               BuildableName = "JUnit.framework"
-               BlueprintName = "JUnit"
-               ReferencedContainer = "container:Kombucha.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Kombucha::JSONValue"
-               BuildableName = "JSONValue.framework"
-               BlueprintName = "JSONValue"
                ReferencedContainer = "container:Kombucha.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -102,9 +102,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Kombucha::KombuchaLibTests"
-               BuildableName = "KombuchaLibTests.xctest"
-               BlueprintName = "KombuchaLibTests"
+               BlueprintIdentifier = "Kombucha::JSONCheckTests"
+               BuildableName = "JSONCheckTests.xctest"
+               BlueprintName = "JSONCheckTests"
                ReferencedContainer = "container:Kombucha.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -132,9 +132,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Kombucha::JSONCheckTests"
-               BuildableName = "JSONCheckTests.xctest"
-               BlueprintName = "JSONCheckTests"
+               BlueprintIdentifier = "Kombucha::KombuchaLibTests"
+               BuildableName = "KombuchaLibTests.xctest"
+               BlueprintName = "KombuchaLibTests"
                ReferencedContainer = "container:Kombucha.xcodeproj">
             </BuildableReference>
          </TestableReference>

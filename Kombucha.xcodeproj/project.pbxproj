@@ -756,21 +756,21 @@
       "OBJ_159" = {
          isa = "PBXGroup";
          children = (
-            "Kombucha::JUnit::Product",
-            "Kombucha::KombuchaLibTests::Product",
-            "Kombucha::JSONCheck::Product",
-            "SwiftPM::POSIX::Product",
-            "Kombucha::JSONCheckTests::Product",
-            "Prelude::Prelude::Product",
-            "Kombucha::Cont::Product",
-            "Kombucha::JSONValueTests::Product",
             "Kombucha::KombuchaLib::Product",
-            "SwiftPM::Basic::Product",
-            "SwiftPM::SPMLibc::Product",
-            "Kombucha::KombuchaCLI::Product",
+            "Kombucha::Cont::Product",
             "Kombucha::JSONValue::Product",
+            "Kombucha::JSONCheckTests::Product",
+            "Kombucha::KombuchaLibTests::Product",
             "SwiftPM::SPMUtility::Product",
+            "SwiftPM::Basic::Product",
+            "SwiftPM::POSIX::Product",
+            "Kombucha::KombuchaCLI::Product",
+            "Kombucha::JSONCheck::Product",
+            "Prelude::Prelude::Product",
             "Kombucha::JUnitTests::Product",
+            "Kombucha::JSONValueTests::Product",
+            "Kombucha::JUnit::Product",
+            "SwiftPM::SPMLibc::Product",
             "SwiftPM::clibc::Product"
          );
          name = "Products";
@@ -2929,7 +2929,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 11.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Users/ptomaselli/Applications/Xcode-11.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5.1"
             );
@@ -2949,7 +2949,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 11.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Users/ptomaselli/Applications/Xcode-11.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5.1"
             );
@@ -2990,7 +2990,7 @@
       };
       "OBJ_419" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheckTests";
+         target = "Kombucha::KombuchaLibTests";
       };
       "OBJ_42" = {
          isa = "PBXGroup";
@@ -3004,15 +3004,15 @@
       };
       "OBJ_420" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValueTests";
+         target = "Kombucha::JSONCheckTests";
       };
       "OBJ_421" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::KombuchaLibTests";
+         target = "Kombucha::JUnitTests";
       };
       "OBJ_422" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JUnitTests";
+         target = "Kombucha::JSONValueTests";
       };
       "OBJ_423" = {
          isa = "XCConfigurationList";
@@ -3365,7 +3365,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 11.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Users/ptomaselli/Applications/Xcode-11.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "4.2"
             );
@@ -3390,7 +3390,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 11.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Users/ptomaselli/Applications/Xcode-11.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "4.2"
             );
@@ -3836,7 +3836,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 11.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Users/ptomaselli/Applications/Xcode-11.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "4.2"
             );
@@ -3856,7 +3856,7 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Users/ptomaselli/Applications/Xcode 11.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Users/ptomaselli/Applications/Xcode-11.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "4.2"
             );
