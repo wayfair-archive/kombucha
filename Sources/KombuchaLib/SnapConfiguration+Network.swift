@@ -11,6 +11,10 @@ import Cont
 import Foundation
 import JSONValue
 
+#if os(Linux)
+import FoundationNetworking
+#endif
+
 public extension SnapConfiguration {
     func fetch(
         decoder: JSONDecoder,

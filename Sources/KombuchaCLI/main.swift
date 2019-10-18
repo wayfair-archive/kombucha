@@ -10,6 +10,10 @@
 import Foundation
 import KombuchaLib
 
+#if os(Linux)
+import FoundationNetworking
+#endif
+
 let jsonDecoder = JSONDecoder()
 
 let args = Array(CommandLine.arguments.dropFirst())

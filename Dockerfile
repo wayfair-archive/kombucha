@@ -1,4 +1,4 @@
-FROM swift:5.0.2
+FROM swift:5.1
 
 # Create app directory
 WORKDIR /app/kombucha
