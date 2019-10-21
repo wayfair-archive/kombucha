@@ -13,9 +13,13 @@ import Prelude
 import XCTest
 
 private extension CheckResult {
-    func assert(messageAppearsAt context: JSONContext, satisfying check: ((String) -> Void)? = nil) {
+    func assert(
+        file: StaticString = #file,
+        line: UInt = #line,
+        messageAppearsAt context: JSONContext,
+        satisfying check: ((String) -> Void)? = nil) {
         guard let myRec = self[context], let myMessage = myRec.first else {
-            XCTFail("expected a message generated at the location \(context) in the JSON")
+            XCTFail("expected a message generated at the location \(context)", file: file, line: line)
             return
         }
         check?(myMessage)
