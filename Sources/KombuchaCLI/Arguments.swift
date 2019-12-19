@@ -75,7 +75,7 @@ func parseKombuchaArgs(_ args: [String], jsonDecoder: JSONDecoder) throws -> Kom
         shortName: "-t",
         kind: String.self,
         usage: "If specified, a report will be created on disk for the current test run. `junit` is currently the only support type. You need to specify the `--report-output-url` path for the report.",
-        completion: .none
+        completion: ShellCompletion.none
     )
     
     let parseReportOutputURL = argumentParser.add(
