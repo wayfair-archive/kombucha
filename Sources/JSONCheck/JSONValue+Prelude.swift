@@ -21,11 +21,11 @@ public extension JSONValue {
         stringCase: (JSONContext, String) -> T = { _, _ in .empty }) -> T {
         switch self {
         case .array(let arrayValue):
-            let firstResult = arrayCase(context, arrayValue)
+            let firstResult = arrayCase(context, arrayValue.map { $0.outJ })
             let rest: T = arrayValue.enumerated().reduce(.empty) { acc, tuple in
                 let (index, element) = tuple
                 let nextContext = context.appending(.arrayIndex(index))
-                return acc <> element.fold(
+                return acc <> element.outJ.fold(
                     context: nextContext,
                     arrayCase: arrayCase,
                     boolCase: boolCase,
@@ -43,11 +43,11 @@ public extension JSONValue {
         case .null:
             return nullCase(context)
         case .object(let objectValue):
-            let firstResult = objectCase(context, objectValue)
+            let firstResult = objectCase(context, objectValue.mapValues { $0.outJ })
             let rest: T = objectValue.reduce(.empty) { acc, tuple in
                 let (key, value) = tuple
                 let nextContext = context.appending(.objectIndex(key))
-                return acc <> value.fold(
+                return acc <> value.outJ.fold(
                     context: nextContext,
                     arrayCase: arrayCase,
                     boolCase: boolCase,

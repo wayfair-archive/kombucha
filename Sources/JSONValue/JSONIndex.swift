@@ -92,9 +92,9 @@ public extension JSONValue {
         get {
             switch (self, index) {
             case (.array(let arrayValue), .arrayIndex(let arrayIndex)):
-                return arrayIndex < arrayValue.endIndex ? arrayValue[arrayIndex] : nil
+                return arrayIndex < arrayValue.endIndex ? arrayValue[arrayIndex].outJ : nil
             case (.object(let objectValue), .objectIndex(let objectIndex)):
-                return objectValue[objectIndex]
+                return objectValue[objectIndex]?.outJ
             default:
                 return nil
             }

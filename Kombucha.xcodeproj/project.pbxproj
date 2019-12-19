@@ -756,22 +756,22 @@
       "OBJ_159" = {
          isa = "PBXGroup";
          children = (
-            "Kombucha::JUnitTests::Product",
+            "SwiftPM::Basic::Product",
+            "Prelude::Prelude::Product",
             "SwiftPM::SPMUtility::Product",
-            "SwiftPM::clibc::Product",
-            "Kombucha::JSONValue::Product",
-            "Kombucha::Cont::Product",
             "Kombucha::KombuchaLib::Product",
+            "SwiftPM::clibc::Product",
+            "Kombucha::Cont::Product",
             "Kombucha::JUnit::Product",
-            "SwiftPM::POSIX::Product",
+            "SwiftPM::SPMLibc::Product",
+            "Kombucha::JSONValueTests::Product",
             "Kombucha::KombuchaCLI::Product",
             "Kombucha::KombuchaLibTests::Product",
-            "Kombucha::JSONCheck::Product",
+            "Kombucha::JUnitTests::Product",
             "Kombucha::JSONCheckTests::Product",
-            "Prelude::Prelude::Product",
-            "Kombucha::JSONValueTests::Product",
-            "SwiftPM::Basic::Product",
-            "SwiftPM::SPMLibc::Product"
+            "Kombucha::JSONCheck::Product",
+            "SwiftPM::POSIX::Product",
+            "Kombucha::JSONValue::Product"
          );
          name = "Products";
          path = "";
@@ -2990,7 +2990,7 @@
       };
       "OBJ_419" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JUnitTests";
+         target = "Kombucha::JSONCheckTests";
       };
       "OBJ_42" = {
          isa = "PBXGroup";
@@ -3004,15 +3004,15 @@
       };
       "OBJ_420" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONValueTests";
+         target = "Kombucha::KombuchaLibTests";
       };
       "OBJ_421" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::KombuchaLibTests";
+         target = "Kombucha::JUnitTests";
       };
       "OBJ_422" = {
          isa = "PBXTargetDependency";
-         target = "Kombucha::JSONCheckTests";
+         target = "Kombucha::JSONValueTests";
       };
       "OBJ_423" = {
          isa = "XCConfigurationList";
