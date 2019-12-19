@@ -37,11 +37,11 @@ public extension JSONValue {
             }
             return firstResult <> rest
         case .bool(let boolValue):
-            return boolCase(.empty, boolValue)
+            return boolCase(context, boolValue)
         case .double(let doubleValue):
-            return doubleCase(.empty, doubleValue)
+            return doubleCase(context, doubleValue)
         case .null:
-            return nullCase(.empty)
+            return nullCase(context)
         case .object(let objectValue):
             let firstResult = objectCase(context, objectValue)
             let rest: T = objectValue.reduce(.empty) { acc, tuple in
@@ -59,7 +59,7 @@ public extension JSONValue {
             }
             return firstResult <> rest
         case .string(let stringValue):
-            return stringCase(.empty, stringValue)
+            return stringCase(context, stringValue)
         }
     }
 }

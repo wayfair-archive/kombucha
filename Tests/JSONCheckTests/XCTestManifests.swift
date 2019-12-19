@@ -15,7 +15,7 @@ extension JSONCheckTests {
         ("testCheckFlagNewKeysSucceeds", testCheckFlagNewKeysSucceeds),
         ("testCheckStringBoolFails", testCheckStringBoolFails),
         ("testCheckStringBoolSucceeds", testCheckStringBoolSucceeds),
-        ("testCheckStringNumberSucceeds", testCheckStringNumberSucceeds),
+        ("testCheckStringNumberFails", testCheckStringNumberFails),
         ("testCheckStructureAndArraysSeveralErrorsAndWarnings", testCheckStructureAndArraysSeveralErrorsAndWarnings),
         ("testCheckStructureFails", testCheckStructureFails),
         ("testCheckStructureFailsWithProperContext", testCheckStructureFailsWithProperContext),

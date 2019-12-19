@@ -56,15 +56,11 @@ extension JSONCheck: Monoid where A: Monoid {
 ///   - reference: a reference `JSONValue.object` (the snapshot)
 ///   - test: a `JSONValue.object` to be tested
 /// - Returns: an array of `CheckResult` diagnostics
-private func checkMaps(context: JSONContext, _ reference: [String: JSONValue], _ test: [String: JSONValue]) -> [CheckResult] {
+private func checkMaps(context: JSONContext, _ reference: [String: JSONValue], _ test: [String: JSONValue]) -> CheckResult {
     return reference.reduce(.empty) { acc, rec in
         let (key, referenceValue) = rec
         guard let testValue = test[key] else {
-            let check = CheckResult(
-                context: context,
-                message: "The key \(key) does not exist"
-            )
-            return acc <> [check]
+            return acc <> context.attaching(message: "The key \(key) does not exist")
         }
         let nextContext = context.appending(.objectIndex(key))
         return acc <> checkStructure(context: nextContext, referenceValue, testValue)
@@ -78,7 +74,7 @@ private func checkMaps(context: JSONContext, _ reference: [String: JSONValue], _
 ///   - reference: a reference `JSONValue` (the snapshot)
 ///   - test: a `JSONValue` to be tested
 /// - Returns: an array of `CheckResult` diagnostics
-private func checkStructure(context: JSONContext, _ reference: JSONValue, _ test: JSONValue) -> [CheckResult] {
+private func checkStructure(context: JSONContext, _ reference: JSONValue, _ test: JSONValue) -> CheckResult {
     switch (reference, test) {
     case (.array(let referenceArray), .array(let testArray)):
         guard let reference = referenceArray.first, let test = testArray.first else {
@@ -96,16 +92,11 @@ private func checkStructure(context: JSONContext, _ reference: JSONValue, _ test
     case (.string, .string):
         return .empty
     default:
-        return [
-            .init(
-                context: context,
-                message: "Types didn’t match. Reference: \(reference), test: \(test)"
-            )
-        ]
+        return context.attaching(message: "Types didn’t match. Reference: \(reference), test: \(test)")
     }
 }
 
-private func checkFlagNewKeys(context: JSONContext, _ reference: JSONValue, _ test: JSONValue) -> [CheckResult] {
+private func checkFlagNewKeys(context: JSONContext, _ reference: JSONValue, _ test: JSONValue) -> CheckResult {
     switch (reference, test) {
     case (.array(let referenceArray), .array(let testArray)):
         guard let reference = referenceArray.first, let test = testArray.first else {
@@ -117,11 +108,7 @@ private func checkFlagNewKeys(context: JSONContext, _ reference: JSONValue, _ te
         return testObject.reduce(.empty) { acc, rec in
             let (key, testValue) = rec
             guard let referenceValue = referenceObject[key] else {
-                let check = CheckResult(
-                    context: context,
-                    message: "The key \(key) exists in the value being tested, but not in the snapshot. Perhaps you need to update your snapshot?"
-                )
-                return acc <> [check]
+                return acc <> context.attaching(message: "The key \(key) exists in the value being tested, but not in the snapshot. Perhaps you need to update your snapshot?")
             }
             let nextContext = context.appending(.objectIndex(key))
             return acc <> checkFlagNewKeys(context: nextContext, referenceValue, testValue)
@@ -136,16 +123,16 @@ private func checkFlagNewKeys(context: JSONContext, _ reference: JSONValue, _ te
 /// - Parameters:
 ///   - context: a `JSONContext` describing the location in a larger JSON structure where this check is taking place
 ///   - testArray: an array of `JSONValue`s to check
-/// - Returns: an array of `CheckResult` diagnostics
-private func checkTestArrayTypes(context: JSONContext, _ testArray: [JSONValue]) -> [CheckResult] {
+/// - Returns: a `CheckResult` diagnostic
+private func checkTestArrayTypes(context: JSONContext, _ testArray: [JSONValue]) -> CheckResult {
     guard let firstValue = testArray.first else {
         return .empty
     }
     return testArray.dropFirst().enumerated().reduce(.empty) { acc, tuple in
         let (index, element) = tuple
         let nextContext = context.appending(.arrayIndex(index + 1))
-        return acc <> checkStructure(context: nextContext, firstValue, element).map {
-            CheckResult(context: $0.context, message: "Mixed types in array: \($0.message)")
+        return acc <> checkStructure(context: nextContext, firstValue, element).mapValues { messages in
+            messages.map { "Mixed types in array: \($0)" }
         }
     }
 }
@@ -157,39 +144,42 @@ private func checkTestArrayTypes(context: JSONContext, _ testArray: [JSONValue])
 ///   - reference: a reference `JSONValue` (the snapshot)
 ///   - test: a `JSONValue` to be tested
 /// - Returns: an array of `CheckResult` diagnostics
-private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue, _ test: JSONValue) -> [CheckResult] {
-    
+private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue, _ test: JSONValue) -> CheckResult {
     switch (reference, test) {
     case (.bool(let refBool), .bool(let testBool)):
         guard refBool != testBool else { return .empty }
-        return [ .init(context: context, message: "Not a strict equality between the boolean \(refBool) and \(testBool)") ]
-        
+        return context.attaching(
+            message: "Not a strict equality between the boolean \(refBool) and \(testBool)"
+        )
     case (.double(let refDouble), .double(let testDouble)):
         guard refDouble != testDouble else { return .empty }
-        return [ .init(context: context, message: "Not a strict equality between the number \(refDouble) and \(testDouble)") ]
-        
+        return context.attaching(
+            message: "Not a strict equality between the number \(refDouble) and \(testDouble)"
+        )
     case (.null, .null):
         return .empty
-        
     case (.string(let refString), .string(let testString)):
         guard refString != testString else { return .empty }
-        return [ .init(context: context, message: "Not a strict equality between the string \"\(refString)\" and \"\(testString)\"") ]
-        
+        return context.attaching(
+            message: "Not a strict equality between the string \"\(refString)\" and \"\(testString)\""
+        )
     case (.object(let referenceObject), .object(let testObject)):
         return checkForStrictEqualityOfObjects(context: context, referenceObject, testObject)
         
     case (.array(let referenceArray), .array(let testArray)):
         guard referenceArray.count == testArray.count else {
-            return  [ .init(context: context, message: "Not a strict equality since arrays of different sizes: \(referenceArray.count) vs \(testArray.count)") ]
+            return context.attaching(
+                message: "Not a strict equality since arrays of different sizes: \(referenceArray.count) vs \(testArray.count)"
+            )
         }
-        
         return zip(referenceArray, testArray).enumerated().reduce(.empty) { previousChecks, el in
             let (index, (reference, test)) = el
             return previousChecks <> checkForStrictEquality(context: context.appending(.arrayIndex(index)), reference, test)
         }
-        
     default:
-        return  [ .init(context: context, message: "Not a strict equality since the types are diffrent. Reference: \(reference), test: \(test)") ]
+        return context.attaching(
+            message: "Not a strict equality since the types are diffrent. Reference: \(reference), test: \(test)"
+        )
     }
 }
 
@@ -199,17 +189,17 @@ private func checkForStrictEquality(context: JSONContext, _ reference: JSONValue
 ///   - context: a `JSONContext` describing the location in a larger JSON structure where this check is taking place
 ///   - reference: a reference `JSONValue.object` (the snapshot)
 ///   - test: a `JSONValue.object` to be tested
-private func checkForStrictEqualityOfObjects(context: JSONContext, _ referenceObject: [String : JSONValue], _ testObject: [String : JSONValue]) -> [CheckResult] {
+private func checkForStrictEqualityOfObjects(context: JSONContext, _ referenceObject: [String : JSONValue], _ testObject: [String : JSONValue]) -> CheckResult {
     
-    let newKeyInTestObjectChecks: [CheckResult] = testObject
+    let newKeyInTestObjectChecks: CheckResult = testObject
         .keys
-        .compactMap { key in referenceObject[key] == nil ? CheckResult(context: context, message: "Not a strict equality since there is a new key \(key)") : nil }
+        .map { referenceObject[$0] == nil ? [context: ["Not a strict equality since there is a new key \($0)"]] : .empty }
+        .concat()
     
-    let missingKeysInTestObjectAndStrictEqualityAtSharedKeys: [CheckResult] = referenceObject.reduce(.empty) { acc, rec in
+    let missingKeysInTestObjectAndStrictEqualityAtSharedKeys: CheckResult = referenceObject.reduce(.empty) { acc, rec in
         let (key, referenceValue) = rec
         guard let testValue = testObject[key] else {
-            let check = CheckResult(context: context, message: "Not a strict equality since the key \(key) does not exist")
-            return acc <> [check]
+            return acc <> context.attaching(message: "Not a strict equality since the key \(key) does not exist")
         }
         let nextContext = context.appending(.objectIndex(key))
         return acc <> checkForStrictEquality(context: nextContext, referenceValue, testValue)
@@ -218,7 +208,7 @@ private func checkForStrictEqualityOfObjects(context: JSONContext, _ referenceOb
     return newKeyInTestObjectChecks <> missingKeysInTestObjectAndStrictEqualityAtSharedKeys
 }
 
-public extension JSONCheck where A == [CheckResult] {
+public extension JSONCheck where A == CheckResult {
     static let structure = JSONCheck(run: checkStructure)
 
     static let arrayConsistency = JSONCheck { context, _, test in
@@ -232,7 +222,7 @@ public extension JSONCheck where A == [CheckResult] {
     static let emptyArrays = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            arrayCase: { $1.isEmpty ? [.init(context: $0, message: "We found an empty array")] : .empty }
+            arrayCase: { $1.isEmpty ? $0.attaching(message: "We found an empty array") : .empty }
         )
     }
 
@@ -240,7 +230,7 @@ public extension JSONCheck where A == [CheckResult] {
     static let emptyObjects = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            objectCase: { $1.isEmpty ? [.init(context: $0, message: "Empty object")] : .empty }
+            objectCase: { $1.isEmpty ? $0.attaching(message: "Empty object") : .empty }
         )
     }
 
@@ -250,7 +240,7 @@ public extension JSONCheck where A == [CheckResult] {
     static let stringBools = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            stringCase: { $1.lowercased() == "true" || $1.lowercased() == "false" ? [.init(context: $0, message: "string bool: “\($0)”")] : .empty }
+            stringCase: { $1.lowercased() == "true" || $1.lowercased() == "false" ? $0.attaching(message: "string bool: “\($1)”") : .empty }
         )
     }
 
@@ -258,7 +248,7 @@ public extension JSONCheck where A == [CheckResult] {
     static let stringNumbers = JSONCheck { context, _, test in
         test.fold(
             context: context,
-            stringCase: { Double($1) != nil ? [.init(context: $0, message: "string number: “\($1)”")] : .empty }
+            stringCase: { Double($1) != nil ? $0.attaching(message: "string number: “\($1)”") : .empty }
         )
     }
     

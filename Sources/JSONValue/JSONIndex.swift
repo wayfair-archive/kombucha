@@ -38,6 +38,7 @@ extension JSONIndex: Hashable { }
 public extension Array where Element == JSONIndex {
     /// “pretty print” a `JSONContext` so it kind of looks like JavaScript indexing syntax
     var prettyPrinted: String {
+        guard !isEmpty else { return "(JSON root)" }
         return map { index in
             switch index {
             case .arrayIndex(let intValue):
@@ -57,6 +58,10 @@ public extension Array where Element == JSONIndex {
 
 /// An array of `JSONIndex` values, specifying how to traverse into a nested `JSONValue`. By convention, this array grows from the tail, so `JSONContext.removeFirst()` corresponds to the first (outermost) traversal
 public typealias JSONContext = [JSONIndex]
+
+public extension JSONContext {
+    static let root: JSONContext = []
+}
 
 extension JSONContext: Comparable {
     /// `Comparable` for `JSONContext`s (an array of `JSONIndex`es). Sort by the `first` element of the list and if there’s a tie, move one level inward. eg. `['foo'] < ['foo'][0] < ['foo'][99] < ['zzz']`

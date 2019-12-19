@@ -63,26 +63,26 @@ for snap in configuration.snaps {
     let endDate = Date()
     results.append(.init(startDate: startDate, endDate: endDate, config: snap, checkResults: checkResults))
     
-    for key in checkResults.results.keys.sorted() {
+    for key in checkResults.keys.sorted() {
         if printErrorsOnly {
-            guard !checkResults.results[key]!.errors.isEmpty else { continue }
+            guard !checkResults[key]!.errors.isEmpty else { continue }
             isError = true
 
             print(key.prettyPrinted, to: &standardOutput)
 
-            for error in checkResults.results[key]!.errors {
+            for error in checkResults[key]!.errors {
                 print("    > ERROR: \(error)", to: &standardOutput)
             }
         } else {
             print(key.prettyPrinted, to: &standardOutput)
 
-            for info in checkResults.results[key]!.infos {
+            for info in checkResults[key]!.infos {
                 print("    > INFO: \(info)", to: &standardOutput)
             }
-            for warning in checkResults.results[key]!.warnings {
+            for warning in checkResults[key]!.warnings {
                 print("    > WARNING: \(warning)", to: &standardOutput)
             }
-            for error in checkResults.results[key]!.errors {
+            for error in checkResults[key]!.errors {
                 isError = true
 
                 print("    > ERROR: \(error)", to: &standardOutput)
