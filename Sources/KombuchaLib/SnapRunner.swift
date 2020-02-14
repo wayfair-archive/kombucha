@@ -101,3 +101,17 @@ public final class SnapRunner<A: Monoid, S: TextOutputStream> {
         print("wrote a reference to: \(referenceURL)", to: &outputStreams.output)
     }
 }
+
+extension Later {
+    func runSync(_ dispatchGroup: DispatchGroup = .init()) -> Output {
+        dispatchGroup.enter()
+
+        var storage: Output? = nil
+        run { value in
+            storage = value
+            dispatchGroup.leave()
+        }
+        dispatchGroup.wait()
+        return storage!
+    }
+}

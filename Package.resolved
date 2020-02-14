@@ -5,9 +5,9 @@
         "package": "Prelude",
         "repositoryURL": "https://github.com/wayfair/prelude",
         "state": {
-          "branch": null,
-          "revision": "b9223172b9c4a90ae8973a01df8dc5484ccf4ce3",
-          "version": "0.4.0"
+          "branch": "master",
+          "revision": "f74d46aec9116600f9a8c944e72fbed523e9c8e8",
+          "version": null
         }
       },
       {
