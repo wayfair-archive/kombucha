@@ -17,8 +17,7 @@ let package = Package(
             .upToNextMinor(from: "0.4.0")
         ),
         .package(
-            url: "https://github.com/wayfair/prelude",
-            .upToNextMinor(from: "0.4.0")
+            url: "https://github.com/wayfair/prelude", .branch("master")
         )
     ],
     targets: [
@@ -30,10 +29,6 @@ let package = Package(
             name: "JUnitTests",
             dependencies: ["JUnit"]
             ),
-        .target(
-            name: "Cont",
-            dependencies: ["Prelude"]
-        ),
         .target(
             name: "JSONCheck",
             dependencies: ["JSONValue", "Prelude"]
@@ -55,7 +50,7 @@ let package = Package(
         ),
         .target(
             name: "KombuchaLib",
-            dependencies: ["Cont", "JSONCheck", "JSONValue", "JUnit","Prelude", "SPMUtility"]
+            dependencies: ["JSONCheck", "JSONValue", "JUnit","Prelude", "SPMUtility"]
         ),
         .testTarget(
             name: "KombuchaLibTests",

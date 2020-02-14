@@ -7,7 +7,7 @@
 // See LICENSE.md for license information
 //
 
-import Cont
+import Prelude
 import Foundation
 import JSONValue
 
@@ -19,11 +19,11 @@ public extension SnapConfiguration {
     func fetch(
         decoder: JSONDecoder,
         encoder: JSONEncoder,
-        session: URLSession) throws -> Cont<Result<JSONValue, Error>> {
+        session: URLSession) throws -> AnyLater<Result<JSONValue, Error>> {
         let request = try toURLRequest(encoder: encoder)
-        return session.task(request)
-            .map { Result<Data, Error>.extractResponse(data: $0.0, response: $0.1, error: $0.2) }
-            .map { $0.flatMap { data in .init { try decoder.decode(JSONValue.self, from: data) } } }
+        return Laters.DataTask(request: request, session: session)
+            .tryMapSuccess { tuple in try decoder.decode(JSONValue.self, from: tuple.0) }
+            .eraseToAnyLater()
     }
 
     func toURLRequest(encoder: JSONEncoder) throws -> URLRequest {
